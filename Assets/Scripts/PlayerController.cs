@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     private int extraJumps;
     public int extraJumpsValue;
 
+    public float friction = 1;
+
 
     void Start()
     {
@@ -32,9 +34,9 @@ public class PlayerController : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
 
         moveInput = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y); 
-
-        if(facingRight == false && moveInput > 0)
+        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y); //- friction*Time.deltaTime); 
+        //rb.AddRelativeForce(new Vector2(moveInput * speed, 0));
+        if (facingRight == false && moveInput > 0)
         {
             Flip();
         } else if(facingRight == true && moveInput < 0)
@@ -68,5 +70,10 @@ public class PlayerController : MonoBehaviour
         Vector3 scaler = transform.localScale;
         scaler.x *= -1;
         transform.localScale = scaler;
+    }
+
+    public void RemoveExtraJump()
+    {
+        extraJumps = extraJumpsValue-1;
     }
 }
