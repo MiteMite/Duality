@@ -102,18 +102,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveForce: 500
-  acceleration: 10
-  deceleration: 10
-  maxSpeed: 500
+  maxSpeed: 5
   jumpForce: 10
-  accelerationMax: 0
-  accelerationMin: 0
   groundCheck: {fileID: 8540242725376229696}
   checkRadius: 0.5
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
-  extraJumpsValue: 1
   friction: 1
 --- !u!50 &8540242724781091113
 Rigidbody2D:
@@ -130,7 +125,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.75
   m_Material: {fileID: 6200000, guid: 378c8150bd6e6a04ca5712ebf601e75e, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1

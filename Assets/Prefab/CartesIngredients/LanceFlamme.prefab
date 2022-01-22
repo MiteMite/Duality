@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3520438813095484396}
   - component: {fileID: 3520438813095484395}
   - component: {fileID: 3520438813095484394}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Flamme
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 3520438813396058977}
   - component: {fileID: 3520438813396058976}
   - component: {fileID: 3520438813396058991}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LanceFlamme
   m_TagString: Untagged
   m_Icon: {fileID: 0}

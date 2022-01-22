@@ -180,8 +180,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   day: 0
-  speed: 0.5
+  speed: 15
   square: {fileID: 7037474395826377456}
+  target: {x: 0, y: 0, z: 0}
+  card: {fileID: 0}
 --- !u!61 &1397453022
 BoxCollider2D:
   m_ObjectHideFlags: 0
