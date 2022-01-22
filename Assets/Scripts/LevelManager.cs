@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour
     public Transform respawnPoint;
 
     public GameObject playerPrefab;
+    public GameObject currentPlayer;
 
     private void Awake()
     {
@@ -17,6 +18,6 @@ public class LevelManager : MonoBehaviour
 
     public void Respawn()
     {
-        Instantiate(playerPrefab, respawnPoint.position, Quaternion.identity);
+        currentPlayer = Instantiate(playerPrefab, respawnPoint.position, Quaternion.identity);
     }
 }
