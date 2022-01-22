@@ -5,11 +5,15 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    public float speed;
-    public float jumpForce;
-    private float moveInput;
+    public float moveForce;
+    public float maxSpeed;
 
-    private Rigidbody2D rb;
+    private Rigidbody2D m_RigidBody;
+
+    private float m_CurrentSpeed;
+
+    public float jumpForce;
+    private float m_MoveInput;
 
     private bool facingRight = true;
 
@@ -18,28 +22,35 @@ public class PlayerController : MonoBehaviour
     public float checkRadius;
     public LayerMask whatIsGround;
 
-    private int extraJumps;
-    public int extraJumpsValue;
-
     public float friction = 1;
 
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        m_RigidBody = GetComponent<Rigidbody2D>();
     }
 
     void FixedUpdate()
     {
+
+        Vector2 m_MoveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
+
+        m_CurrentSpeed = m_MoveDirection.x * moveForce * Time.deltaTime;
+        Debug.Log("Current speed : " + m_CurrentSpeed);
+
+        m_RigidBody.AddForce(m_MoveDirection * moveForce * Time.deltaTime);
+
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
 
-        moveInput = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y); //- friction*Time.deltaTime); 
+        m_MoveInput = Input.GetAxis("Horizontal");
+        //rb.velocity = new Vector2(moveInput * speed, rb.velocity.y); //- friction*Time.deltaTime); 
         //rb.AddRelativeForce(new Vector2(moveInput * speed, 0));
-        if (facingRight == false && moveInput > 0)
+
+
+        if (facingRight == false && m_MoveInput > 0)
         {
             Flip();
-        } else if(facingRight == true && moveInput < 0)
+        } else if(facingRight == true && m_MoveInput < 0)
         {
             Flip();
         }
@@ -47,21 +58,14 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (isGrounded == true)
+
+
+        if ((Input.GetKey("w") || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space)) && isGrounded)
         {
-            extraJumps = extraJumpsValue;
+            m_RigidBody.velocity = Vector2.up * jumpForce;
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) && extraJumps > 0)
-        {
-            rb.velocity = Vector2.up * jumpForce;
-            extraJumps--;
-        }
-        else if (Input.GetKeyDown(KeyCode.UpArrow) && extraJumps == 0 && isGrounded == true)
-        {
-            rb.velocity = Vector2.up * jumpForce;
-        }
-
+        
     }
 
     void Flip()
@@ -72,8 +76,4 @@ public class PlayerController : MonoBehaviour
         transform.localScale = scaler;
     }
 
-    public void RemoveExtraJump()
-    {
-        extraJumps = extraJumpsValue-1;
-    }
 }

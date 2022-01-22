@@ -101,8 +101,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d26b5df04f76d3447ade966917c01cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  moveForce: 500
+  acceleration: 10
+  deceleration: 10
+  maxSpeed: 500
   jumpForce: 10
+  accelerationMax: 0
+  accelerationMin: 0
   groundCheck: {fileID: 8540242725376229696}
   checkRadius: 0.5
   whatIsGround:
