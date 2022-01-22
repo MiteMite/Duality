@@ -44,8 +44,7 @@ public class Deck : MonoBehaviour
     {
         for (int i = 0; i < cards.Count; i++)
         {
-            cards[i].GetComponent<SpriteRenderer>().sortingOrder = i * 2;
-            cards[i].square.GetComponent<SpriteRenderer>().sortingOrder = i * 2 + 1;
+            cards[i].GetComponent<SpriteRenderer>().sortingOrder = i;
             Vector3 target = GetPosition(i);
             if(cards[i].target != target)
                 cards[i].MoveTo(target);

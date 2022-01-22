@@ -22,7 +22,6 @@ public class DragManager : MonoBehaviour
                 {
                     currentCard = card;
                     currentCard.GetComponent<SpriteRenderer>().sortingOrder = 100;
-                    currentCard.square.GetComponent<SpriteRenderer>().sortingOrder = 101;
                     offset = card.transform.position - mousepos;
                     deck.RemoveCard(card);
 
