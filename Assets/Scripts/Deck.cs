@@ -7,7 +7,7 @@ public class Deck : MonoBehaviour
     public List<Card> cards;
     public DragManager dragManager;
     public float width = 16;
-    public int currentCardPos = -1;
+    public int currentCardPos = 0;
 
     public void Start()
     {
@@ -23,9 +23,9 @@ public class Deck : MonoBehaviour
     {
         if (!cards.Contains(card))
         {
-            if(currentCardPos != -1)
+            if(cards.Count > 0)
             {
-                cards.Insert(currentCardPos + 1, card);
+                cards.Insert(currentCardPos, card);
             }
             else
             {
@@ -56,6 +56,7 @@ public class Deck : MonoBehaviour
     {
         width = cards.Count;
         int numCards = cards.Count-1;
+        if (numCards == 0) numCards = 1;
         Vector3 target = transform.position;
         float targetx = transform.position.x - (width / 2) + (width / numCards) * i;
         if(dragManager.currentCard != null && Mathf.Abs(dragManager.currentCard.transform.position.y-transform.position.y) <3)
@@ -70,13 +71,13 @@ public class Deck : MonoBehaviour
             }
             else
             {
-                currentCardPos = i;
+                currentCardPos = i+1;
             }
         }
         else
         {
             targetx = transform.position.x - (width / 2) + (width / numCards) * i;
-            currentCardPos = cards.Count-1;
+            currentCardPos = cards.Count;
         }
         target.x = targetx;
 
