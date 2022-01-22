@@ -25,9 +25,9 @@ public class Card : MonoBehaviour
     private IEnumerator Move(Vector3 position)
     {
         moving = true;
-        while (Vector3.Distance(transform.position, position) > speed)
+        while (Vector3.Distance(transform.position, position) > speed * Time.deltaTime)
         {
-            transform.position = Vector3.MoveTowards(transform.position, position, speed);
+            transform.position = Vector3.MoveTowards(transform.position, position, speed * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
         transform.position = position;
