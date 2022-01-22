@@ -11,6 +11,8 @@ public class Card : MonoBehaviour
     private IEnumerator moveCoroutine;
     private bool moving;
 
+    public CardObject card;
+
     public void MoveTo(Vector3 position)
     {
         target = position;
