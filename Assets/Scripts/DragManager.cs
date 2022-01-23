@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DragManager : MonoBehaviour
 {
-    public bool dragging = false;
-    public Vector3 offset;
+    private Vector3 offset;
+    [HideInInspector]
     public Card currentCard = null;
     public Deck deck;
 
@@ -45,15 +45,18 @@ public class DragManager : MonoBehaviour
             {
                 if (hit.collider.GetComponent<Deck>())
                 {
+                    currentCard.draggable = null;
                     deck.AddCard(currentCard);
                 }
                 else
                 {
                     currentCard.MoveTo(hit.collider.transform.position);
+                    currentCard.draggable = hit.collider.gameObject;
                 }
             }
             else
             {
+                currentCard.draggable = null;
                 deck.AddCard(currentCard);
             }
             currentCard = null;

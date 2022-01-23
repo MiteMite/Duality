@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
-    public bool day;
+    //public bool day;
+    public CardObject card;
     public float speed;
+    [HideInInspector]
     public float flipSpeed;
+    [HideInInspector]
     public int flipCount = 1;
+    [HideInInspector]
     public Vector3 target;
     private IEnumerator moveCoroutine;
     private bool moving;
 
-    public CardObject card;
+    [HideInInspector]
+    public GameObject draggable;
+
 
     public void MoveTo(Vector3 position)
     {
@@ -37,11 +43,11 @@ public class Card : MonoBehaviour
 
     public void Update()
     {
-        //this should be and even registering instead
-        if (Input.GetKeyDown(KeyCode.Space))
+        //this should be an event registering instead
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            //Spawn();
-            StartCoroutine(Flip());
+            Spawn();
+            //StartCoroutine(Flip());
         }
 
     }
@@ -50,10 +56,14 @@ public class Card : MonoBehaviour
     {
         if (card == null) return;
         GameObject toSpawn = card.prefab;
-        if (toSpawn)
+        if (toSpawn && draggable != null)
         {
-            Instantiate(toSpawn, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            GameObject go = Instantiate(toSpawn, transform.position, Quaternion.identity);
+            IngredientCard ic = go.AddComponent<IngredientCard>();
+            ic.card = gameObject;
+            ic.draggable = draggable;
+            gameObject.SetActive(false);
+            draggable.SetActive(false);
         }
     }
 
