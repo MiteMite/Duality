@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Lama
   m_EditorClassIdentifier: 
   type: 0
-  cardName: 
+  cardName: Lama
   pointCost: 0
   description: 
   artwork: {fileID: 0}
-  prefab: {fileID: 0}
+  prefab: {fileID: 6202410485861349959, guid: 8aabebad695ef5c4da0f254a808b6344, type: 3}

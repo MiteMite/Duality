@@ -154,8 +154,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cards: []
   dragManager: {fileID: 748589569}
-  width: 16
-  currentCardPos: 0
 --- !u!4 &212291170
 Transform:
   m_ObjectHideFlags: 0
@@ -199,8 +197,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f87eeaa7d1c9654ba885dc4d0c69460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dragging: 0
-  offset: {x: 0, y: 0, z: 0}
   currentCard: {fileID: 0}
   deck: {fileID: 212291169}
 --- !u!4 &748589570
@@ -310,7 +306,7 @@ PrefabInstance:
     - target: {fileID: 4227474490568120856, guid: ac94095f3f1b2fa428a2fb4901cf82a1, type: 3}
       propertyPath: card
       value: 
-      objectReference: {fileID: 11400000, guid: 6611893a1e732f34e8ef6bcf9470c43d, type: 2}
+      objectReference: {fileID: 11400000, guid: 0498429ad67582e47ba8baf23968e7cf, type: 2}
     - target: {fileID: 6455468079075567643, guid: ac94095f3f1b2fa428a2fb4901cf82a1, type: 3}
       propertyPath: m_RootOrder
       value: 2

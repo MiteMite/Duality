@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Pont
   m_EditorClassIdentifier: 
   type: 1
-  cardName: 
+  cardName: Pont
   pointCost: 0
   description: 
   artwork: {fileID: 0}
-  prefab: {fileID: 0}
+  prefab: {fileID: 8220477767649235418, guid: 648092974bd3f974aa501777f9591ee9, type: 3}

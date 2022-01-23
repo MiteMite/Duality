@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: MovingPlatform
   m_EditorClassIdentifier: 
   type: 1
-  cardName: 
+  cardName: MovingPlatform
   pointCost: 0
   description: 
   artwork: {fileID: 0}
-  prefab: {fileID: 0}
+  prefab: {fileID: 4212755524609380741, guid: 5596651abba0b414eb74786a24f15d2d, type: 3}

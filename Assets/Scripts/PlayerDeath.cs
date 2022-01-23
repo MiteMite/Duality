@@ -9,7 +9,7 @@ public class PlayerDeath : MonoBehaviour
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             Destroy(gameObject);
-            LevelManager.instance.Respawn();
+            LevelManager.instance.OnPlayerDeath();
         }
     }
 

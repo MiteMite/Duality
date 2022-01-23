@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: FrozenPlatform
   m_EditorClassIdentifier: 
   type: 1
-  cardName: 
+  cardName: Frozen platform
   pointCost: 0
   description: 
   artwork: {fileID: 0}
-  prefab: {fileID: 0}
+  prefab: {fileID: 6637801810544403825, guid: 1675786e4fdbf6b4180dbfd2e1a7279c, type: 3}

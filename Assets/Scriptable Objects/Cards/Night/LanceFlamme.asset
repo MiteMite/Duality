@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: LanceFlamme
   m_EditorClassIdentifier: 
   type: 0
-  cardName: 
+  cardName: LanceFlamme
   pointCost: 0
   description: 
   artwork: {fileID: 0}
-  prefab: {fileID: 0}
+  prefab: {fileID: 3520438813396058990, guid: ad206f552363a4f4a9e5fd3908d92414, type: 3}

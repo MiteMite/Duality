@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Grenouille
   m_EditorClassIdentifier: 
   type: 0
-  cardName: 
+  cardName: Grenouille
   pointCost: 0
   description: 
   artwork: {fileID: 0}
-  prefab: {fileID: 0}
+  prefab: {fileID: 6106847159731815224, guid: 26521e847fd38944396d6ebcef27851c, type: 3}

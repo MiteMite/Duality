@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: WreckingBall
   m_EditorClassIdentifier: 
   type: 0
-  cardName: 
+  cardName: WreckingBall
   pointCost: 0
   description: 
   artwork: {fileID: 0}
-  prefab: {fileID: 0}
+  prefab: {fileID: 8106826331534190794, guid: 368745137a7f40744999e85bfad23e87, type: 3}

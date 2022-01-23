@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Trampoline
   m_EditorClassIdentifier: 
   type: 1
-  cardName: 
+  cardName: Trampoline
   pointCost: 0
   description: 
   artwork: {fileID: 0}
-  prefab: {fileID: 0}
+  prefab: {fileID: 5300637691155846054, guid: 33d0cfd6ffe6b30438762bd04778ad26, type: 3}

@@ -16,8 +16,14 @@ public class LevelManager : MonoBehaviour
         instance = this;
     } 
 
+    public void OnPlayerDeath()
+    {
+        Invoke("Respawn", 1);
+    }
+
     public void Respawn()
     {
-        currentPlayer = Instantiate(playerPrefab, respawnPoint.position, Quaternion.identity);
+        if(currentPlayer == null)
+            currentPlayer = Instantiate(playerPrefab, respawnPoint.position, Quaternion.identity);
     }
 }

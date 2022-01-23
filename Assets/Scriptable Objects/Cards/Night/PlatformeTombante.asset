@@ -17,4 +17,4 @@ MonoBehaviour:
   pointCost: 0
   description: 
   artwork: {fileID: 0}
-  prefab: {fileID: 0}
+  prefab: {fileID: 8696387128367684511, guid: 19f14a5dd5d9aa34db9b6fcd634836ff, type: 3}
