@@ -25,7 +25,6 @@ public class PlayerPhaseDisabler : MonoBehaviour, IPhaseListener
     public void OnPhaseChangeEvent(BaseLevelStat levelStat)
     {
 
-
         if (m_BoxCollider2D != null && m_PlayerController != null)
         {
 
@@ -33,6 +32,7 @@ public class PlayerPhaseDisabler : MonoBehaviour, IPhaseListener
             if ((levelStat == LevelStateManager.Instance.placementState)
                 )
             {
+                Debug.Log("Player received state " + levelStat);
                 m_PlayerController.enabled = false;
                 //m_BoxCollider2D.enabled = false;
 

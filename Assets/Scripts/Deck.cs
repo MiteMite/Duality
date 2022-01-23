@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Deck : MonoBehaviour
 {
-    [HideInInspector]
+    //[HideInInspector]
     public List<Card> cards;
     private DragManager dragManager;
     private float width = 16;

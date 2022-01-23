@@ -103,12 +103,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveForce: 500
   maxSpeed: 5
-  jumpForce: 10
+  jumpForce: 16
+  wallJumpForce: 0
+  parachuteSpeed: 0
+  waterfallSpeed: 0
   groundCheck: {fileID: 8540242725376229696}
   checkRadius: 0.5
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
+  landingMomentumDivider: 2.5
   friction: 1
 --- !u!50 &8540242724781091113
 Rigidbody2D:
