@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 5909632806477820936}
   - component: {fileID: 5909632806477820935}
   - component: {fileID: 5909632806477820934}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Scie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,4 +224,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball: {fileID: 5909632806361149858}
   distance: 5
-  speed: 5
+  speed: 3.5

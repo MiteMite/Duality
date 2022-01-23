@@ -26,6 +26,7 @@ public class LevelStateManager : MonoBehaviour
             {
                 GameObject gameObjectInstance = new GameObject("Level State Manager");
                 gameObjectInstance.AddComponent<LevelStateManager>();
+                DontDestroyOnLoad(gameObjectInstance);
                 m_Instance = gameObjectInstance.GetComponent<LevelStateManager>();
             }
 
@@ -54,6 +55,11 @@ public class LevelStateManager : MonoBehaviour
     void Update()
     {
         m_currenState.UpdateState(this);
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Debug.Log("aaaaaaaaaaaaaaa");
+            SwitchState(playingState);
+        }
     }
 
     public void SwitchState(BaseLevelStat state)
