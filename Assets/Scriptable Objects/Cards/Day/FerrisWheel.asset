@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: FerrisWheel
   m_EditorClassIdentifier: 
   type: 1
-  cardName: 
+  cardName: Ferris Wheel
   pointCost: 0
   description: 
   artwork: {fileID: 0}
-  prefab: {fileID: 0}
+  prefab: {fileID: 3907992443708520631, guid: 0163e0f00673d5649b5109c3297b050d, type: 3}

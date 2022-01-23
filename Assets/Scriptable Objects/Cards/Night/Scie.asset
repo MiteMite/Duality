@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Scie
   m_EditorClassIdentifier: 
   type: 0
-  cardName: 
+  cardName: Scie
   pointCost: 0
   description: 
   artwork: {fileID: 0}
-  prefab: {fileID: 0}
+  prefab: {fileID: 5909632806477820933, guid: a81cb645dcc351d44b65402d672042f3, type: 3}

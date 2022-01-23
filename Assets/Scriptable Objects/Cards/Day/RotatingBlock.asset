@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: RotatingBlock
   m_EditorClassIdentifier: 
   type: 1
-  cardName: 
+  cardName: Rotating block
   pointCost: 0
   description: 
   artwork: {fileID: 0}
-  prefab: {fileID: 0}
+  prefab: {fileID: 5309901390192921720, guid: 869117fd1d26bd34d856570687c08506, type: 3}

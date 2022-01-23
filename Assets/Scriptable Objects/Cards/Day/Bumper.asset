@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Bumper
   m_EditorClassIdentifier: 
   type: 1
-  cardName: 
+  cardName: Bumper
   pointCost: 0
   description: 
   artwork: {fileID: 0}
-  prefab: {fileID: 0}
+  prefab: {fileID: 7243116818358003274, guid: 92964c690ee51254ba14180a21d4fa60, type: 3}

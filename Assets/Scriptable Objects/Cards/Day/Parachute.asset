@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Parachute
   m_EditorClassIdentifier: 
   type: 1
-  cardName: 
+  cardName: Parachute
   pointCost: 0
   description: 
   artwork: {fileID: 0}
-  prefab: {fileID: 0}
+  prefab: {fileID: 1344079820157306721, guid: 6782f4795ce77ed439ccf46b09a851eb, type: 3}
