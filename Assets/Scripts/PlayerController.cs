@@ -39,13 +39,20 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-
+        
         Vector2 m_MoveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
 
         m_CurrentSpeed = m_MoveDirection.x * moveForce * Time.deltaTime;
         //Debug.Log("Current speed : " + m_CurrentSpeed);
 
-        m_RigidBody.AddForce(m_MoveDirection * moveForce * Time.deltaTime);
+        if(Mathf.Abs(m_RigidBody.velocity.x)<= maxSpeed)
+        {
+            m_RigidBody.AddForce(m_MoveDirection * moveForce * Time.deltaTime);
+        }
+
+        
+
+        
 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
 

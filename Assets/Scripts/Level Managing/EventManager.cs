@@ -3,18 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public enum UnityEvent
-{
-    placementPhaseEvent, 
-    playingPhaseEvent,
-    RewardPhaseEvent
-}
+
 public class EventManager : MonoBehaviour
 {
     public List<IPhaseListener> registeredPhaseListeners = new List<IPhaseListener>();
     
     static EventManager m_Instance;
     static bool m_AppIsQuitting;
+
+    private LevelStateManager m_StateManagerInstance;
     public static EventManager Instance { get
         {
             if (m_AppIsQuitting)
@@ -34,6 +31,10 @@ public class EventManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        m_StateManagerInstance = LevelStateManager.Instance;
+    }
     public void OnDestoy()
     {
         Destroy(this.gameObject);
@@ -57,7 +58,6 @@ public class EventManager : MonoBehaviour
 
     public void SendPhaseChangeEvent(BaseLevelStat levelStat)
     {
-        Debug.Log("I have fired an event to inform we are at stat " + levelStat);
         foreach(IPhaseListener phaseListener in registeredPhaseListeners)
         {
             phaseListener.OnPhaseChangeEvent(levelStat);
