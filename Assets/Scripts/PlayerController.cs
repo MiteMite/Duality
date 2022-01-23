@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,9 +11,10 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D m_RigidBody;
 
-    private float m_CurrentSpeed;
+    private Vector2 m_CurrentSpeed;
 
     private float m_PreJumpVelocity;
+    private Vector2 m_PreJumbVector;
 
     public float jumpForce;
     public float wallJumpForce;
@@ -22,10 +24,17 @@ public class PlayerController : MonoBehaviour
 
     private bool facingRight = true;
 
-    private bool isGrounded;
+    private bool m_IsGrounded;
     public Transform groundCheck;
     public float checkRadius;
     public LayerMask whatIsGround;
+
+    public float landingMomentumDivider;
+    private float m_Timer;
+    private bool m_JumpState = false;
+    private bool m_IsLanding = false;
+
+    private bool m_IsBouncing = false;
 
     public float friction = 1;
 
@@ -44,25 +53,17 @@ public class PlayerController : MonoBehaviour
         
         Vector2 m_MoveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
 
-        m_CurrentSpeed = m_MoveDirection.x * moveForce * Time.deltaTime;
+        m_CurrentSpeed.x = m_MoveDirection.x * moveForce * Time.deltaTime;
         //Debug.Log("Current speed : " + m_CurrentSpeed);
 
         if(Mathf.Abs(m_RigidBody.velocity.x)<= maxSpeed)
         {
-            m_RigidBody.AddForce(m_MoveDirection * moveForce * Time.deltaTime);
+            m_RigidBody.AddForce(m_CurrentSpeed);
         }
 
+        m_IsGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
 
-
-        if (isGrounded && (m_PreJumpVelocity != 0))
-        {
-            Vector3 v = m_RigidBody.velocity;
-            v.x = m_PreJumpVelocity;
-            m_RigidBody.velocity = v;
-            m_PreJumpVelocity = 0;
-        }
-
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+        JumpRisingEdgeDetection(m_CurrentSpeed);
 
         m_MoveInput = Input.GetAxis("Horizontal");
         //rb.velocity = new Vector2(moveInput * speed, rb.velocity.y); //- friction*Time.deltaTime); 
@@ -78,7 +79,7 @@ public class PlayerController : MonoBehaviour
 
         if (parachuting)
         {
-            if (isGrounded)
+            if (m_IsGrounded)
                 parachuting = false;
             else if (m_RigidBody.velocity.y < -Mathf.Abs(parachuteSpeed))
                 m_RigidBody.velocity = new Vector3(m_RigidBody.velocity.x, -Mathf.Abs(parachuteSpeed));
@@ -95,12 +96,40 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void JumpRisingEdgeDetection(Vector2 currentSpeed)
+    {
+        if(!m_IsGrounded && !m_JumpState)
+        {
+            m_JumpState = true;
+            m_PreJumbVector = currentSpeed;
+        }
+
+        else if(m_IsGrounded && m_JumpState)
+        {
+            m_JumpState = false;
+            m_IsLanding = true;
+        }
+
+        else if(m_IsGrounded && m_IsLanding && !m_IsBouncing)
+        {
+            m_PreJumbVector.x = m_PreJumbVector.x / landingMomentumDivider;
+            m_RigidBody.velocity = m_PreJumbVector;
+            m_IsLanding = false;
+        }
+
+        if(m_IsGrounded && m_IsLanding && m_IsBouncing)
+        {
+            m_IsLanding = false;
+            m_IsBouncing = false;
+            Debug.Log("Ok done bouncing");
+        }
+    }
+
     void Update()
     {
 
-        if ((Input.GetKeyDown(KeyCode.Space)) && (isGrounded || walljumping))
+        if ((Input.GetKeyDown(KeyCode.Space)) && (m_IsGrounded || walljumping))
         {
-            m_PreJumpVelocity = m_RigidBody.velocity.x;
 
             m_RigidBody.velocity = Vector2.up * jumpForce;
             if (walljumping)
@@ -119,6 +148,15 @@ public class PlayerController : MonoBehaviour
         Vector3 scaler = transform.localScale;
         scaler.x *= -1;
         transform.localScale = scaler;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Bumper"))
+        {
+            m_IsBouncing = true;
+            Debug.Log("I am bouncing");
+        }
     }
 
     public void StartWalljump()
