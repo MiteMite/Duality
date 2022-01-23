@@ -7,8 +7,13 @@ public class DragManager : MonoBehaviour
     private Vector3 offset;
     [HideInInspector]
     public Card currentCard = null;
-    public Deck deck;
+    private Deck deck;
 
+    public void Start()
+    {
+        if(!deck)
+            deck = GetComponent<Deck>();
+    }
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))//on pickup
@@ -24,7 +29,6 @@ public class DragManager : MonoBehaviour
                     currentCard.GetComponent<SpriteRenderer>().sortingOrder = 100;
                     offset = card.transform.position - mousepos;
                     deck.RemoveCard(card);
-
                 }
             }
 
