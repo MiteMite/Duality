@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Card : MonoBehaviour
+public class Card : MonoBehaviour, IPhaseListener
 {
     //public bool day;
     public CardObject card;
@@ -19,6 +19,19 @@ public class Card : MonoBehaviour
     [HideInInspector]
     public GameObject draggable;
 
+    void Start()
+    {
+        EventManager.Instance.RegisterPhaseListener(this);
+    }
+
+    void OnDestroy()
+    {
+        if (EventManager.Instance != null)
+        {
+            EventManager.Instance.UnregisterPhaseListener(this);
+        }
+        
+    }
 
     public void MoveTo(Vector3 position)
     {
@@ -43,13 +56,14 @@ public class Card : MonoBehaviour
 
     public void Update()
     {
+        /*
         //this should be an event registering instead
         if (Input.GetKeyDown(KeyCode.F))
         {
             Spawn();
             //StartCoroutine(Flip());
         }
-
+        */
     }
 
     private void Spawn()
@@ -89,4 +103,14 @@ public class Card : MonoBehaviour
         transform.localScale = new Vector2(1, 1);
     }
 
+    public void OnPhaseChangeEvent(BaseLevelStat levelStat)
+    {
+        Debug.Log("Card has received the event");
+
+        if(levelStat == LevelStateManager.Instance.playingState)
+        {
+            Debug.Log("Card attempting to spawn");
+            Spawn();
+        }
+    }
 }
