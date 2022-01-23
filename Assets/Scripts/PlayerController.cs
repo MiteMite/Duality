@@ -34,6 +34,8 @@ public class PlayerController : MonoBehaviour
     private bool m_JumpState = false;
     private bool m_IsLanding = false;
 
+    public float jumpHorizontalSpeed;
+
     private bool m_IsBouncing = false;
 
     public float friction = 1;
@@ -58,7 +60,15 @@ public class PlayerController : MonoBehaviour
 
         if(Mathf.Abs(m_RigidBody.velocity.x)<= maxSpeed)
         {
-            m_RigidBody.AddForce(m_CurrentSpeed);
+            if (m_JumpState)
+            {
+                m_RigidBody.AddForce(jumpHorizontalSpeed * m_CurrentSpeed);
+            }
+            else
+            {
+                m_RigidBody.AddForce(m_CurrentSpeed);
+            }
+            
         }
 
         m_IsGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
