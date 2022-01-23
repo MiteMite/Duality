@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
 
     private float m_CurrentSpeed;
 
+    private float m_PreJumpVelocity;
+
     public float jumpForce;
     public float wallJumpForce;
     public float parachuteSpeed;
@@ -50,9 +52,15 @@ public class PlayerController : MonoBehaviour
             m_RigidBody.AddForce(m_MoveDirection * moveForce * Time.deltaTime);
         }
 
-        
 
-        
+
+        if (isGrounded && (m_PreJumpVelocity != 0))
+        {
+            Vector3 v = m_RigidBody.velocity;
+            v.x = m_PreJumpVelocity;
+            m_RigidBody.velocity = v;
+            m_PreJumpVelocity = 0;
+        }
 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
 
@@ -89,8 +97,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if ((Input.GetKey("w") || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space)) && (isGrounded || walljumping))
+
+        if ((Input.GetKeyDown(KeyCode.Space)) && (isGrounded || walljumping))
         {
+            m_PreJumpVelocity = m_RigidBody.velocity.x;
+
             m_RigidBody.velocity = Vector2.up * jumpForce;
             if (walljumping)
             {
