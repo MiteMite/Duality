@@ -9,23 +9,5 @@ public class InventoryManager : MonoBehaviour
     public Inventory vendorInventory;
     public Deck deck;
 
-    private void Update()
-    {
-        if (Input.GetMouseButtonUp(0))
-        {
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 0, LayerMask.GetMask("Draggable"));
-            if (hit.collider != null)
-            {
-                Card card = hit.collider.GetComponent<Card>();
-                if (card != null && vendorInventory.CardInInventory(card.card) && !deck.cards.Contains(card))
-                {
-                    Debug.Log("This is " + card.name + " !");
-                    playerInventory.AddCard(card.card);
-                    vendorInventory.RemoveCard(card.card);
-                    deck.AddCard(card);
-                }
-            }
-        }
-    }
 }
 

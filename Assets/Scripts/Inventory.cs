@@ -11,13 +11,28 @@ public class FullCard
 }
 public class Inventory : MonoBehaviour
 {
-    public static Inventory playerInventory
+    private static Inventory _instance;
 
     public FullCard[] startingCards;
     public Card cardPrefab;
 
     private List<FullCard> cardList = new List<FullCard>();
     private int m_CurrencyQte;
+
+    public static Inventory Instance { get => _instance; set => _instance = value; }
+
+    public void Awake()
+    {
+        if(_instance == null)
+        {
+            _instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
+
 
     public void Start()
     {
@@ -29,6 +44,7 @@ public class Inventory : MonoBehaviour
             newCard.card = startingCards[i];
             GetComponent<Deck>().AddCard(newCard);
         }
+
     }
 
     public void AddCard(FullCard card)

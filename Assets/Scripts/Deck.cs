@@ -4,11 +4,26 @@ using UnityEngine;
 
 public class Deck : MonoBehaviour
 {
+    private static Deck _instance;
     //[HideInInspector]
     public List<Card> cards;
     private DragManager dragManager;
     private float width = 16;
     private int currentCardPos = 0;
+
+    public static Deck Instance { get => _instance; set => _instance = value; }
+
+    public void Awake()
+    {
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
 
     public void Start()
     {

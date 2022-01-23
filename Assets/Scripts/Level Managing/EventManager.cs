@@ -23,6 +23,7 @@ public class EventManager : MonoBehaviour
             {
                 GameObject gameObjectInstance = new GameObject("Event Manager");
                 gameObjectInstance.AddComponent<EventManager>();
+                DontDestroyOnLoad(gameObjectInstance);
                 m_Instance = gameObjectInstance.GetComponent<EventManager>();
             }
 

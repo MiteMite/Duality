@@ -30,7 +30,7 @@ public class Card : MonoBehaviour, IPhaseListener
         {
             EventManager.Instance.UnregisterPhaseListener(this);
         }
-        
+
     }
 
     public void MoveTo(Vector3 position)
@@ -69,19 +69,19 @@ public class Card : MonoBehaviour, IPhaseListener
     private void Spawn()
     {
         if (card == null) return;
-        GameObject toSpawn = card.isNight?card.nightSide.prefab:card.daySide.prefab;
+        GameObject toSpawn = card.isNight ? card.nightSide.prefab : card.daySide.prefab;
         if (toSpawn && draggable != null)
         {
             GameObject go = Instantiate(toSpawn, transform.position, Quaternion.identity);
             IngredientCard ic = go.AddComponent<IngredientCard>();
-            ic.card = gameObject;
+            ic.card = this;
             ic.draggable = draggable;
             gameObject.SetActive(false);
             draggable.SetActive(false);
         }
     }
 
-    private IEnumerator Flip()
+    /*private IEnumerator Flip()
     {
         //transform.rotation = Quaternion.Euler(new Vector3(0, 0, 3));
         for (int i = 0; i < flipCount; i++)
@@ -101,6 +101,11 @@ public class Card : MonoBehaviour, IPhaseListener
                 yield return new WaitForEndOfFrame();
             }
         }
+    }*/
+
+    public void Flip()
+    {
+        card.isNight = !card.isNight;
     }
 
     public void OnPhaseChangeEvent(BaseLevelStat levelStat)
