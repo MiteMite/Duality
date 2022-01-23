@@ -175,6 +175,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8540242724781091113, guid: 978a33230bc56ab4b86946acd943d564, type: 3}
+      propertyPath: m_GravityScale
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8540242724781091115, guid: 978a33230bc56ab4b86946acd943d564, type: 3}
       propertyPath: m_Name
       value: TestPlayer
@@ -232,8 +236,20 @@ PrefabInstance:
       value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 8540242724781091286, guid: 978a33230bc56ab4b86946acd943d564, type: 3}
+      propertyPath: moveForce
+      value: 700
+      objectReference: {fileID: 0}
+    - target: {fileID: 8540242724781091286, guid: 978a33230bc56ab4b86946acd943d564, type: 3}
       propertyPath: momentumDuration
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8540242724781091286, guid: 978a33230bc56ab4b86946acd943d564, type: 3}
+      propertyPath: jumpHorizontalSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8540242724781091286, guid: 978a33230bc56ab4b86946acd943d564, type: 3}
+      propertyPath: landingMomentumDivider
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8540242724781091287, guid: 978a33230bc56ab4b86946acd943d564, type: 3}
       propertyPath: m_Color.b

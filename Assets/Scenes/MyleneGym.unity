@@ -214,7 +214,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentCard: {fileID: 0}
-  deck: {fileID: 1725410613}
 --- !u!4 &159041347
 Transform:
   m_ObjectHideFlags: 0
@@ -274,6 +273,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 908e619d33aea43409413b9b35322b57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingCards: []
+  cardPrefab: {fileID: 0}
 --- !u!4 &211122377
 Transform:
   m_ObjectHideFlags: 0
@@ -489,6 +490,22 @@ PrefabInstance:
     - target: {fileID: 604188259923258720, guid: aa01de933b33bb34083884d9d5e5b135, type: 3}
       propertyPath: m_Name
       value: TestPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 604188259923258781, guid: aa01de933b33bb34083884d9d5e5b135, type: 3}
+      propertyPath: maxSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 604188259923258781, guid: aa01de933b33bb34083884d9d5e5b135, type: 3}
+      propertyPath: moveForce
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 604188259923258781, guid: aa01de933b33bb34083884d9d5e5b135, type: 3}
+      propertyPath: jumpHorizontalSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 604188259923258781, guid: aa01de933b33bb34083884d9d5e5b135, type: 3}
+      propertyPath: landingMomentumDivider
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 604188259923258783, guid: aa01de933b33bb34083884d9d5e5b135, type: 3}
       propertyPath: m_RootOrder
@@ -1237,17 +1254,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac94095f3f1b2fa428a2fb4901cf82a1, type: 3}
---- !u!114 &1725410613 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 158198434664212506, guid: 0fba35f6fa3c8364d9c1e9c9e0048813, type: 3}
-  m_PrefabInstance: {fileID: 234855465}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fcea7ed8678cf249a4721e4a5e7c2fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1727164748
 GameObject:
   m_ObjectHideFlags: 0
