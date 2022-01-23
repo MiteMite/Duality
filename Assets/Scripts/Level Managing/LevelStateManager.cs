@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-    [System.Serializable]
-    public class OnStateSwitch : UnityEvent<BaseLevelStat>
-    {
-    }
+
 public class LevelStateManager : MonoBehaviour
 {
     BaseLevelStat m_currenState;
@@ -14,7 +11,35 @@ public class LevelStateManager : MonoBehaviour
     public PlayingLevelState playingState = new PlayingLevelState();
     public RewardLevelState rewardState = new RewardLevelState();
 
-    public OnStateSwitch onStateSwitch = new OnStateSwitch();
+    static LevelStateManager m_Instance;
+    static bool m_AppIsQuitting;
+
+    public static LevelStateManager Instance { get
+        {
+            if (m_AppIsQuitting)
+            {
+                m_Instance = null;
+                return m_Instance;
+            }
+
+            else if(m_Instance == null)
+            {
+                GameObject gameObjectInstance = new GameObject("Level State Manager");
+                gameObjectInstance.AddComponent<LevelStateManager>();
+                m_Instance = gameObjectInstance.GetComponent<LevelStateManager>();
+            }
+
+            return m_Instance;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        {
+            Destroy(this.gameObject);
+            m_Instance = null;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +47,7 @@ public class LevelStateManager : MonoBehaviour
         m_currenState = placementState;
 
         m_currenState.EnterState(this);
+        EventManager.Instance.SendPhaseChangeEvent(placementState);
     }
 
     // Update is called once per frame
@@ -34,12 +60,7 @@ public class LevelStateManager : MonoBehaviour
     {
         m_currenState = state;
         state.EnterState(this);
-        onStateSwitch.Invoke(state);
-
-    }
-
-    public void DummyMethod()
-    {
+        EventManager.Instance.SendPhaseChangeEvent(state);
 
     }
 }

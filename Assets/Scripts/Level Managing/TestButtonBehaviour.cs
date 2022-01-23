@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class TestButtonBehaviour : MonoBehaviour
 {
-    public LevelStateManager levelState;
     public void OnButtonPress()
     {
-        levelState.SwitchState(levelState.playingState);
+        LevelStateManager.Instance.SwitchState(LevelStateManager.Instance.playingState);
     }
 }
