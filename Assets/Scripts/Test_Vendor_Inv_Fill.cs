@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Test_Vendor_Inv_Fill : MonoBehaviour
 {
-    public List<Card> cards = new List<Card>();
+    public List<FullCard> cards = new List<FullCard>();
     public Inventory vendorInventory;
 
     void Start()
     {
-        foreach(Card c in cards)
+        foreach(FullCard c in cards)
         {
-            vendorInventory.addCard(c.card);
+            vendorInventory.AddCard(c);
         }
     }
 }

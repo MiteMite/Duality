@@ -5,7 +5,7 @@ using UnityEngine;
 public class Card : MonoBehaviour, IPhaseListener
 {
     //public bool day;
-    public CardObject card;
+    public FullCard card;
     public float speed;
     [HideInInspector]
     public float flipSpeed;
@@ -69,7 +69,7 @@ public class Card : MonoBehaviour, IPhaseListener
     private void Spawn()
     {
         if (card == null) return;
-        GameObject toSpawn = card.prefab;
+        GameObject toSpawn = card.isNight?card.nightSide.prefab:card.daySide.prefab;
         if (toSpawn && draggable != null)
         {
             GameObject go = Instantiate(toSpawn, transform.position, Quaternion.identity);
@@ -86,13 +86,14 @@ public class Card : MonoBehaviour, IPhaseListener
         //transform.rotation = Quaternion.Euler(new Vector3(0, 0, 3));
         for (int i = 0; i < flipCount; i++)
         {
-            while(transform.localScale.x > Time.deltaTime * flipSpeed)
+            card.isNight = !card.isNight;
+            while (transform.localScale.x > Time.deltaTime * flipSpeed)
             {
                 transform.localScale -= new Vector3(Time.deltaTime*flipSpeed, 0);
                 yield return new WaitForEndOfFrame();
             }
             transform.localScale = new Vector2(0, 1);
-            GetComponent<SpriteRenderer>().color = ((i%2 == 0)?Color.blue:Color.white);
+            GetComponent<SpriteRenderer>().color = card.isNight? Color.blue:Color.white;
             //transform.rotation = Quaternion.Euler(new Vector3(0, 0, ((i % 2 == 0) ? -3 : 3)));
             while (transform.localScale.x < (1 - (Time.deltaTime * flipSpeed)))
             {
@@ -100,7 +101,6 @@ public class Card : MonoBehaviour, IPhaseListener
                 yield return new WaitForEndOfFrame();
             }
         }
-        transform.localScale = new Vector2(1, 1);
     }
 
     public void OnPhaseChangeEvent(BaseLevelStat levelStat)

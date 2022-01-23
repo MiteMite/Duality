@@ -6,13 +6,14 @@ public class Deck : MonoBehaviour
 {
     [HideInInspector]
     public List<Card> cards;
-    public DragManager dragManager;
+    private DragManager dragManager;
     private float width = 16;
     private int currentCardPos = 0;
 
     public void Start()
     {
-        PlaceCards();
+        if(!dragManager)
+            dragManager = GetComponent<DragManager>();
     }
 
     public void Update()
@@ -32,6 +33,7 @@ public class Deck : MonoBehaviour
             {
                 cards.Add(card);
             }
+            card.transform.parent = transform;
         }
         card.MoveTo(transform.position);
     }

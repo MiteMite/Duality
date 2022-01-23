@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-
     public DragManager dragManager;
     public Inventory playerInventory;
     public Inventory vendorInventory;
@@ -18,11 +17,11 @@ public class InventoryManager : MonoBehaviour
             if (hit.collider != null)
             {
                 Card card = hit.collider.GetComponent<Card>();
-                if (card != null && vendorInventory.cardInInventory(card.card) && !deck.cards.Contains(card))
+                if (card != null && vendorInventory.CardInInventory(card.card) && !deck.cards.Contains(card))
                 {
                     Debug.Log("This is " + card.name + " !");
-                    playerInventory.addCard(card.card);
-                    vendorInventory.removeCard(card.card);
+                    playerInventory.AddCard(card.card);
+                    vendorInventory.RemoveCard(card.card);
                     deck.AddCard(card);
                 }
             }
