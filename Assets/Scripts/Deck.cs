@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Deck : MonoBehaviour
 {
+    [HideInInspector]
     public List<Card> cards;
     public DragManager dragManager;
-    public float width = 16;
-    public int currentCardPos = 0;
+    private float width = 16;
+    private int currentCardPos = 0;
 
     public void Start()
     {
