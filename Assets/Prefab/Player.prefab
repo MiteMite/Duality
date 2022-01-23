@@ -103,7 +103,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveForce: 500
   maxSpeed: 5
-  jumpForce: 10
+  jumpForce: 16
+  wallJumpForce: 0
+  parachuteSpeed: 0
+  waterfallSpeed: 0
   groundCheck: {fileID: 8540242725376229696}
   checkRadius: 0.5
   whatIsGround:
