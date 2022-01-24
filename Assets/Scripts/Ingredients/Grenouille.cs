@@ -9,6 +9,7 @@ public class Grenouille : MonoBehaviour
     public GameObject tongue;
 
     private bool isTonguing;
+    private bool shootingTongue;
 
     public void OnTriggerStay2D(Collider2D collision)
     {
@@ -26,12 +27,24 @@ public class Grenouille : MonoBehaviour
         {
             tongue.transform.position = Vector3.MoveTowards(tongue.transform.position, target, tongueSpeedOut * Time.deltaTime);
             yield return new WaitForEndOfFrame();
+            shootingTongue = true;
         }
         while (Vector3.Distance(tongue.transform.position, transform.position) > tongueSpeedIn * Time.deltaTime)
         {
             tongue.transform.position = Vector3.MoveTowards(tongue.transform.position, transform.position, tongueSpeedIn * Time.deltaTime);
             yield return new WaitForEndOfFrame();
+            shootingTongue = false;
         }
         isTonguing = false;
+    }
+
+    public bool GetTongueShooting()
+    {
+        return shootingTongue;
+    }
+
+    public bool GetTongueHit()
+    {
+        return isTonguing;
     }
 }

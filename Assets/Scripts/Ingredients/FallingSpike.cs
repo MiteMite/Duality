@@ -42,4 +42,9 @@ public class FallingSpike : MonoBehaviour
         }
         ResetPosition();
     }
+
+    public bool GetFallingState()
+    {
+        return isFalling;
+    }
 }

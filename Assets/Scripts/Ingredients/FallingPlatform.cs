@@ -42,5 +42,8 @@ public class FallingPlatform : MonoBehaviour
         ResetPosition();
     }
 
-
+    public bool GetFallingState()
+    {
+        return isFalling;
+    }
 }

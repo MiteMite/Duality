@@ -42,4 +42,9 @@ public class LanceFlamme : MonoBehaviour
         }
     }
 
+    public bool GetFlameState() 
+    {
+        return on;
+    }
+
 }

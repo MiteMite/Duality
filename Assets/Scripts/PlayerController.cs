@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
     public float moveForce;
     public float maxSpeed;
 
@@ -13,7 +12,6 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 m_CurrentSpeed;
 
-    private float m_PreJumpVelocity;
     private Vector2 m_PreJumbVector;
 
     public float jumpForce;
@@ -30,7 +28,6 @@ public class PlayerController : MonoBehaviour
     public LayerMask whatIsGround;
 
     public float landingMomentumDivider;
-    private float m_Timer;
     private bool m_JumpState = false;
     private bool m_IsLanding = false;
 
@@ -38,11 +35,11 @@ public class PlayerController : MonoBehaviour
 
     private bool m_IsBouncing = false;
 
-    public float friction = 1;
-
     private bool walljumping;
     private bool parachuting = false;
     private bool waterfall = false;
+
+    private bool m_IsWalking;
 
 
     void Start()
@@ -52,7 +49,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        
+        Debug.Log(m_IsWalking);
         Vector2 m_MoveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
 
         m_CurrentSpeed.x = m_MoveDirection.x * moveForce * Time.deltaTime;
@@ -67,8 +64,14 @@ public class PlayerController : MonoBehaviour
             else
             {
                 m_RigidBody.AddForce(m_CurrentSpeed);
+                m_IsWalking = true;
             }
             
+        }
+
+        if(Mathf.Abs(m_RigidBody.velocity.x) <= 1.5)
+        {
+            m_IsWalking = false;
         }
 
         m_IsGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
@@ -76,8 +79,6 @@ public class PlayerController : MonoBehaviour
         JumpRisingEdgeDetection(m_CurrentSpeed);
 
         m_MoveInput = Input.GetAxis("Horizontal");
-        //rb.velocity = new Vector2(moveInput * speed, rb.velocity.y); //- friction*Time.deltaTime); 
-        //rb.AddRelativeForce(new Vector2(moveInput * speed, 0));
 
         if (waterfall)
         {
@@ -112,6 +113,7 @@ public class PlayerController : MonoBehaviour
         {
             m_JumpState = true;
             m_PreJumbVector = currentSpeed;
+            m_IsWalking = false;
         }
 
         else if(m_IsGrounded && m_JumpState)
@@ -131,7 +133,6 @@ public class PlayerController : MonoBehaviour
         {
             m_IsLanding = false;
             m_IsBouncing = false;
-            Debug.Log("Ok done bouncing");
         }
     }
 
@@ -142,6 +143,9 @@ public class PlayerController : MonoBehaviour
         {
 
             m_RigidBody.velocity = Vector2.up * jumpForce;
+
+            //SoundManager.Instance.PlaySound("jump");
+
             if (walljumping)
             {
                 m_RigidBody.velocity += Vector2.left * wallJumpForce;
@@ -165,7 +169,6 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Bumper"))
         {
             m_IsBouncing = true;
-            Debug.Log("I am bouncing");
         }
     }
 
@@ -188,5 +191,37 @@ public class PlayerController : MonoBehaviour
     public void StopWater()
     {
         waterfall = false;
+    }
+
+
+    //Les getterz
+    public bool GetJumpState()
+    {
+        return m_JumpState;
+    }
+
+    public bool GetLandingState()
+    {
+        return m_IsLanding;
+    }
+
+    public bool GetWalkingState()
+    {
+        return m_IsWalking;
+    }
+
+    public bool GetWallJumpState()
+    {
+        return walljumping;
+    }
+
+    public bool GetWaterState()
+    {
+        return waterfall;
+    }
+
+    public bool GetParachuteState()
+    {
+        return parachuting;
     }
 }
