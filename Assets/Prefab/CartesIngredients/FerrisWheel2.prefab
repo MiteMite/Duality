@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3907992443708520625}
   - component: {fileID: 3907992443708520624}
   m_Layer: 0
-  m_Name: FerrisWheel
+  m_Name: FerrisWheel2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceefe3c2c4addc348905df24bbc4c0e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platformNumber: 4
+  platformNumber: 2
   platformPrefab: {fileID: 6122392058602916046, guid: c1f5b8cf4842c3a4d90523603fe2a56b, type: 3}
-  speed: 2
-  distance: 2
+  speed: 0.5
+  distance: 3
