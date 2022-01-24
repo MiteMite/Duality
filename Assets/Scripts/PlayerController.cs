@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 m_PreJumbVector;
 
     public float jumpForce;
+    public float jumpFlipModifier;
     public float wallJumpForce;
     public float parachuteSpeed;
     public float waterfallSpeed;
@@ -67,7 +68,7 @@ public class PlayerController : MonoBehaviour
                 m_IsWalking = true;
             }
             
-        }
+        } 
 
         if(Mathf.Abs(m_RigidBody.velocity.x) <= 1.5)
         {
@@ -162,6 +163,9 @@ public class PlayerController : MonoBehaviour
         Vector3 scaler = transform.localScale;
         scaler.x *= -1;
         transform.localScale = scaler;
+
+        m_RigidBody.AddForce(jumpFlipModifier * m_CurrentSpeed);
+        m_PreJumbVector.x = m_PreJumbVector.x * (-1);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

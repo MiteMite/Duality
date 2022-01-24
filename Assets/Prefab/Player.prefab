@@ -101,19 +101,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d26b5df04f76d3447ade966917c01cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveForce: 500
-  maxSpeed: 5
-  jumpForce: 16
+  moveForce: 700
+  maxSpeed: 10
+  jumpForce: 17
+  jumpFlipModifier: 10
   wallJumpForce: 0
-  parachuteSpeed: 0
+  parachuteSpeed: 2
   waterfallSpeed: 0
   groundCheck: {fileID: 8540242725376229696}
   checkRadius: 0.5
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
-  landingMomentumDivider: 2.5
-  friction: 1
+  landingMomentumDivider: 3
+  jumpHorizontalSpeed: 3
 --- !u!50 &8540242724781091113
 Rigidbody2D:
   serializedVersion: 4
