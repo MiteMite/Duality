@@ -134,6 +134,14 @@ PrefabInstance:
       propertyPath: card
       value: 
       objectReference: {fileID: 11400000, guid: 2f9032ec4fad52b48a56e8633709f78c, type: 2}
+    - target: {fileID: 4227474490568120856, guid: ac94095f3f1b2fa428a2fb4901cf82a1, type: 3}
+      propertyPath: card.daySide
+      value: 
+      objectReference: {fileID: 11400000, guid: 2f9032ec4fad52b48a56e8633709f78c, type: 2}
+    - target: {fileID: 4227474490568120856, guid: ac94095f3f1b2fa428a2fb4901cf82a1, type: 3}
+      propertyPath: card.nightSide
+      value: 
+      objectReference: {fileID: 11400000, guid: 8e072359930258649afdb2903d03b974, type: 2}
     - target: {fileID: 6455468079075567643, guid: ac94095f3f1b2fa428a2fb4901cf82a1, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -180,7 +188,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7191154346957118582, guid: ac94095f3f1b2fa428a2fb4901cf82a1, type: 3}
       propertyPath: m_Name
-      value: Card-Bumper
+      value: Card-BumperScie
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac94095f3f1b2fa428a2fb4901cf82a1, type: 3}
@@ -996,6 +1004,18 @@ PrefabInstance:
       propertyPath: card
       value: 
       objectReference: {fileID: 11400000, guid: 92eab34a6a40191458ed2fb56c6ed533, type: 2}
+    - target: {fileID: 4227474490568120856, guid: ac94095f3f1b2fa428a2fb4901cf82a1, type: 3}
+      propertyPath: card.daySide
+      value: 
+      objectReference: {fileID: 11400000, guid: 92eab34a6a40191458ed2fb56c6ed533, type: 2}
+    - target: {fileID: 4227474490568120856, guid: ac94095f3f1b2fa428a2fb4901cf82a1, type: 3}
+      propertyPath: card.isNight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4227474490568120856, guid: ac94095f3f1b2fa428a2fb4901cf82a1, type: 3}
+      propertyPath: card.nightSide
+      value: 
+      objectReference: {fileID: 11400000, guid: 0498429ad67582e47ba8baf23968e7cf, type: 2}
     - target: {fileID: 6455468079075567643, guid: ac94095f3f1b2fa428a2fb4901cf82a1, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1042,7 +1062,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7191154346957118582, guid: ac94095f3f1b2fa428a2fb4901cf82a1, type: 3}
       propertyPath: m_Name
-      value: Card-MovingPlat
+      value: Card-MovingPlatLanceFlamme
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac94095f3f1b2fa428a2fb4901cf82a1, type: 3}
@@ -1204,6 +1224,14 @@ PrefabInstance:
       propertyPath: card
       value: 
       objectReference: {fileID: 11400000, guid: 8e072359930258649afdb2903d03b974, type: 2}
+    - target: {fileID: 4227474490568120856, guid: ac94095f3f1b2fa428a2fb4901cf82a1, type: 3}
+      propertyPath: card.daySide
+      value: 
+      objectReference: {fileID: 11400000, guid: 02fd11f1f4e51fc4eb6b5b57023ea2a0, type: 2}
+    - target: {fileID: 4227474490568120856, guid: ac94095f3f1b2fa428a2fb4901cf82a1, type: 3}
+      propertyPath: card.nightSide
+      value: 
+      objectReference: {fileID: 11400000, guid: 4dab8812590805140852c64598252dbd, type: 2}
     - target: {fileID: 6455468079075567643, guid: ac94095f3f1b2fa428a2fb4901cf82a1, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1250,7 +1278,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7191154346957118582, guid: ac94095f3f1b2fa428a2fb4901cf82a1, type: 3}
       propertyPath: m_Name
-      value: Card-Scie
+      value: Card-FerrisWPlatTom
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac94095f3f1b2fa428a2fb4901cf82a1, type: 3}
