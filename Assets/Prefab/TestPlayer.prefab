@@ -177,7 +177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8540242724781091113, guid: 978a33230bc56ab4b86946acd943d564, type: 3}
       propertyPath: m_GravityScale
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8540242724781091115, guid: 978a33230bc56ab4b86946acd943d564, type: 3}
       propertyPath: m_Name
@@ -233,11 +233,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8540242724781091286, guid: 978a33230bc56ab4b86946acd943d564, type: 3}
       propertyPath: jumpForce
-      value: 17
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8540242724781091286, guid: 978a33230bc56ab4b86946acd943d564, type: 3}
       propertyPath: moveForce
       value: 700
+      objectReference: {fileID: 0}
+    - target: {fileID: 8540242724781091286, guid: 978a33230bc56ab4b86946acd943d564, type: 3}
+      propertyPath: wallJumpForce
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8540242724781091286, guid: 978a33230bc56ab4b86946acd943d564, type: 3}
       propertyPath: parachuteSpeed
