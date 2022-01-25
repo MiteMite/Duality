@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d50620f8beb338438127361b69b1b58, type: 3}
-  m_Name: Piques
+  m_Script: {fileID: 11500000, guid: d9e89381a65cded4993033d2ad954c74, type: 3}
+  m_Name: FerrisWheel2 1
   m_EditorClassIdentifier: 
-  type: 0
-  cardName: Piques
+  type: 1
+  cardName: Ferris Wheel2
   pointCost: 0
   description: 
   artwork: {fileID: 0}
-  prefab: {fileID: 2387476220995643937, guid: 6f674dedfcf18a9449b79f55627e8493, type: 3}
+  prefab: {fileID: 3907992443708520631, guid: 0163e0f00673d5649b5109c3297b050d, type: 3}

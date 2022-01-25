@@ -2779,7 +2779,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2212600967363544177, guid: 9b20df8843028da4cacfc13639daea0e, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2212600967363544177, guid: 9b20df8843028da4cacfc13639daea0e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3432,7 +3432,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7191154346957118582, guid: ac94095f3f1b2fa428a2fb4901cf82a1, type: 3}
       propertyPath: m_Name
-      value: Card-MovingPlat_PlatTom
+      value: Card-MovingPlatV_PlatTom
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac94095f3f1b2fa428a2fb4901cf82a1, type: 3}
