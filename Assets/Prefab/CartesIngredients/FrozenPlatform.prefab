@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1401158959118683068}
   - component: {fileID: 9024965741540472445}
   - component: {fileID: 1310012936747716033}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FrozenPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
