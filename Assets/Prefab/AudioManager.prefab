@@ -53,6 +53,22 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 3d18ad93d4d136742929676efd42b51c, type: 3}
   - name: step
     clip: {fileID: 8300000, guid: 749be5a6fc2610a4b8fe3fc7c257195f, type: 3}
+  - name: flamethrower
+    clip: {fileID: 8300000, guid: b720a4c1afbac80459ce925734b3269b, type: 3}
+  - name: FrogShoot
+    clip: {fileID: 8300000, guid: da809a4a7399cf04b8e6bc370b0ece74, type: 3}
+  - name: FrogHit
+    clip: {fileID: 8300000, guid: 2fa3225ecfeeb39489731a7b1d7471c1, type: 3}
+  - name: Scie
+    clip: {fileID: 8300000, guid: 9f7f8409bf563be4499ebcbb8fa3347b, type: 3}
+  - name: water
+    clip: {fileID: 8300000, guid: 6b01a329d2b8afc48a70481ef25a60e3, type: 3}
+  - name: lama
+    clip: {fileID: 8300000, guid: 4527def79af382e48841fad1eb8b7ced, type: 3}
+  - name: bumper
+    clip: {fileID: 8300000, guid: b3df4a3dedeb3e14ebfa6ae3dada2d15, type: 3}
+  musicVolume: 0.1
+  ingredientsVolume: 0.25
 --- !u!82 &7406257721051754000
 AudioSource:
   m_ObjectHideFlags: 0
