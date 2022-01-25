@@ -24,7 +24,11 @@ public class SoundManager : MonoBehaviour
     }
     public SoundClips[] SoundClipsArray;
 
-    private UnityEvent PlayerJumpedEvent;
+    private GameObject player;
+
+    private bool playOnce = true;
+
+    private AudioSource IngredientAudio = new AudioSource();
 
     private static SoundManager _instance;
     public static SoundManager Instance
@@ -40,6 +44,7 @@ public class SoundManager : MonoBehaviour
     }
     void Awake()
     {
+        player = GameObject.Find("Player");
         DontDestroyOnLoad(gameObject);
         if (_instance != null && _instance != this)
         {
@@ -52,7 +57,7 @@ public class SoundManager : MonoBehaviour
     }
     void Start()
     {
-        PlaySound("theme");
+        //PlaySound("theme");
     }
 
     private void PlaySound(string SoundName)
@@ -69,5 +74,46 @@ public class SoundManager : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        /*
+         * character sounds
+         * really hacky but it works for now
+         */
+        if (player != null)
+        {
+            if (player.GetComponent<PlayerController>().GetJumpState() == false&&Input.GetKey(KeyCode.Space))
+            {
+                PlaySound("jump");
+            }
+            if (player.GetComponent<PlayerController>().GetLandingState() == true)
+            {
+                PlaySound("land");
+            }
+            
+            if (player.GetComponent<PlayerController>().GetWalkingState() == true &&Input.GetKey(KeyCode.A)|| Input.GetKey(KeyCode.D))
+            {
+                if (playOnce)
+                {
+                    PlaySound("step");
+                    playOnce = false;
+                }
+                this.GetComponent<AudioSource>().loop = true;
+            }
+            else
+            {
+                this.GetComponent<AudioSource>().loop = false;
+                playOnce = true;
+            }
+        }
+        else
+        {
+            Debug.Log("Could not find player in scene");
+        }
 
+        /*
+        * ingredients audio
+        */
+
+    }
 }

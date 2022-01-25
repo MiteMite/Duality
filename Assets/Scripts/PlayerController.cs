@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Debug.Log(m_IsWalking);
+        //Debug.Log(m_IsWalking);
         Vector2 m_MoveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
 
         m_CurrentSpeed.x = m_MoveDirection.x * moveForce * Time.deltaTime;
