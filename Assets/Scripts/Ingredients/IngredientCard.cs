@@ -12,19 +12,6 @@ public class IngredientCard : MonoBehaviour, IPhaseListener
         EventManager.Instance.RegisterPhaseListener(this);
     }
 
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F) && false)
-        {
-            if (card)
-            {
-                card.gameObject.SetActive(true);
-                draggable.SetActive(true);
-                Destroy(gameObject);
-            }
-        }
-    }
-
     public void OnPhaseChangeEvent(BaseLevelStat levelStat)
     {
         if (levelStat == LevelStateManager.Instance.rewardState)
@@ -34,6 +21,18 @@ public class IngredientCard : MonoBehaviour, IPhaseListener
             Deck.Instance.AddCard(card);
             Destroy(gameObject);
         }
+        if (levelStat == LevelStateManager.Instance.placementState)
+        {
+            card.gameObject.SetActive(true);
+            draggable.SetActive(true);
+            Destroy(gameObject);
+        }
     }
+
+    public void OnDestroy()
+    {
+        EventManager.Instance.UnregisterPhaseListener(this);
+    }
+
 
 }

@@ -60,7 +60,8 @@ public class EventManager : MonoBehaviour
     {
         foreach(IPhaseListener phaseListener in registeredPhaseListeners)
         {
-            phaseListener.OnPhaseChangeEvent(levelStat);
+            if(phaseListener != null)
+                phaseListener.OnPhaseChangeEvent(levelStat);
         }
     }
 

@@ -23,6 +23,14 @@ public class FerrisWheel : MonoBehaviour
         }
     }
 
+    public void OnDestroy()
+    {
+        for (int i = 0; i < platforms.Count; i++)
+        {
+            Destroy(platforms[i]);
+        }
+    }
+
     public void FixedUpdate()
     {
         for (int i = 0; i < platforms.Count; i++)

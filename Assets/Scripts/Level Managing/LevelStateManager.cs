@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class LevelStateManager : MonoBehaviour
 {
-    BaseLevelStat m_currenState;
+    BaseLevelStat m_currentState;
     public PlacementLevelState placementState = new PlacementLevelState();
     public PlayingLevelState playingState = new PlayingLevelState();
     public RewardLevelState rewardState = new RewardLevelState();
@@ -45,26 +45,30 @@ public class LevelStateManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_currenState = placementState;
+        m_currentState = placementState;
 
-        m_currenState.EnterState(this);
+        m_currentState.EnterState(this);
         EventManager.Instance.SendPhaseChangeEvent(placementState);
     }
 
     // Update is called once per frame
     void Update()
     {
-        m_currenState.UpdateState(this);
-        if (Input.GetKeyDown(KeyCode.F))
+        m_currentState.UpdateState(this);
+        if (m_currentState == placementState && Input.GetKeyDown(KeyCode.F))
         {
-            Debug.Log("aaaaaaaaaaaaaaa");
             SwitchState(playingState);
+        }
+        else if (m_currentState == playingState && Input.GetKeyDown(KeyCode.F))
+        {
+            SwitchState(placementState);
         }
     }
 
     public void SwitchState(BaseLevelStat state)
     {
-        m_currenState = state;
+        Debug.Log("Changing state to " + state.GetType().ToString());
+        m_currentState = state;
         state.EnterState(this);
         EventManager.Instance.SendPhaseChangeEvent(state);
 
