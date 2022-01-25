@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d50620f8beb338438127361b69b1b58, type: 3}
-  m_Name: Grenouille
+  m_Name: FallingSpikes
   m_EditorClassIdentifier: 
   type: 0
-  cardName: Grenouille
+  cardName: Falling Spikes
   pointCost: 0
   description: 
   artwork: {fileID: 0}
-  prefab: {fileID: 6106847159731815224, guid: 26521e847fd38944396d6ebcef27851c, type: 3}
+  prefab: {fileID: 2737329069852903937, guid: c7307e600fe1a664eb541284d1a3f80d, type: 3}

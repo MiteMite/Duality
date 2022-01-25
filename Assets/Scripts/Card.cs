@@ -54,17 +54,6 @@ public class Card : MonoBehaviour, IPhaseListener
         moving = false;
     }
 
-    public void Update()
-    {
-        /*
-        //this should be an event registering instead
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            Spawn();
-            //StartCoroutine(Flip());
-        }
-        */
-    }
 
     private void Spawn()
     {
@@ -110,11 +99,9 @@ public class Card : MonoBehaviour, IPhaseListener
 
     public void OnPhaseChangeEvent(BaseLevelStat levelStat)
     {
-        Debug.Log("Card has received the event");
 
         if(levelStat == LevelStateManager.Instance.playingState)
         {
-            Debug.Log("Card attempting to spawn");
             Spawn();
         }
     }

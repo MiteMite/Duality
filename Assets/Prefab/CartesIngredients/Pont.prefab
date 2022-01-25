@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9019466832427530565}
   - component: {fileID: 6380020934771871158}
   - component: {fileID: 6931030408847409704}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pont
   m_TagString: Untagged
   m_Icon: {fileID: 0}

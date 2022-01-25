@@ -212,6 +212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65d064581ae100e4b92af7f6316ecba3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tongueSpeedOut: 6
-  tongueSpeedIn: 3
+  tongueSpeedOut: 10
+  tongueSpeedIn: 20
   tongue: {fileID: 6106847158369606655}

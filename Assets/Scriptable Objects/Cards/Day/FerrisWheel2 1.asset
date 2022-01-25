@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9e89381a65cded4993033d2ad954c74, type: 3}
-  m_Name: RotatingBlock
+  m_Name: FerrisWheel2 1
   m_EditorClassIdentifier: 
   type: 1
-  cardName: Rotating block
+  cardName: Ferris Wheel2
   pointCost: 0
   description: 
   artwork: {fileID: 0}
-  prefab: {fileID: 5309901390192921720, guid: 869117fd1d26bd34d856570687c08506, type: 3}
+  prefab: {fileID: 3907992443708520631, guid: 0163e0f00673d5649b5109c3297b050d, type: 3}
