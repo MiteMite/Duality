@@ -31,4 +31,8 @@ public class Trampoline : MonoBehaviour
             m_Timer = 0f;
         }
     }
+    public bool GetTrampolineStatus()
+    {
+        return m_PlayerCollision;
+    }
 }

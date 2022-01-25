@@ -29,4 +29,8 @@ public class Bumper : MonoBehaviour
             m_Timer = 0f;
         }
     }
+    public bool GetBumperState()
+    {
+        return m_PlayerCollision;
+    }
 }

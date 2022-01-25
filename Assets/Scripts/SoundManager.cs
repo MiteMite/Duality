@@ -28,7 +28,17 @@ public class SoundManager : MonoBehaviour
 
     private bool playOnce = true;
 
-    private AudioSource IngredientAudio = new AudioSource();
+    public float musicVolume = 0.1f;
+    public float ingredientsVolume = 1.0f;
+
+    private AudioSource IngredientAudio;
+    private AudioSource GrenouilleAudio;
+    private AudioSource muzikAudio;
+    private AudioSource scieAudio;
+    private AudioSource waterAudio;
+    private AudioSource llamaAudio;
+    private AudioSource bumperAudio;
+    private AudioSource trampolineAudio;
 
     private static SoundManager _instance;
     public static SoundManager Instance
@@ -44,6 +54,22 @@ public class SoundManager : MonoBehaviour
     }
     void Awake()
     {
+        trampolineAudio = gameObject.AddComponent<AudioSource>();
+        bumperAudio = gameObject.AddComponent<AudioSource>();
+        llamaAudio = gameObject.AddComponent<AudioSource>();
+        waterAudio = gameObject.AddComponent<AudioSource>();
+        scieAudio = gameObject.AddComponent<AudioSource>();
+        IngredientAudio = gameObject.AddComponent<AudioSource>();
+        GrenouilleAudio = gameObject.AddComponent<AudioSource>();
+        muzikAudio = gameObject.AddComponent<AudioSource>();
+        muzikAudio.volume = musicVolume;
+        muzikAudio.loop = true;
+        trampolineAudio.volume = ingredientsVolume;
+        bumperAudio.volume = ingredientsVolume;
+        llamaAudio.volume = ingredientsVolume;
+        waterAudio.volume = ingredientsVolume;
+        scieAudio.volume = ingredientsVolume;
+        GrenouilleAudio.volume = ingredientsVolume;
         player = GameObject.Find("Player");
         DontDestroyOnLoad(gameObject);
         if (_instance != null && _instance != this)
@@ -57,24 +83,21 @@ public class SoundManager : MonoBehaviour
     }
     void Start()
     {
+        PlaySound("theme", muzikAudio);
         //PlaySound("theme");
     }
-
-    private void PlaySound(string SoundName)
+    private void PlaySound(string SoundName,AudioSource source)
     {
         for (int i = 0; i < SoundClipsArray.Length; i++)
         {
             if (SoundClipsArray[i].name == SoundName)
             {
-                AudioSource myAudioClip = GetComponent<AudioSource>();
-                myAudioClip.clip = SoundClipsArray[i].clip;
-                myAudioClip.Play();
+                source.clip = SoundClipsArray[i].clip;
+                source.Play();
             }
         }
-
     }
-
-    private void Update()
+    private void FixedUpdate()
     {
         /*
          * character sounds
@@ -82,20 +105,20 @@ public class SoundManager : MonoBehaviour
          */
         if (player != null)
         {
-            if (player.GetComponent<PlayerController>().GetJumpState() == false&&Input.GetKey(KeyCode.Space))
+            if (player.GetComponent<PlayerController>().GetJumpState() == false && Input.GetKey(KeyCode.Space))
             {
-                PlaySound("jump");
+                PlaySound("jump", this.GetComponent<AudioSource>());
             }
             if (player.GetComponent<PlayerController>().GetLandingState() == true)
             {
-                PlaySound("land");
+                PlaySound("land", this.GetComponent<AudioSource>());
             }
-            
-            if (player.GetComponent<PlayerController>().GetWalkingState() == true &&Input.GetKey(KeyCode.A)|| Input.GetKey(KeyCode.D))
+
+            if (player.GetComponent<PlayerController>().GetWalkingState() == true && Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
             {
                 if (playOnce)
                 {
-                    PlaySound("step");
+                    PlaySound("step", this.GetComponent<AudioSource>());
                     playOnce = false;
                 }
                 this.GetComponent<AudioSource>().loop = true;
@@ -114,6 +137,74 @@ public class SoundManager : MonoBehaviour
         /*
         * ingredients audio
         */
-
+        if (GameObject.Find("LanceFlamme"))
+        {
+            if (GameObject.Find("LanceFlamme").GetComponent<LanceFlamme>().GetFlameState())
+            {
+                if (IngredientAudio.isPlaying == false)
+                {
+                    PlaySound("flamethrower", IngredientAudio);
+                }
+            }
+        }
+        if (GameObject.Find("Grenouille")) {
+            if (GameObject.Find("Grenouille").GetComponent<Grenouille>().GetTongueShooting())
+            {
+                if (GrenouilleAudio.isPlaying == false)
+                {
+                    PlaySound("FrogShoot", GrenouilleAudio);
+                }
+            }
+            if (GameObject.Find("Grenouille").GetComponent<Grenouille>().GetTongueHit())
+            {
+                if (GrenouilleAudio.isPlaying == false)
+                {
+                    PlaySound("FrogHit", GrenouilleAudio);
+                }
+            }
+        }
+        if (GameObject.Find("Scie"))
+        {
+            if (scieAudio.isPlaying == false)
+            {
+                scieAudio.loop = true;
+                PlaySound("Scie", scieAudio);
+            }
+        }
+        if (GameObject.Find("Waterfall"))
+        {
+            if (waterAudio.isPlaying == false)
+            {
+                waterAudio.loop = true;
+                PlaySound("water", waterAudio);
+            }
+        }
+        if (GameObject.Find("Lama-gun"))
+        {
+            if(llamaAudio.isPlaying == false)
+            {
+                PlaySound("lama", llamaAudio);
+            }
+        }
+        if (GameObject.Find("Bumper"))
+        {
+            if (GameObject.Find("Bumper").GetComponent<Bumper>().GetBumperState() == true)
+            {
+                if (bumperAudio.isPlaying == false)
+                {
+                    PlaySound("bumper", bumperAudio);
+                }
+            }
+        }
+        if (GameObject.Find("Trampoline"))
+        {
+            if (GameObject.Find("Trampoline").GetComponent<Trampoline>().GetTrampolineStatus() == true)
+            {
+                if (trampolineAudio.isPlaying == false)
+                {
+                    PlaySound("bumper", trampolineAudio);
+                }
+            }
+        }
     }
 }
