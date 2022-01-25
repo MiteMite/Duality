@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d50620f8beb338438127361b69b1b58, type: 3}
-  m_Name: WreckingBall
+  m_Name: WreckingBall 1
   m_EditorClassIdentifier: 
   type: 0
   cardName: WreckingBall
