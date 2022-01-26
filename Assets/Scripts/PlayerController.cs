@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     private bool walljumping;
     private bool parachuting = false;
     private bool waterfall = false;
+    private bool m_ParachuteIsOn = false;
 
     private bool m_IsWalking;
 
@@ -92,8 +93,11 @@ public class PlayerController : MonoBehaviour
         if (parachuting)
         {
             if (m_IsGrounded)
+            {
                 parachuting = false;
-            else if (m_RigidBody.velocity.y < -Mathf.Abs(parachuteSpeed))
+                m_ParachuteIsOn = false;
+            }
+            else if ((m_RigidBody.velocity.y < -Mathf.Abs(parachuteSpeed)) && m_ParachuteIsOn)
                 m_RigidBody.velocity = new Vector3(m_RigidBody.velocity.x, -Mathf.Abs(parachuteSpeed));
         }
 
@@ -140,7 +144,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        if ((Input.GetKeyDown(KeyCode.Space)) && (m_IsGrounded || walljumping))
+        if ((Input.GetKeyDown(KeyCode.Space)) && (m_IsGrounded || walljumping || m_ParachuteIsOn))
         {
 
             m_RigidBody.velocity = Vector2.up * jumpForce;
@@ -152,6 +156,15 @@ public class PlayerController : MonoBehaviour
                 m_RigidBody.velocity += Vector2.left * wallJumpForce;
                 walljumping = false;
             }
+
+            if (m_ParachuteIsOn)
+            {
+                m_ParachuteIsOn = false;
+            }
+        }
+        else if((Input.GetKeyDown(KeyCode.Space)) && parachuting && (!m_ParachuteIsOn))
+        {
+            m_ParachuteIsOn = true;
         }
 
         
@@ -187,6 +200,7 @@ public class PlayerController : MonoBehaviour
     public void StartParachute()
     {
         parachuting = true;
+        m_ParachuteIsOn = true;
     }
     public void StartWater()
     {

@@ -11,6 +11,8 @@ public class LevelManager : MonoBehaviour
     public GameObject playerPrefab;
     public GameObject currentPlayer;
 
+    
+
     private void Awake()
     {
         instance = this;
@@ -25,5 +27,10 @@ public class LevelManager : MonoBehaviour
     {
         if(currentPlayer == null)
             currentPlayer = Instantiate(playerPrefab, respawnPoint.position, Quaternion.identity);
+    }
+
+    public void SpawnCurrency()
+    {
+
     }
 }
