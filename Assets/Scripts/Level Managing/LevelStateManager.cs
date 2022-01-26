@@ -63,6 +63,10 @@ public class LevelStateManager : MonoBehaviour
         {
             SwitchState(placementState);
         }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            SwitchState(rewardState);
+        }
     }
 
     public void SwitchState(BaseLevelStat state)
