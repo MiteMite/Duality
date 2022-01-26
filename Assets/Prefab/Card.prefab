@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6455468079075567643}
   - component: {fileID: 8288093352023788487}
   - component: {fileID: 4227474490568120856}
-  - component: {fileID: 1397453022}
+  - component: {fileID: 5658456019701362087}
   m_Layer: 6
   m_Name: Card
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 7191154346957118582}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 22508635
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 919a2bbbd1cbc8247b95310a6acf0cdb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 66600d6bb8fd9f64a9ffcbd3838858fa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -96,14 +96,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1254a3244de9a464f97c18b8d3b91fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  day: 0
+  card:
+    daySide: {fileID: 0}
+    nightSide: {fileID: 0}
+    isNight: 0
   speed: 15
   flipSpeed: 0
   flipCount: 1
   target: {x: 0, y: 0, z: 0}
   draggable: {fileID: 0}
-  card: {fileID: 0}
---- !u!61 &1397453022
+--- !u!61 &5658456019701362087
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,12 +122,12 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.85, y: 4.12}
+    oldSize: {x: 6, y: 9}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3, y: 4}
+  m_Size: {x: 6, y: 9}
   m_EdgeRadius: 0

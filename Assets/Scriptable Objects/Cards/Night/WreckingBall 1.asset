@@ -16,5 +16,5 @@ MonoBehaviour:
   cardName: WreckingBall
   pointCost: 0
   description: 
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 3874a429bd0f8cc4280c850fbfccd35a, type: 3}
   prefab: {fileID: 8106826331534190794, guid: 368745137a7f40744999e85bfad23e87, type: 3}
