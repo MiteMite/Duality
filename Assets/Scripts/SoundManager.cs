@@ -70,7 +70,7 @@ public class SoundManager : MonoBehaviour
         waterAudio.volume = ingredientsVolume;
         scieAudio.volume = ingredientsVolume;
         GrenouilleAudio.volume = ingredientsVolume;
-        player = GameObject.Find("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
         DontDestroyOnLoad(gameObject);
         if (_instance != null && _instance != this)
         {
@@ -99,6 +99,7 @@ public class SoundManager : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         /*
          * character sounds
          * really hacky but it works for now
