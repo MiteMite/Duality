@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class LevelStateManager : MonoBehaviour
 {
-    BaseLevelStat m_currentState;
+    public BaseLevelStat m_currentState;
     public PlacementLevelState placementState = new PlacementLevelState();
     public PlayingLevelState playingState = new PlayingLevelState();
     public RewardLevelState rewardState = new RewardLevelState();

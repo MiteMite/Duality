@@ -16,57 +16,58 @@ public class DragManager : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))//on pickup
+        if (LevelStateManager.Instance.m_currentState == LevelStateManager.Instance.placementState)
         {
-            Vector3 mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, 10));
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 0, LayerMask.GetMask("Draggable"));
-            if (hit.collider != null)
+            if (Input.GetMouseButtonDown(0))//on pickup
             {
-                Card card = hit.collider.GetComponent<Card>();
-                if (card != null)
+                Vector3 mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, 10));
+                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 0, LayerMask.GetMask("Draggable"));
+                if (hit.collider != null)
                 {
-                    currentCard = card;
-                    currentCard.GetComponent<SpriteRenderer>().sortingOrder = 100;
-                    offset = card.transform.position - mousepos;
-                    deck.RemoveCard(card);
+                    Card card = hit.collider.GetComponent<Card>();
+                    if (card != null)
+                    {
+                        currentCard = card;
+                        currentCard.GetComponent<SpriteRenderer>().sortingOrder = 100;
+                        offset = card.transform.position - mousepos;
+                        deck.RemoveCard(card);
+                    }
+                }
+
+            }else if (Input.GetMouseButton(0))//on drag
+            {
+                if(currentCard != null)
+                {
+                    Vector3 cardPos = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
+                    cardPos.z = currentCard.transform.position.z;
+                    currentCard.transform.position = cardPos;
                 }
             }
-
-        }else if (Input.GetMouseButton(0))//on drag
-        {
-            if(currentCard != null)
+            else if (Input.GetMouseButtonUp(0))//on release
             {
-                Vector3 cardPos = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
-                cardPos.z = currentCard.transform.position.z;
-                currentCard.transform.position = cardPos;
-            }
-        }
-        else if (Input.GetMouseButtonUp(0))//on release
-        {
-            if (!currentCard) return;
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 0, LayerMask.GetMask("Droppable"));
-            if (hit.collider != null)
-            {
-                if (hit.collider.GetComponent<Deck>())
+                if (!currentCard) return;
+                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 0, LayerMask.GetMask("Droppable"));
+                if (hit.collider != null)
+                {
+                    if (hit.collider.GetComponent<Deck>())
+                    {
+                        currentCard.draggable = null;
+                        deck.AddCard(currentCard);
+                    }
+                    else
+                    {
+                        currentCard.MoveTo(hit.collider.transform.position);
+                        currentCard.draggable = hit.collider.gameObject;
+                    }
+                }
+                else
                 {
                     currentCard.draggable = null;
                     deck.AddCard(currentCard);
                 }
-                else
-                {
-                    currentCard.MoveTo(hit.collider.transform.position);
-                    currentCard.draggable = hit.collider.gameObject;
-                }
+                currentCard = null;
             }
-            else
-            {
-                currentCard.draggable = null;
-                deck.AddCard(currentCard);
-            }
-            currentCard = null;
+
         }
-
-
-
     }
 }
