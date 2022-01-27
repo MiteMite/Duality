@@ -16,5 +16,5 @@ MonoBehaviour:
   cardName: Ferris Wheel2
   pointCost: 0
   description: 
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: b254021cfa92c354796bdd996b80a7d3, type: 3}
   prefab: {fileID: 3907992443708520631, guid: 0163e0f00673d5649b5109c3297b050d, type: 3}
