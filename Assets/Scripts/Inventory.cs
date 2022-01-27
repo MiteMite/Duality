@@ -9,7 +9,7 @@ public class FullCard
     public NightCard nightSide;
     public bool isNight;
 }
-public class Inventory : MonoBehaviour
+public class Inventory : MonoBehaviour, IPhaseListener, IDeathListener
 {
     private static Inventory _instance;
 
@@ -18,6 +18,7 @@ public class Inventory : MonoBehaviour
 
     private List<FullCard> cardList = new List<FullCard>();
     private int m_CurrencyQte;
+    private int m_TmpCurrency = 0;
 
     public static Inventory Instance { get => _instance; set => _instance = value; }
 
@@ -45,6 +46,16 @@ public class Inventory : MonoBehaviour
             GetComponent<Deck>().AddCard(newCard);
         }
 
+        EventManager.Instance.RegisterPhaseListener(this);
+
+    }
+
+    void OnDestroy()
+    {
+        if(EventManager.Instance != null)
+        {
+            EventManager.Instance.UnregisterPhaseListener(this);
+        }
     }
 
     public void AddCard(FullCard card)
@@ -78,9 +89,45 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public int GetCurrencyQte()
+    {
+        return m_CurrencyQte;
+    }
+
     public bool CardInInventory(FullCard card)
     {
         return cardList.Contains(card);
     }
 
+    public void IncrementTmpCurrency()
+    {
+        m_TmpCurrency++;
+    }
+
+    public void EmptyTmpCurrency()
+    {
+        m_TmpCurrency = 0;
+    }
+
+    public void OnPhaseChangeEvent(BaseLevelStat levelStat)
+    {
+        if(levelStat == LevelStateManager.Instance.placementState)
+        {
+            m_TmpCurrency = 0;
+        }
+        else if(levelStat == LevelStateManager.Instance.rewardState)
+        {
+            m_CurrencyQte += m_TmpCurrency;
+            m_TmpCurrency = 0;
+        }
+
+        Debug.Log(levelStat);
+        Debug.Log("PlayerCurrency : " + m_CurrencyQte);
+        Debug.Log("TmpCurrency : " + m_TmpCurrency);
+    }
+
+    public void OnDeathEvent()
+    {
+        m_TmpCurrency = 0;
+    }
 }

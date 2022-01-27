@@ -11,13 +11,22 @@ public class LevelManager : MonoBehaviour
     public GameObject playerPrefab;
     public GameObject currentPlayer;
 
+    public Inventory playerInventory;
+    
+
     private void Awake()
     {
         instance = this;
-    } 
+    }
+
+    private void Start()
+    {
+        playerInventory = Inventory.Instance;
+    }
 
     public void OnPlayerDeath()
     {
+        playerInventory.EmptyTmpCurrency();
         Invoke("Respawn", 1);
     }
 

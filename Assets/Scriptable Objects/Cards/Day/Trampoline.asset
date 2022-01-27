@@ -16,5 +16,5 @@ MonoBehaviour:
   cardName: Trampoline
   pointCost: 0
   description: 
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: ac7d76a87d43a70449a5a5eb775bff12, type: 3}
   prefab: {fileID: 5300637691155846054, guid: 33d0cfd6ffe6b30438762bd04778ad26, type: 3}

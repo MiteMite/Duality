@@ -16,5 +16,5 @@ MonoBehaviour:
   cardName: Pont
   pointCost: 0
   description: 
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: b4288617b1a92b445916cddf707bac38, type: 3}
   prefab: {fileID: 8220477767649235418, guid: 648092974bd3f974aa501777f9591ee9, type: 3}

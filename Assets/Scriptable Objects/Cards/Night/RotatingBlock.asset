@@ -16,5 +16,5 @@ MonoBehaviour:
   cardName: RotatingBlock
   pointCost: 0
   description: 
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 66600d6bb8fd9f64a9ffcbd3838858fa, type: 3}
   prefab: {fileID: 5309901390192921720, guid: 869117fd1d26bd34d856570687c08506, type: 3}

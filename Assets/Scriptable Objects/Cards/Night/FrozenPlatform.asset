@@ -16,5 +16,5 @@ MonoBehaviour:
   cardName: FrozenPlatform
   pointCost: 0
   description: 
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 54331267a8cf3a144ad0cda7529d93f1, type: 3}
   prefab: {fileID: 6637801810544403825, guid: 1675786e4fdbf6b4180dbfd2e1a7279c, type: 3}

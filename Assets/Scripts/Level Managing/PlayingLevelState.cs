@@ -11,7 +11,7 @@ public class PlayingLevelState : BaseLevelStat
     {
         m_Player = GameObject.FindGameObjectWithTag("Player");
         m_Player.GetComponent<PlayerController>().enabled = true;
-
+        Debug.Log("Playing State entered");
     }
 
     public override void UpdateState(LevelStateManager level)

@@ -16,5 +16,5 @@ MonoBehaviour:
   cardName: Parachute
   pointCost: 0
   description: 
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 19e76d5a705649f41a1f6443bf5ed632, type: 3}
   prefab: {fileID: 1344079820157306721, guid: 6782f4795ce77ed439ccf46b09a851eb, type: 3}

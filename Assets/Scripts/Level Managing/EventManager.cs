@@ -6,7 +6,8 @@ using UnityEngine;
 public class EventManager : MonoBehaviour
 {
     public List<IPhaseListener> registeredPhaseListeners = new List<IPhaseListener>();
-    
+    public List<IDeathListener> registeredDeathListeners = new List<IDeathListener>();
+
     static EventManager m_Instance;
     static bool m_AppIsQuitting;
 
@@ -46,6 +47,7 @@ public class EventManager : MonoBehaviour
         m_AppIsQuitting = true;
     }
 
+    //Listeners registration
     public void RegisterPhaseListener(IPhaseListener phaseListener)
     {
         registeredPhaseListeners.Add(phaseListener);
@@ -56,12 +58,33 @@ public class EventManager : MonoBehaviour
         registeredPhaseListeners.Remove(phaseListener);
     }
 
+    public void RegisterDeathListener(IDeathListener deathListener)
+    {
+        registeredDeathListeners.Add(deathListener);
+    }
+
+    public void UnregisterDeathListener(IDeathListener deathListener)
+    {
+        registeredDeathListeners.Remove(deathListener);
+    }
+
+
+    //Events
     public void SendPhaseChangeEvent(BaseLevelStat levelStat)
     {
         foreach(IPhaseListener phaseListener in registeredPhaseListeners)
         {
             if(phaseListener != null)
                 phaseListener.OnPhaseChangeEvent(levelStat);
+        }
+    }
+
+    public void SendDeathEvent()
+    {
+        foreach(IDeathListener deathListener in registeredDeathListeners)
+        {
+            if (deathListener != null)
+                deathListener.OnDeathEvent();
         }
     }
 

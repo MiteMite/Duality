@@ -22,6 +22,7 @@ public class Card : MonoBehaviour, IPhaseListener
     void Start()
     {
         EventManager.Instance.RegisterPhaseListener(this);
+        GetComponent<SpriteRenderer>().sprite = card.isNight ? card.nightSide.artwork : card.daySide.artwork;
     }
 
     void OnDestroy()
@@ -95,6 +96,10 @@ public class Card : MonoBehaviour, IPhaseListener
     public void Flip()
     {
         card.isNight = !card.isNight;
+        if (card.isNight && card.nightSide.artwork != null)
+            GetComponent<SpriteRenderer>().sprite = card.nightSide.artwork;
+        else if (!card.isNight && card.daySide.artwork != null)
+            GetComponent<SpriteRenderer>().sprite = card.daySide.artwork;
     }
 
     public void OnPhaseChangeEvent(BaseLevelStat levelStat)

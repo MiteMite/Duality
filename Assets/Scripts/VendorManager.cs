@@ -8,6 +8,8 @@ public class VendorManager : MonoBehaviour, IPhaseListener
     public bool rewardState = false;
     public Card cardPrefab;
 
+    private Inventory m_PlayerInventory;
+
     public void OnPhaseChangeEvent(BaseLevelStat levelStat)
     {
         if (levelStat == LevelStateManager.Instance.rewardState)
@@ -32,6 +34,7 @@ public class VendorManager : MonoBehaviour, IPhaseListener
     public void Start()
     {
         EventManager.Instance.RegisterPhaseListener(this);
+        m_PlayerInventory = Inventory.Instance;
     }
 
     private void Update()
@@ -43,10 +46,12 @@ public class VendorManager : MonoBehaviour, IPhaseListener
                 if (hit.collider != null)
                 {
                     Card card = hit.collider.GetComponent<Card>();
-                    if (card != null && !Deck.Instance.cards.Contains(card)) // && check currency
+                    if (card != null && !Deck.Instance.cards.Contains(card)
+                        && (Constants.CARD_PRICE <= m_PlayerInventory.GetCurrencyQte())) // && check currency
                     {
                         Debug.Log("This is " + card.name + " !");
                         Inventory.Instance.AddCard(card.card);
+                        Inventory.Instance.RemoveCurrency(Constants.CARD_PRICE);
                         Deck.Instance.AddCard(card);
                     }
                 }
