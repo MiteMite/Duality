@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6202410485861349958}
   - component: {fileID: 6202410485861349956}
   - component: {fileID: 6202410485861349955}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Lama-gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
