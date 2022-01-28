@@ -261,7 +261,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8540242724781091286, guid: 978a33230bc56ab4b86946acd943d564, type: 3}
       propertyPath: landingMomentumDivider
-      value: 2.5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8540242724781091287, guid: 978a33230bc56ab4b86946acd943d564, type: 3}
       propertyPath: m_Color.b
