@@ -14,25 +14,27 @@ public class Lama : MonoBehaviour
 
     public void FixedUpdate()
     {
-        if (timeSinceLastBall <= 0)
+
+        if (LevelManager.instance.currentPlayer != null)
         {
-            balls[currentBall].gameObject.SetActive(true);
-            balls[currentBall].transform.position = transform.position;
-            if (LevelManager.instance.currentPlayer.transform.position.x > transform.position.x)
-                balls[currentBall].direction = new Vector3(ballSpeed * Time.deltaTime, 0);
+            if (timeSinceLastBall <= 0)
+            {
+                balls[currentBall].gameObject.SetActive(true);
+                balls[currentBall].transform.position = transform.position;
+                if (LevelManager.instance.currentPlayer.transform.position.x > transform.position.x)
+                    balls[currentBall].direction = new Vector3(ballSpeed * Time.deltaTime, 0);
+                else
+                    balls[currentBall].direction = new Vector3(-ballSpeed * Time.deltaTime, 0);
+
+                currentBall++;
+                if (currentBall == balls.Count) currentBall = 0;
+                timeSinceLastBall = ballDelay;
+            }
             else
-                balls[currentBall].direction = new Vector3(-ballSpeed * Time.deltaTime, 0);
-
-            currentBall++;
-            if (currentBall == balls.Count) currentBall = 0;
-            timeSinceLastBall = ballDelay;
+            {
+                timeSinceLastBall -= Time.deltaTime;
+            }
         }
-        else
-        {
-            timeSinceLastBall -= Time.deltaTime;
-        }
-
-
 
     }
 }

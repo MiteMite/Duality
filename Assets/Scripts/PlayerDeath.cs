@@ -13,4 +13,13 @@ public class PlayerDeath : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            Destroy(gameObject);
+            LevelManager.instance.OnPlayerDeath();
+        }
+    }
+
 }
