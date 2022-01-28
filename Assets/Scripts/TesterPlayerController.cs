@@ -9,7 +9,7 @@ public class TesterPlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
 
-            Debug.Log("Key down");
+            //Debug.Log("Key down");
 
             EventManager.Instance.SendPhaseChangeEvent(
                 LevelStateManager.Instance.playingState);

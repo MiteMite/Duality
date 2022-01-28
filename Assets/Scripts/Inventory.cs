@@ -121,9 +121,9 @@ public class Inventory : MonoBehaviour, IPhaseListener, IDeathListener
             m_TmpCurrency = 0;
         }
 
-        Debug.Log(levelStat);
-        Debug.Log("PlayerCurrency : " + m_CurrencyQte);
-        Debug.Log("TmpCurrency : " + m_TmpCurrency);
+        //Debug.Log(levelStat);
+        //Debug.Log("PlayerCurrency : " + m_CurrencyQte);
+        //Debug.Log("TmpCurrency : " + m_TmpCurrency);
     }
 
     public void OnDeathEvent()

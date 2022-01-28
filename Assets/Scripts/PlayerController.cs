@@ -51,6 +51,13 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (LevelStateManager.Instance.m_currentState == LevelStateManager.Instance.placementState)
+        {
+           
+        }
+        else
+        {
+        
         //Debug.Log(m_IsWalking);
         Vector2 m_MoveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
 
@@ -109,6 +116,7 @@ public class PlayerController : MonoBehaviour
         } else if(facingRight == true && m_MoveInput < 0)
         {
             Flip();
+        }
         }
     }
 

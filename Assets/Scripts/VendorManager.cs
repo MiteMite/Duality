@@ -42,6 +42,7 @@ public class VendorManager : MonoBehaviour, IPhaseListener
         if(rewardState)
             if (Input.GetMouseButtonUp(0))
             {
+                
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 0, LayerMask.GetMask("Draggable"));
                 if (hit.collider != null)
                 {
@@ -53,6 +54,10 @@ public class VendorManager : MonoBehaviour, IPhaseListener
                         Inventory.Instance.AddCard(card.card);
                         Inventory.Instance.RemoveCurrency(Constants.CARD_PRICE);
                         Deck.Instance.AddCard(card);
+                    }
+                    else
+                    {
+                        Debug.Log("Not enough MOOLAH");
                     }
                 }
             }
