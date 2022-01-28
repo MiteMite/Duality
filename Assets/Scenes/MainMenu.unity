@@ -281,10 +281,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingCards:
-  - daySide: {fileID: 11400000, guid: 2f9032ec4fad52b48a56e8633709f78c, type: 2}
-    nightSide: {fileID: 11400000, guid: b4130625479181a44bb5c39e5e212002, type: 2}
+  - daySide: {fileID: 11400000, guid: 4b069bbac63e1964c8d5359f2a3e358e, type: 2}
+    nightSide: {fileID: 11400000, guid: 77ebed5d4d4846f49a65670507261bb2, type: 2}
     isNight: 0
-  - daySide: {fileID: 11400000, guid: 02fd11f1f4e51fc4eb6b5b57023ea2a0, type: 2}
+  - daySide: {fileID: 11400000, guid: 56e5ee86f1d80f44c9bf706cd7bfed6c, type: 2}
+    nightSide: {fileID: 11400000, guid: 0498429ad67582e47ba8baf23968e7cf, type: 2}
+    isNight: 1
+  - daySide: {fileID: 11400000, guid: 92eab34a6a40191458ed2fb56c6ed533, type: 2}
+    nightSide: {fileID: 11400000, guid: 4dab8812590805140852c64598252dbd, type: 2}
+    isNight: 0
+  - daySide: {fileID: 11400000, guid: d1369aa74114dab43970f0b4716f8942, type: 2}
+    nightSide: {fileID: 11400000, guid: 7c41673e83d471744a4e32df7fbb94f3, type: 2}
+    isNight: 1
+  - daySide: {fileID: 11400000, guid: 2f9032ec4fad52b48a56e8633709f78c, type: 2}
     nightSide: {fileID: 11400000, guid: 079c706e21075674e89386ad235bf23d, type: 2}
+    isNight: 1
+  - daySide: {fileID: 11400000, guid: c62b7b8da28e97e4b847fa5c698585e3, type: 2}
+    nightSide: {fileID: 11400000, guid: 4dab8812590805140852c64598252dbd, type: 2}
     isNight: 0
   cardPrefab: {fileID: 4227474490568120856, guid: ac94095f3f1b2fa428a2fb4901cf82a1, type: 3}
