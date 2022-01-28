@@ -51,7 +51,6 @@ public class PlayerController : MonoBehaviour
     {
         m_RigidBody = GetComponent<Rigidbody2D>();
         LevelManager.instance.currentPlayer = gameObject;
-        Debug.Log("According to player, ground is : " + whatIsGround);
 
     }
 
@@ -85,8 +84,6 @@ public class PlayerController : MonoBehaviour
             else if (Mathf.Abs(m_RigidBody.velocity.x)>= maxSpeed && !m_JumpState)
             {
 
-                Debug.Log("I got into the flip speed condition");
-
                 Vector2 v = m_RigidBody.velocity;
                 if (facingRight)
                 {
@@ -112,11 +109,6 @@ public class PlayerController : MonoBehaviour
             }
             else
                 m_HasHitWall = false;
-
-            if (m_HasHitWall)
-            {
-                Debug.Log("Wall hit");
-            }
 
             JumpRisingEdgeDetection(m_CurrentSpeed);
 

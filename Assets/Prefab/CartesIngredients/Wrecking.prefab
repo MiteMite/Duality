@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8106826331534190791}
   - component: {fileID: 8106826331534190788}
   - component: {fileID: 8106826331534190789}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wrecking
   m_TagString: Untagged
   m_Icon: {fileID: 0}
