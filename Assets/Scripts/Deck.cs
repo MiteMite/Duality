@@ -50,6 +50,7 @@ public class Deck : MonoBehaviour
             }
             card.transform.parent = transform;
         }
+        card.draggable = null;
         card.MoveTo(transform.position);
     }
     public void RemoveCard(Card card)

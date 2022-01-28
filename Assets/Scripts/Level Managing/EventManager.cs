@@ -50,12 +50,14 @@ public class EventManager : MonoBehaviour
     //Listeners registration
     public void RegisterPhaseListener(IPhaseListener phaseListener)
     {
-        registeredPhaseListeners.Add(phaseListener);
+        if(!registeredPhaseListeners.Contains(phaseListener))
+            registeredPhaseListeners.Add(phaseListener);
     }
 
     public void UnregisterPhaseListener(IPhaseListener phaseListener)
     {
-        registeredPhaseListeners.Remove(phaseListener);
+        if (registeredPhaseListeners.Contains(phaseListener))
+            registeredPhaseListeners.Remove(phaseListener);
     }
 
     public void RegisterDeathListener(IDeathListener deathListener)
@@ -72,7 +74,7 @@ public class EventManager : MonoBehaviour
     //Events
     public void SendPhaseChangeEvent(BaseLevelStat levelStat)
     {
-        foreach(IPhaseListener phaseListener in registeredPhaseListeners)
+        foreach (IPhaseListener phaseListener in registeredPhaseListeners)
         {
             if(phaseListener != null)
                 phaseListener.OnPhaseChangeEvent(levelStat);

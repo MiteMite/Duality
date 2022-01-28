@@ -64,7 +64,6 @@ public class DragManager : MonoBehaviour
                 {
                     if (hit.collider.GetComponent<Deck>())
                     {
-                        currentCard.draggable = null;
                         deck.AddCard(currentCard);
                     }
                     else
@@ -75,7 +74,6 @@ public class DragManager : MonoBehaviour
                 }
                 else
                 {
-                    currentCard.draggable = null;
                     deck.AddCard(currentCard);
                 }
                 currentCard = null;

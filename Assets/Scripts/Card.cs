@@ -19,6 +19,8 @@ public class Card : MonoBehaviour, IPhaseListener
     [HideInInspector]
     public GameObject draggable;
 
+    private bool spawned = false;
+
     void Start()
     {
         EventManager.Instance.RegisterPhaseListener(this);
@@ -60,8 +62,9 @@ public class Card : MonoBehaviour, IPhaseListener
     {
         if (card == null) return;
         GameObject toSpawn = card.isNight ? card.nightSide.prefab : card.daySide.prefab;
-        if (toSpawn && draggable != null)
+        if (toSpawn && draggable != null && !spawned)
         {
+            spawned = true;
             GameObject go = Instantiate(toSpawn, transform.position, Quaternion.identity);
             IngredientCard ic = go.AddComponent<IngredientCard>();
             ic.card = this;
@@ -104,7 +107,6 @@ public class Card : MonoBehaviour, IPhaseListener
 
     public void OnPhaseChangeEvent(BaseLevelStat levelStat)
     {
-
         if(levelStat == LevelStateManager.Instance.playingState)
         {
             Spawn();

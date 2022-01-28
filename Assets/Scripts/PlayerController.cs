@@ -43,80 +43,76 @@ public class PlayerController : MonoBehaviour
 
     private bool m_IsWalking;
 
-
     void Start()
     {
         m_RigidBody = GetComponent<Rigidbody2D>();
+        LevelManager.instance.currentPlayer = gameObject;
+        
     }
 
     void FixedUpdate()
     {
-        if (LevelStateManager.Instance.m_currentState == LevelStateManager.Instance.placementState)
+        if (LevelStateManager.Instance.m_currentState == LevelStateManager.Instance.playingState)
         {
-           
-        }
-        else
-        {
-        
-        //Debug.Log(m_IsWalking);
-        Vector2 m_MoveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
+            //Debug.Log(m_IsWalking);
+            Vector2 m_MoveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
 
-        m_CurrentSpeed.x = m_MoveDirection.x * moveForce * Time.deltaTime;
-        //Debug.Log("Current speed : " + m_CurrentSpeed);
+            m_CurrentSpeed.x = m_MoveDirection.x * moveForce * Time.deltaTime;
+            //Debug.Log("Current speed : " + m_CurrentSpeed);
 
-        if(Mathf.Abs(m_RigidBody.velocity.x)<= maxSpeed)
-        {
-            if (m_JumpState)
+            if(Mathf.Abs(m_RigidBody.velocity.x)<= maxSpeed)
             {
-                m_RigidBody.AddForce(jumpHorizontalSpeed * m_CurrentSpeed);
-            }
-            else
-            {
-                m_RigidBody.AddForce(m_CurrentSpeed);
-                m_IsWalking = true;
-            }
+                if (m_JumpState)
+                {
+                    m_RigidBody.AddForce(jumpHorizontalSpeed * m_CurrentSpeed);
+                }
+                else
+                {
+                    m_RigidBody.AddForce(m_CurrentSpeed);
+                    m_IsWalking = true;
+                }
             
-        } 
+            } 
 
-        if(Mathf.Abs(m_RigidBody.velocity.x) <= 1.5)
-        {
-            m_IsWalking = false;
-        }
-
-        m_IsGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
-
-        JumpRisingEdgeDetection(m_CurrentSpeed);
-
-        m_MoveInput = Input.GetAxis("Horizontal");
-
-        if (waterfall)
-        {
-            if (m_RigidBody.velocity.y > -Mathf.Abs(waterfallSpeed))
-                m_RigidBody.velocity = new Vector3(m_RigidBody.velocity.x, -Mathf.Abs(waterfallSpeed));
-            if (parachuting) parachuting = false;
-        }
-
-
-        if (parachuting)
-        {
-            if (m_IsGrounded)
+            if(Mathf.Abs(m_RigidBody.velocity.x) <= 1.5)
             {
-                parachuting = false;
-                m_ParachuteIsOn = false;
+                m_IsWalking = false;
             }
-            else if ((m_RigidBody.velocity.y < -Mathf.Abs(parachuteSpeed)) && m_ParachuteIsOn)
-                m_RigidBody.velocity = new Vector3(m_RigidBody.velocity.x, -Mathf.Abs(parachuteSpeed));
-        }
+
+            m_IsGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+
+            JumpRisingEdgeDetection(m_CurrentSpeed);
+
+            m_MoveInput = Input.GetAxis("Horizontal");
+
+            if (waterfall)
+            {
+                if (m_RigidBody.velocity.y > -Mathf.Abs(waterfallSpeed))
+                    m_RigidBody.velocity = new Vector3(m_RigidBody.velocity.x, -Mathf.Abs(waterfallSpeed));
+                if (parachuting) parachuting = false;
+            }
+
+
+            if (parachuting)
+            {
+                if (m_IsGrounded)
+                {
+                    parachuting = false;
+                    m_ParachuteIsOn = false;
+                }
+                else if ((m_RigidBody.velocity.y < -Mathf.Abs(parachuteSpeed)) && m_ParachuteIsOn)
+                    m_RigidBody.velocity = new Vector3(m_RigidBody.velocity.x, -Mathf.Abs(parachuteSpeed));
+            }
 
 
 
-        if (facingRight == false && m_MoveInput > 0)
-        {
-            Flip();
-        } else if(facingRight == true && m_MoveInput < 0)
-        {
-            Flip();
-        }
+            if (facingRight == false && m_MoveInput > 0)
+            {
+                Flip();
+            } else if(facingRight == true && m_MoveInput < 0)
+            {
+                Flip();
+            }
         }
     }
 
