@@ -4,11 +4,24 @@ using UnityEngine;
 
 public class DragManager : MonoBehaviour
 {
+    private static DragManager _instance;
     private Vector3 offset;
     [HideInInspector]
     public Card currentCard = null;
     private Deck deck;
+    public static DragManager Instance { get => _instance; set => _instance = value; }
 
+    public void Awake()
+    {
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
     public void Start()
     {
         if(!deck)
