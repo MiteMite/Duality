@@ -208,8 +208,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flamme: {fileID: 3520438813095484393}
-  upTime: 2
-  downTime: 2
+  upTime: 1.5
+  downTime: 3
 --- !u!61 &3520438813396058991
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -334,8 +334,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flamme: {fileID: 5427047956767150578}
-  upTime: 2
-  downTime: 2
+  upTime: 1.5
+  downTime: 3
 --- !u!61 &886497811683039444
 BoxCollider2D:
   m_ObjectHideFlags: 0
