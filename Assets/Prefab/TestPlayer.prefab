@@ -241,7 +241,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8540242724781091286, guid: 978a33230bc56ab4b86946acd943d564, type: 3}
       propertyPath: wallJumpForce
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8540242724781091286, guid: 978a33230bc56ab4b86946acd943d564, type: 3}
       propertyPath: parachuteSpeed
