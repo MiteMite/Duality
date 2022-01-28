@@ -62,7 +62,8 @@ public class LevelStateManager : MonoBehaviour
         else if (m_currentState == playingState && Input.GetKeyDown(KeyCode.F))
         {
             SwitchState(placementState);
-        }else if (Input.GetKeyDown(KeyCode.V) && m_currentState == rewardState)
+        }
+        else if (Input.GetKeyDown(KeyCode.V) && m_currentState == rewardState)
         {
             GameManager.Instance.NextScene();
         }

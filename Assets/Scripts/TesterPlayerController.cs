@@ -11,8 +11,8 @@ public class TesterPlayerController : MonoBehaviour
 
             //Debug.Log("Key down");
 
-            EventManager.Instance.SendPhaseChangeEvent(
-                LevelStateManager.Instance.playingState);
+            //EventManager.Instance.SendPhaseChangeEvent(
+                //LevelStateManager.Instance.playingState);
         }
     }
 

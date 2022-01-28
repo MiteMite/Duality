@@ -8,7 +8,7 @@ public class LevelEnd : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            EventManager.Instance.SendPhaseChangeEvent(LevelStateManager.Instance.rewardState);
+            LevelStateManager.Instance.SwitchState(LevelStateManager.Instance.rewardState);
         }
     }
 }
