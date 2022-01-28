@@ -16,7 +16,7 @@ public class RotatingSquare : MonoBehaviour
         if (m_IsRotating)
         {
             transform.Rotate(new Vector3(0, 0, speed * 90 * Time.deltaTime));
-            m_RotationAngle = speed * 90 * Time.deltaTime;
+            m_RotationAngle += speed * 90 * Time.deltaTime;
 
             if(m_RotationAngle >= 90)
             {
