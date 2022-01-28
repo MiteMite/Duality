@@ -8,26 +8,26 @@ public class RotatingSquare : MonoBehaviour
     public float rotationStopDuration;
     private float m_Timer;
     private bool m_IsRotating = true;
-    private float m_RotationAngle;
+    private float m_RotationAngle = 0;
 
     void FixedUpdate()
     {
-        m_Timer += Time.deltaTime;
 
         if (m_IsRotating)
         {
             transform.Rotate(new Vector3(0, 0, speed * 90 * Time.deltaTime));
-
             m_RotationAngle = speed * 90 * Time.deltaTime;
 
             if(m_RotationAngle >= 90)
             {
                 m_IsRotating = false;
+                m_Timer = 0f;
+                m_RotationAngle = 0;
             }
 
             //Debug.Log((int)(transform.localEulerAngles.z));
 
-            switch ((int)(transform.localEulerAngles.z))
+            /*switch ((int)(transform.localEulerAngles.z))
             {
 
                 case 90:
@@ -37,14 +37,18 @@ public class RotatingSquare : MonoBehaviour
                     m_IsRotating = false;
                     m_Timer = 0f;
                     break;
-            }
+            }*/
 
         }
-
-        if (m_Timer >= rotationStopDuration)
+        else
         {
-            m_IsRotating = true;
+            m_Timer += Time.deltaTime;
+            if (m_Timer >= rotationStopDuration)
+            {
+                m_IsRotating = true;
+            }
         }
+
 
 
     }
