@@ -291,7 +291,7 @@ MonoBehaviour:
     nightSide: {fileID: 11400000, guid: 4dab8812590805140852c64598252dbd, type: 2}
     isNight: 0
   - daySide: {fileID: 11400000, guid: d1369aa74114dab43970f0b4716f8942, type: 2}
-    nightSide: {fileID: 11400000, guid: 7c41673e83d471744a4e32df7fbb94f3, type: 2}
+    nightSide: {fileID: 11400000, guid: 0498429ad67582e47ba8baf23968e7cf, type: 2}
     isNight: 1
   - daySide: {fileID: 11400000, guid: 2f9032ec4fad52b48a56e8633709f78c, type: 2}
     nightSide: {fileID: 11400000, guid: 079c706e21075674e89386ad235bf23d, type: 2}
