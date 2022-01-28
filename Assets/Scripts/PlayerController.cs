@@ -28,6 +28,10 @@ public class PlayerController : MonoBehaviour
     public float checkRadius;
     public LayerMask whatIsGround;
 
+    private bool m_HasHitWall = false;
+    public Transform wallCheckUp;
+    public Transform wallCheckDown;
+
     public float landingMomentumDivider;
     private bool m_JumpState = false;
     private bool m_IsLanding = false;
@@ -47,20 +51,24 @@ public class PlayerController : MonoBehaviour
     {
         m_RigidBody = GetComponent<Rigidbody2D>();
         LevelManager.instance.currentPlayer = gameObject;
-        
+        Debug.Log("According to player, ground is : " + whatIsGround);
+
     }
 
     void FixedUpdate()
     {
         if (LevelStateManager.Instance.m_currentState == LevelStateManager.Instance.playingState)
         {
+
+
+
             //Debug.Log(m_IsWalking);
             Vector2 m_MoveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
 
             m_CurrentSpeed.x = m_MoveDirection.x * moveForce * Time.deltaTime;
             //Debug.Log("Current speed : " + m_CurrentSpeed);
 
-            if(Mathf.Abs(m_RigidBody.velocity.x)<= maxSpeed)
+            if(Mathf.Abs(m_RigidBody.velocity.x)<= maxSpeed && !m_HasHitWall)
             {
                 if (m_JumpState)
                 {
@@ -73,6 +81,23 @@ public class PlayerController : MonoBehaviour
                 }
             
             } 
+            
+            else if (Mathf.Abs(m_RigidBody.velocity.x)>= maxSpeed && !m_JumpState)
+            {
+
+                Debug.Log("I got into the flip speed condition");
+
+                Vector2 v = m_RigidBody.velocity;
+                if (facingRight)
+                {
+                    v.x = maxSpeed;
+                }
+                else if (!facingRight)
+                {
+                    v.x = (-1) * maxSpeed;
+                }
+                m_RigidBody.velocity = v;
+            }
 
             if(Mathf.Abs(m_RigidBody.velocity.x) <= 1.5)
             {
@@ -81,9 +106,30 @@ public class PlayerController : MonoBehaviour
 
             m_IsGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
 
+            if (Physics2D.OverlapCircle(wallCheckUp.position, checkRadius, whatIsGround) || Physics2D.OverlapCircle(wallCheckDown.position, checkRadius, whatIsGround))
+            {
+                m_HasHitWall = true;
+            }
+            else
+                m_HasHitWall = false;
+
+            if (m_HasHitWall)
+            {
+                Debug.Log("Wall hit");
+            }
+
             JumpRisingEdgeDetection(m_CurrentSpeed);
 
             m_MoveInput = Input.GetAxis("Horizontal");
+
+            if (facingRight == false && m_MoveInput > 0)
+            {
+                Flip();
+            }
+            else if (facingRight == true && m_MoveInput < 0)
+            {
+                Flip();
+            }
 
             if (waterfall)
             {
@@ -91,7 +137,6 @@ public class PlayerController : MonoBehaviour
                     m_RigidBody.velocity = new Vector3(m_RigidBody.velocity.x, -Mathf.Abs(waterfallSpeed));
                 if (parachuting) parachuting = false;
             }
-
 
             if (parachuting)
             {
@@ -105,14 +150,6 @@ public class PlayerController : MonoBehaviour
             }
 
 
-
-            if (facingRight == false && m_MoveInput > 0)
-            {
-                Flip();
-            } else if(facingRight == true && m_MoveInput < 0)
-            {
-                Flip();
-            }
         }
     }
 
@@ -183,16 +220,12 @@ public class PlayerController : MonoBehaviour
         scaler.x *= -1;
         transform.localScale = scaler;
 
-        m_RigidBody.AddForce(jumpFlipModifier * m_CurrentSpeed);
-        m_PreJumbVector.x = m_PreJumbVector.x * (-1);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Bumper"))
+        if (m_JumpState)
         {
-            m_IsBouncing = true;
+            m_RigidBody.AddForce(jumpFlipModifier * m_CurrentSpeed);
+            m_PreJumbVector.x = m_PreJumbVector.x * (-1);
         }
+        
     }
 
     public void StartWalljump()
