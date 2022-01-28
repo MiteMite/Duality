@@ -19,7 +19,8 @@ public class Card : MonoBehaviour, IPhaseListener
     [HideInInspector]
     public GameObject draggable;
 
-    private bool spawned = false;
+    [HideInInspector]
+    public bool spawned = false;
 
     void Start()
     {

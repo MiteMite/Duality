@@ -19,12 +19,14 @@ public class IngredientCard : MonoBehaviour, IPhaseListener
             card.gameObject.SetActive(true);
             card.Flip();
             Deck.Instance.AddCard(card);
+            card.spawned = false;
             Destroy(gameObject);
         }
         if (levelStat == LevelStateManager.Instance.placementState)
         {
             card.gameObject.SetActive(true);
             draggable.SetActive(true);
+            card.spawned = false;
             Destroy(gameObject);
         }
     }
