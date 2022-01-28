@@ -113,4 +113,9 @@ public class Card : MonoBehaviour, IPhaseListener
             Spawn();
         }
     }
+
+    public void setSprite()
+    {
+        GetComponent<SpriteRenderer>().sprite = card.isNight ? card.nightSide.artwork : card.daySide.artwork;
+    }
 }
