@@ -147,19 +147,21 @@ public class PlayerController : MonoBehaviour
         if ((Input.GetKeyDown(KeyCode.Space)) && (m_IsGrounded || walljumping || m_ParachuteIsOn))
         {
 
-            m_RigidBody.velocity = Vector2.up * jumpForce;
-
-            //SoundManager.Instance.PlaySound("jump");
-
-            if (walljumping)
-            {
-                m_RigidBody.velocity += Vector2.left * wallJumpForce;
-                walljumping = false;
-            }
-
             if (m_ParachuteIsOn)
             {
                 m_ParachuteIsOn = false;
+            }
+            else
+            {
+                m_RigidBody.velocity = Vector2.up * jumpForce;
+
+                //SoundManager.Instance.PlaySound("jump");
+
+                if (walljumping)
+                {
+                    m_RigidBody.velocity += Vector2.left * wallJumpForce;
+                    walljumping = false;
+                }
             }
         }
         else if((Input.GetKeyDown(KeyCode.Space)) && parachuting && (!m_ParachuteIsOn))
