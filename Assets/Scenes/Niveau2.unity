@@ -237,6 +237,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &40262707 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 158198434664212486, guid: 0fba35f6fa3c8364d9c1e9c9e0048813, type: 3}
+  m_PrefabInstance: {fileID: 537535720}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &40262712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40262707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f87eeaa7d1c9654ba885dc4d0c69460, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentCard: {fileID: 0}
 --- !u!4 &47000402 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2297073954675504466, guid: 353d35de6b5acb542aef39bd532d5c73, type: 3}
@@ -257,7 +275,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &123676332
 Transform:
   m_ObjectHideFlags: 0
@@ -307,7 +325,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1815471833}
-  - {fileID: 1118879508}
   - {fileID: 2116800651}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -623,10 +640,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck
       objectReference: {fileID: 0}
+    - target: {fileID: 158198434664212486, guid: 0fba35f6fa3c8364d9c1e9c9e0048813, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 158198434664212506, guid: 0fba35f6fa3c8364d9c1e9c9e0048813, type: 3}
       propertyPath: dragManager
       value: 
-      objectReference: {fileID: 1118879509}
+      objectReference: {fileID: 0}
     - target: {fileID: 158198434664212506, guid: 0fba35f6fa3c8364d9c1e9c9e0048813, type: 3}
       propertyPath: cards.Array.size
       value: 3
@@ -1767,50 +1788,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1118879507
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1118879508}
-  - component: {fileID: 1118879509}
-  m_Layer: 0
-  m_Name: DragManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1118879508
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1118879507}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 153252921}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1118879509
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1118879507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f87eeaa7d1c9654ba885dc4d0c69460, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentCard: {fileID: 0}
 --- !u!4 &1213771690 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7830387211637726303, guid: 830de6676ee01bb4797e3a827dad2341, type: 3}
@@ -3651,7 +3628,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 153252921}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2116800652
 MonoBehaviour:
