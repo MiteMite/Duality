@@ -132,7 +132,7 @@ public class SoundManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Could not find player in scene");
+            //Debug.Log("Could not find player in scene");
         }
 
         /*

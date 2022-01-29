@@ -15,6 +15,7 @@ MonoBehaviour:
   type: 0
   cardName: Falling Spikes
   pointCost: 0
+  cardValue: 0
   description: 
   artwork: {fileID: 21300000, guid: 2d8b82b4f99ede24ebd7913eec1c5056, type: 3}
   prefab: {fileID: 2737329069852903937, guid: c7307e600fe1a664eb541284d1a3f80d, type: 3}

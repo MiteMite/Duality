@@ -83,6 +83,7 @@ public class EventManager : MonoBehaviour
 
     public void SendDeathEvent()
     {
+        Debug.Log("Event Manager Sending Death Event");
         foreach(IDeathListener deathListener in registeredDeathListeners)
         {
             if (deathListener != null)

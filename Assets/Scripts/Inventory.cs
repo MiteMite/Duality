@@ -129,5 +129,19 @@ public class Inventory : MonoBehaviour, IPhaseListener, IDeathListener
     public void OnDeathEvent()
     {
         m_TmpCurrency = 0;
+        Debug.Log("On Death Event of Inventory works");
+    }
+
+    public int DeckValue()
+    {
+        int deckValue = 0;
+
+        foreach(FullCard card in cardList)
+        {
+            deckValue += card.daySide.cardValue;
+            deckValue += card.nightSide.cardValue;
+        }
+
+        return deckValue;
     }
 }

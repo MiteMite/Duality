@@ -15,6 +15,7 @@ public abstract class CardObject : ScriptableObject
 
     public string cardName;
     public int pointCost;
+    public int cardValue;
     [TextArea(15,20)]
     public string description;
 

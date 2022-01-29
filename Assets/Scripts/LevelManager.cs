@@ -25,8 +25,8 @@ public class LevelManager : MonoBehaviour
     {
         playerInventory = Inventory.Instance;
 
-        if (currentPlayer == null)
-            currentPlayer = Instantiate(dummyPrefab, respawnPoint.position, Quaternion.identity);
+        if (currentDummy == null)
+            currentDummy = Instantiate(dummyPrefab, respawnPoint.position, Quaternion.identity);
         LevelStateManager.Instance.m_OnPhaseChangeEvent.AddListener(OnPhaseChangeEvent);
     }
 
@@ -44,6 +44,8 @@ public class LevelManager : MonoBehaviour
 
     public void OnPhaseChangeEvent(BaseLevelStat levelState)
     {
+        //Debug.Log("Phase Change Event called on Level Manager");
+
         if (levelState == LevelStateManager.Instance.placementState)
         {
             if (currentPlayer != null)
@@ -52,6 +54,7 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
+            //Debug.Log("Current Dummy is " + currentDummy);
             if (currentDummy != null)
                 Destroy(currentDummy);
             Respawn();

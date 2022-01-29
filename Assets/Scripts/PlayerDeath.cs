@@ -10,6 +10,7 @@ public class PlayerDeath : MonoBehaviour
         {
             Destroy(gameObject);
             LevelManager.instance.OnPlayerDeath();
+            EventManager.Instance.SendDeathEvent();
         }
     }
 
@@ -19,6 +20,7 @@ public class PlayerDeath : MonoBehaviour
         {
             Destroy(gameObject);
             LevelManager.instance.OnPlayerDeath();
+            EventManager.Instance.SendDeathEvent();
         }
     }
 

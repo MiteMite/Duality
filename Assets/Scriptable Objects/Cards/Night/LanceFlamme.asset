@@ -15,6 +15,7 @@ MonoBehaviour:
   type: 0
   cardName: LanceFlamme
   pointCost: 0
+  cardValue: 25
   description: 
   artwork: {fileID: 21300000, guid: 4321ce5157339054abaa854eaa48f3bf, type: 3}
   prefab: {fileID: 3520438813396058990, guid: ad206f552363a4f4a9e5fd3908d92414, type: 3}

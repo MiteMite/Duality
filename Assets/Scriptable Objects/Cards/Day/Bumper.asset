@@ -15,6 +15,7 @@ MonoBehaviour:
   type: 1
   cardName: Bumper
   pointCost: 0
+  cardValue: 15
   description: 
   artwork: {fileID: 21300000, guid: 2ea06055200108742b1ac68420c4e7e7, type: 3}
   prefab: {fileID: 7243116818358003274, guid: 92964c690ee51254ba14180a21d4fa60, type: 3}

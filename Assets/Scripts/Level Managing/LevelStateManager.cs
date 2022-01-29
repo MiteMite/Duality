@@ -18,8 +18,10 @@ public class LevelStateManager : MonoBehaviour
 
     public static LevelStateManager Instance { get
         {
+            
             if (m_AppIsQuitting)
             {
+                
                 m_Instance = null;
                 return m_Instance;
             }
@@ -30,12 +32,19 @@ public class LevelStateManager : MonoBehaviour
                 gameObjectInstance.AddComponent<LevelStateManager>();
                 DontDestroyOnLoad(gameObjectInstance);
                 m_Instance = gameObjectInstance.GetComponent<LevelStateManager>();
+                
             }
-
+            
             return m_Instance;
         }
     }
-
+    private void Awake()
+    {
+        if (m_OnPhaseChangeEvent == null)
+        {
+            m_OnPhaseChangeEvent = new UnityEvent<BaseLevelStat>();
+        }
+    }
     private void OnDestroy()
     {
         {
@@ -89,7 +98,7 @@ public class LevelStateManager : MonoBehaviour
 
     public void SwitchState(BaseLevelStat state)
     {
-        Debug.Log("Changing state to " + state.GetType().ToString());
+        //Debug.Log("Changing state to " + state.GetType().ToString());
         m_currentState = state;
         state.EnterState(this);
         EventManager.Instance.SendPhaseChangeEvent(state);
