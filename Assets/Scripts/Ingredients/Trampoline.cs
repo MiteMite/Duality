@@ -30,7 +30,7 @@ public class Trampoline : MonoBehaviour
             Vector2 v = collision.transform.GetComponent<Rigidbody2D>().velocity;
             v.y *= (-1) * force;
             collision.transform.GetComponent<Rigidbody2D>().velocity = v;
-            Debug.Log("Player hit me");
+            //Debug.Log("Player hit me");
             
             //collision.transform.GetComponent<Rigidbody2D>().velocity += (Vector2.up * force);
             m_PlayerCollision = true;

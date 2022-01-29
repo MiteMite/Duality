@@ -16,5 +16,5 @@ MonoBehaviour:
   cardName: MovingPlatform Verti
   pointCost: 0
   description: 
-  artwork: {fileID: 21300000, guid: b8c04b95c7779af479885a7159fd8923, type: 3}
+  artwork: {fileID: 21300000, guid: f64c20c4c2ed10a44bf8bdae29437292, type: 3}
   prefab: {fileID: 4212755524609380741, guid: 5596651abba0b414eb74786a24f15d2d, type: 3}

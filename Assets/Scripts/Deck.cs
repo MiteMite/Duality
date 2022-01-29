@@ -40,7 +40,7 @@ public class Deck : MonoBehaviour
     {
         if (!cards.Contains(card))
         {
-            if(cards.Count > 0)
+            if(cards.Count > 0 && currentCardPos >= 0 && currentCardPos < cards.Count)
             {
                 cards.Insert(currentCardPos, card);
             }
@@ -49,9 +49,9 @@ public class Deck : MonoBehaviour
                 cards.Add(card);
             }
             card.transform.parent = transform;
+            card.draggable = null;
+            card.MoveTo(transform.position);
         }
-        card.draggable = null;
-        card.MoveTo(transform.position);
     }
     public void RemoveCard(Card card)
     {
@@ -61,6 +61,7 @@ public class Deck : MonoBehaviour
 
     private void PlaceCards()
     {
+        currentCardPos = 0;
         for (int i = 0; i < cards.Count; i++)
         {
             cards[i].GetComponent<SpriteRenderer>().sortingOrder = i;
@@ -77,7 +78,7 @@ public class Deck : MonoBehaviour
         if (numCards == 0) numCards = 1;
         Vector3 target = transform.position;
         float targetx = transform.position.x - (width / 2) + (width / numCards) * i;
-        if(dragManager.currentCard != null && Mathf.Abs(dragManager.currentCard.transform.position.y-transform.position.y) <3)
+        if (dragManager.currentCard != null && Mathf.Abs(dragManager.currentCard.transform.position.y-transform.position.y) <3)
         {
             //move autour de la currentCard
             float currentCardWidth = 3f;

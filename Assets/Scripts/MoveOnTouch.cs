@@ -7,8 +7,6 @@ public class MoveOnTouch : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("I collide");
-
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.collider.transform.SetParent(transform);
