@@ -20,6 +20,7 @@ public class VendorManager : MonoBehaviour, IPhaseListener
         {
             //spawn les cartes
             rewardState = true;
+            GetComponent<SpriteRenderer>().enabled = true;
 
             if (levelVendorCards.Length == 3)
             {
@@ -45,6 +46,8 @@ public class VendorManager : MonoBehaviour, IPhaseListener
     {
         EventManager.Instance.RegisterPhaseListener(this);
         m_PlayerInventory = Inventory.Instance;
+        transform.position = new Vector3(0, 4, 0);
+        GetComponent<SpriteRenderer>().enabled = false;
 
         for (int i = 0; i < levelVendorCards.Length; i++)
         {
