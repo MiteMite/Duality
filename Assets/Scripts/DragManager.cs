@@ -10,7 +10,8 @@ public class DragManager : MonoBehaviour
     public Card currentCard = null;
     private Deck deck;
 
-    private List<GameObject> droppablesTaken;
+    [HideInInspector]
+    public List<GameObject> droppablesTaken;
     public static DragManager Instance { get => _instance; set => _instance = value; }
 
     public void Awake()

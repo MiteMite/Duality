@@ -73,7 +73,7 @@ public class Deck : MonoBehaviour
 
     private Vector3 GetPosition(int i)
     {
-        width = cards.Count;
+        width = cards.Count*3;
         int numCards = cards.Count-1;
         if (numCards == 0) numCards = 1;
         Vector3 target = transform.position;

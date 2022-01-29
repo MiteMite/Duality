@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Obstacle
   - Bumper
+  - Droppable
   layers:
   - Default
   - TransparentFX
