@@ -15,6 +15,8 @@ public class CurrencySpawner : MonoBehaviour, IPhaseListener, IDeathListener
         EventManager.Instance.RegisterDeathListener(this);
 
         m_Transform = GetComponent<Transform>();
+
+        m_CurrentCurrency = Instantiate(currencyPreFab, m_Transform.position, Quaternion.identity);
     }
 
     void OnDestroy()
@@ -34,7 +36,12 @@ public class CurrencySpawner : MonoBehaviour, IPhaseListener, IDeathListener
 
     public void OnPhaseChangeEvent(BaseLevelStat levelStat)
     {
-        if (levelStat == LevelStateManager.Instance.playingState)
+
+        if(levelStat == LevelStateManager.Instance.placementState)
+        {
+            m_CurrentCurrency = Instantiate(currencyPreFab, m_Transform.position, Quaternion.identity);
+        }
+        else if (levelStat == LevelStateManager.Instance.playingState)
         {
             m_CurrentCurrency = Instantiate(currencyPreFab, m_Transform.position, Quaternion.identity);
         }
