@@ -11,6 +11,9 @@ public class LanceFlamme : MonoBehaviour
     private bool on = false;
     private float currentTime;
 
+    public Sprite noFlame;
+    public Sprite withFlame;
+
     public void FixedUpdate()
     {
         if (on)
@@ -20,6 +23,7 @@ public class LanceFlamme : MonoBehaviour
                 on = false;
                 currentTime = 0;
                 flamme.SetActive(false);
+                GetComponent<SpriteRenderer>().sprite = noFlame;
             }
             else
             {
@@ -33,6 +37,7 @@ public class LanceFlamme : MonoBehaviour
                 on = true;
                 currentTime = 0;
                 flamme.SetActive(true);
+                GetComponent<SpriteRenderer>().sprite = withFlame;
             }
             else
             {

@@ -22,11 +22,34 @@ public class Card : MonoBehaviour, IPhaseListener
     [HideInInspector]
     public bool spawned = false;
 
+    private bool flipped;
+
     void Start()
     {
         EventManager.Instance.RegisterPhaseListener(this);
         GetComponent<SpriteRenderer>().sprite = card.isNight ? card.nightSide.artwork : card.daySide.artwork;
     }
+
+    public void Update()
+    {
+        if (flipped)
+        {
+            if (!Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.LeftShift))
+            {
+                flipped = false;
+                GetComponent<SpriteRenderer>().sprite = card.isNight ? card.nightSide.artwork : card.daySide.artwork;
+            }
+        }
+        else
+        {
+            if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.LeftShift))
+            {
+                flipped = true;
+                GetComponent<SpriteRenderer>().sprite = card.isNight ? card.daySide.artwork : card.nightSide.artwork;
+            }
+        }
+    }
+
 
     void OnDestroy()
     {

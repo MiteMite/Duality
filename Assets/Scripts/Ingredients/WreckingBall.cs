@@ -30,6 +30,7 @@ public class WreckingBall : MonoBehaviour
                 Vector3 pos = transform.position + new Vector3(Mathf.Sin(position) * distance, Mathf.Cos(position) * distance);
                 ball.transform.position = pos;
                 position += Time.deltaTime * speed;
+                ball.transform.Rotate(new Vector3(0, 0, -(Time.deltaTime * speed * 360) / (Mathf.PI * 2)));
             }
         }
         else
@@ -42,6 +43,7 @@ public class WreckingBall : MonoBehaviour
             {
                 Vector3 pos = transform.position + new Vector3(Mathf.Sin(position) * distance, Mathf.Cos(position) * distance);
                 ball.transform.position = pos;
+                ball.transform.Rotate(new Vector3(0, 0, (Time.deltaTime * speed * 360) / (Mathf.PI * 2)));
                 position -= Time.deltaTime * speed;
             }
         }
