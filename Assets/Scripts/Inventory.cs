@@ -20,6 +20,8 @@ public class Inventory : MonoBehaviour, IPhaseListener, IDeathListener
     private int m_CurrencyQte;
     private int m_TmpCurrency = 0;
 
+    
+
     public static Inventory Instance { get => _instance; set => _instance = value; }
 
     public void Awake()
@@ -93,6 +95,11 @@ public class Inventory : MonoBehaviour, IPhaseListener, IDeathListener
         return m_CurrencyQte;
     }
 
+    public int GetTmpCurrQte()
+    {
+        return m_TmpCurrency;
+    }
+
     public bool CardInInventory(FullCard card)
     {
         return cardList.Contains(card);
@@ -101,13 +108,11 @@ public class Inventory : MonoBehaviour, IPhaseListener, IDeathListener
     public void IncrementTmpCurrency()
     {
         m_TmpCurrency++;
-        Debug.Log("I am now holding " + m_TmpCurrency + " buckarinos !");
     }
 
     public void EmptyTmpCurrency()
     {
         m_TmpCurrency = 0;
-        Debug.Log("I have lost all my buckarinos !");
     }
 
     public void OnPhaseChangeEvent(BaseLevelStat levelStat)

@@ -8,6 +8,7 @@ TagManager:
   - Bumper
   - Droppable
   - Grenouille
+  - CurrencySpawner
   layers:
   - Default
   - TransparentFX
