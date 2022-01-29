@@ -3806,7 +3806,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnPoint: {fileID: 1058762162}
   playerPrefab: {fileID: 604188259923258720, guid: aa01de933b33bb34083884d9d5e5b135, type: 3}
+  dummyPrefab: {fileID: 8540242724781091115, guid: 5e74a94a5a045254ab71345f18a2528a, type: 3}
   currentPlayer: {fileID: 0}
+  currentDummy: {fileID: 0}
   playerInventory: {fileID: 0}
 --- !u!1 &2138611275
 GameObject:

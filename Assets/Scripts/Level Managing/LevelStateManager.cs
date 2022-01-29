@@ -14,6 +14,8 @@ public class LevelStateManager : MonoBehaviour
     static LevelStateManager m_Instance;
     static bool m_AppIsQuitting;
 
+    public UnityEvent<BaseLevelStat> m_OnPhaseChangeEvent;
+
     public static LevelStateManager Instance { get
         {
             if (m_AppIsQuitting)
@@ -91,6 +93,7 @@ public class LevelStateManager : MonoBehaviour
         m_currentState = state;
         state.EnterState(this);
         EventManager.Instance.SendPhaseChangeEvent(state);
+        m_OnPhaseChangeEvent.Invoke(state);
 
     }
 }

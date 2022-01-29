@@ -9,10 +9,12 @@ public class LevelManager : MonoBehaviour
     public Transform respawnPoint;
 
     public GameObject playerPrefab;
+    public GameObject dummyPrefab;
     public GameObject currentPlayer;
+    public GameObject currentDummy;
 
     public Inventory playerInventory;
-    
+
 
     private void Awake()
     {
@@ -22,6 +24,10 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         playerInventory = Inventory.Instance;
+
+        if (currentPlayer == null)
+            currentPlayer = Instantiate(dummyPrefab, respawnPoint.position, Quaternion.identity);
+        LevelStateManager.Instance.m_OnPhaseChangeEvent.AddListener(OnPhaseChangeEvent);
     }
 
     public void OnPlayerDeath()
@@ -32,7 +38,30 @@ public class LevelManager : MonoBehaviour
 
     public void Respawn()
     {
-        if(currentPlayer == null)
+        if (currentPlayer == null)
             currentPlayer = Instantiate(playerPrefab, respawnPoint.position, Quaternion.identity);
     }
+
+    public void OnPhaseChangeEvent(BaseLevelStat levelState)
+    {
+        if (levelState == LevelStateManager.Instance.placementState)
+        {
+            if (currentPlayer != null)
+                Destroy(currentPlayer);
+            SpawnDummyPlayer();
+        }
+        else
+        {
+            if (currentDummy != null)
+                Destroy(currentDummy);
+            Respawn();
+        }
+    }
+
+    public void SpawnDummyPlayer()
+    {
+        if (currentDummy == null)
+            currentDummy = Instantiate(dummyPrefab, respawnPoint.position, Quaternion.identity);
+    }
+
 }

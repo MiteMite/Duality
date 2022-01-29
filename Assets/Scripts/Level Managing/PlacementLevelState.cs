@@ -8,7 +8,7 @@ public class PlacementLevelState : BaseLevelStat
 
     public override void EnterState(LevelStateManager level)
     {
-
+        
     }
 
     public override void UpdateState(LevelStateManager level)
