@@ -1816,10 +1816,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestPlayer
       objectReference: {fileID: 0}
-    - target: {fileID: 604188259923258781, guid: aa01de933b33bb34083884d9d5e5b135, type: 3}
-      propertyPath: checkRadius
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 604188259923258783, guid: aa01de933b33bb34083884d9d5e5b135, type: 3}
       propertyPath: m_RootOrder
       value: 3

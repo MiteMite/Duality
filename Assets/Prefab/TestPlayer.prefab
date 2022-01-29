@@ -305,7 +305,7 @@ PrefabInstance:
       objectReference: {fileID: 70627484983610041}
     - target: {fileID: 8540242724781091286, guid: 978a33230bc56ab4b86946acd943d564, type: 3}
       propertyPath: checkRadius
-      value: 0.2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8540242724781091286, guid: 978a33230bc56ab4b86946acd943d564, type: 3}
       propertyPath: wallCheckUp
