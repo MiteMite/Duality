@@ -52,6 +52,11 @@ public class SoundManager : MonoBehaviour
             return _instance;
         }
     }
+    public AudioSource GetBumperSource(){
+        return bumperAudio;
+    }    public AudioSource GetTrampolineSource(){
+        return trampolineAudio;
+    }
     void Awake()
     {
         trampolineAudio = gameObject.AddComponent<AudioSource>();
@@ -86,7 +91,7 @@ public class SoundManager : MonoBehaviour
         PlaySound("theme", muzikAudio);
         //PlaySound("theme");
     }
-    private void PlaySound(string SoundName,AudioSource source)
+    public void PlaySound(string SoundName,AudioSource source)
     {
         for (int i = 0; i < SoundClipsArray.Length; i++)
         {
@@ -187,7 +192,7 @@ public class SoundManager : MonoBehaviour
                 PlaySound("lama", llamaAudio);
             }
         }
-        if (GameObject.Find("Bumper"))
+        /*if (GameObject.Find("Bumper"))
         {
             if (GameObject.Find("Bumper").GetComponent<Bumper>().GetBumperState() == true)
             {
@@ -196,16 +201,16 @@ public class SoundManager : MonoBehaviour
                     PlaySound("bumper", bumperAudio);
                 }
             }
-        }
-        if (GameObject.Find("Trampoline"))
+        }*/
+        /*if (GameObject.Find("Trampoline(Clone)"))
         {
-            if (GameObject.Find("Trampoline").GetComponent<Trampoline>().GetTrampolineStatus() == true)
+            if (GameObject.Find("Trampoline(Clone)").GetComponent<Trampoline>().GetTrampolineStatus() == true)
             {
                 if (trampolineAudio.isPlaying == false)
                 {
                     PlaySound("bumper", trampolineAudio);
                 }
             }
-        }
+        }*/
     }
 }

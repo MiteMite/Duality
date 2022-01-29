@@ -28,7 +28,6 @@ public class Parachute : MonoBehaviour, IDeathListener
 
     public void Activate(BaseLevelStat levelState)
     {
-        Debug.Log("Method Activate of Parachute called");
         if(levelState == LevelStateManager.Instance.placementState)
         {
             this.gameObject.SetActive(true);
@@ -37,7 +36,6 @@ public class Parachute : MonoBehaviour, IDeathListener
 
     public void OnDeathEvent()
     {
-        Debug.Log("Method OnDeathEvent of Parachute called");
         this.gameObject.SetActive(true);
     }
 }

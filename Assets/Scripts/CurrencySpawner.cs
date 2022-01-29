@@ -37,11 +37,11 @@ public class CurrencySpawner : MonoBehaviour, IPhaseListener, IDeathListener
     public void OnPhaseChangeEvent(BaseLevelStat levelStat)
     {
 
-        if(levelStat == LevelStateManager.Instance.placementState)
+        if(levelStat == LevelStateManager.Instance.placementState && m_CurrentCurrency == null)
         {
             m_CurrentCurrency = Instantiate(currencyPreFab, m_Transform.position, Quaternion.identity);
         }
-        else if (levelStat == LevelStateManager.Instance.playingState)
+        else if (levelStat == LevelStateManager.Instance.playingState && m_CurrentCurrency == null)
         {
             m_CurrentCurrency = Instantiate(currencyPreFab, m_Transform.position, Quaternion.identity);
         }
