@@ -1417,9 +1417,9 @@ Transform:
   - {fileID: 1157354601}
   - {fileID: 1491168304}
   - {fileID: 1924205321}
+  - {fileID: 1714724002}
   - {fileID: 16167078}
   - {fileID: 546448933}
-  - {fileID: 1714724002}
   - {fileID: 820978494}
   - {fileID: 1179220919}
   m_Father: {fileID: 212365994}
@@ -2897,6 +2897,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 604188259923258781, guid: aa01de933b33bb34083884d9d5e5b135, type: 3}
       propertyPath: wallJumpForce
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 604188259923258781, guid: aa01de933b33bb34083884d9d5e5b135, type: 3}
+      propertyPath: jumpFlipModifier
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 604188259923258783, guid: aa01de933b33bb34083884d9d5e5b135, type: 3}

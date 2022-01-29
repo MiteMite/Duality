@@ -104,7 +104,7 @@ MonoBehaviour:
   moveForce: 700
   maxSpeed: 10
   jumpForce: 17
-  jumpFlipModifier: 10
+  jumpFlipModifier: 5
   wallJumpForce: 0
   parachuteSpeed: 2
   waterfallSpeed: 0
@@ -113,6 +113,8 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
+  wallCheckUp: {fileID: 0}
+  wallCheckDown: {fileID: 0}
   landingMomentumDivider: 3
   jumpHorizontalSpeed: 3
 --- !u!50 &8540242724781091113
