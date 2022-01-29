@@ -38,6 +38,9 @@ public class Trampoline : MonoBehaviour
             //collision.transform.GetComponent<Rigidbody2D>().velocity += (Vector2.up * force);
             m_PlayerCollision = true;
             m_Timer = 0f;
+
+            SoundManager sound = GameObject.Find("AudioManager").GetComponent<SoundManager>();
+            sound.PlaySound("bumper",sound.GetTrampolineSource());
         }
     }
     public bool GetTrampolineStatus()
