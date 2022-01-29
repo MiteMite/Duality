@@ -5,6 +5,7 @@ using UnityEngine;
 public class VendorManager : MonoBehaviour, IPhaseListener
 {
     private FullCard[] levelVendorCards = new FullCard[3];
+    private GameObject[] instVendorCards = new GameObject[3];
     public bool rewardState = false;
     public Card cardPrefab;
     public DayCard[] dayCards;
@@ -25,14 +26,17 @@ public class VendorManager : MonoBehaviour, IPhaseListener
                 Card newCard = Instantiate(cardPrefab, new Vector3(0,0,0), Quaternion.identity);
                 newCard.card = levelVendorCards[0];
                 newCard.setSprite();
+                instVendorCards[0] = newCard.gameObject;
 
-                newCard = Instantiate(cardPrefab, new Vector3(-5, 0, 0), Quaternion.identity);
+                newCard = Instantiate(cardPrefab, new Vector3(-10, 0, 0), Quaternion.identity);
                 newCard.card = levelVendorCards[1];
                 newCard.setSprite();
+                instVendorCards[1] = newCard.gameObject;
 
-                newCard = Instantiate(cardPrefab, new Vector3(5, 0, 0), Quaternion.identity);
+                newCard = Instantiate(cardPrefab, new Vector3(10, 0, 0), Quaternion.identity);
                 newCard.card = levelVendorCards[2];
                 newCard.setSprite();
+                instVendorCards[2] = newCard.gameObject;
             }
         }
     }
@@ -61,13 +65,21 @@ public class VendorManager : MonoBehaviour, IPhaseListener
                 {
                     Card card = hit.collider.GetComponent<Card>();
                     if (card != null && !Deck.Instance.cards.Contains(card))
-                      //  && (Constants.CARD_PRICE <= m_PlayerInventory.GetCurrencyQte())) // TEMPO
+                    //  && (Constants.CARD_PRICE <= m_PlayerInventory.GetCurrencyQte())) // TEMPO
                     {
                         Debug.Log("This is " + card.name + " !");
                         Inventory.Instance.AddCard(card.card);
                         Inventory.Instance.RemoveCurrency(Constants.CARD_PRICE);
                         Deck.Instance.AddCard(card);
                         rewardState = false;
+                        for (int i = 0; i < levelVendorCards.Length; i++)
+                        {
+                            if (card.gameObject != instVendorCards[i])
+                            {
+                                Destroy(instVendorCards[i]);
+                            }
+                        }
+                        EventManager.Instance.UnregisterPhaseListener(this);
                     }
                     else
                     {

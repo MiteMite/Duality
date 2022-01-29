@@ -57,7 +57,18 @@ public class LevelStateManager : MonoBehaviour
         m_currentState.UpdateState(this);
         if (m_currentState == placementState && Input.GetKeyDown(KeyCode.F))
         {
-            SwitchState(playingState);
+            //check empty droppable
+            bool allUsed = true;
+            GameObject[] droppables = GameObject.FindGameObjectsWithTag("Droppable");
+            for (int i = 0; i < droppables.Length; i++)
+            {
+                if (!DragManager.Instance.droppablesTaken.Contains(droppables[i]))
+                {
+                    allUsed = false;
+                }
+            }
+            if(allUsed)
+                SwitchState(playingState);
         }
         else if (m_currentState == playingState && Input.GetKeyDown(KeyCode.F))
         {

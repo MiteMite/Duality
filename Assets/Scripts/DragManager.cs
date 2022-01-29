@@ -9,6 +9,9 @@ public class DragManager : MonoBehaviour
     [HideInInspector]
     public Card currentCard = null;
     private Deck deck;
+
+    [HideInInspector]
+    public List<GameObject> droppablesTaken;
     public static DragManager Instance { get => _instance; set => _instance = value; }
 
     public void Awake()
@@ -26,6 +29,7 @@ public class DragManager : MonoBehaviour
     {
         if(!deck)
             deck = GetComponent<Deck>();
+        droppablesTaken = new List<GameObject>();
     }
     private void Update()
     {
@@ -60,9 +64,15 @@ public class DragManager : MonoBehaviour
             {
                 if (!currentCard) return;
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 0, LayerMask.GetMask("Droppable"));
+
+                if (droppablesTaken.Contains(currentCard.draggable))
+                {
+                    droppablesTaken.Remove(currentCard.draggable);
+                }
+
                 if (hit.collider != null)
                 {
-                    if (hit.collider.GetComponent<Deck>())
+                    if (hit.collider.GetComponent<Deck>() || droppablesTaken.Contains(hit.collider.gameObject))
                     {
                         deck.AddCard(currentCard);
                     }
@@ -70,6 +80,7 @@ public class DragManager : MonoBehaviour
                     {
                         currentCard.MoveTo(hit.collider.transform.position);
                         currentCard.draggable = hit.collider.gameObject;
+                        droppablesTaken.Add(hit.collider.gameObject);
                     }
                 }
                 else
