@@ -20,7 +20,10 @@ public class Inventory : MonoBehaviour, IPhaseListener, IDeathListener
     private int m_CurrencyQte;
     private int m_TmpCurrency = 0;
 
-    
+    private int m_PlayerScore;
+    private int m_LvlScore;
+
+
 
     public static Inventory Instance { get => _instance; set => _instance = value; }
 
@@ -49,6 +52,9 @@ public class Inventory : MonoBehaviour, IPhaseListener, IDeathListener
         }
 
         EventManager.Instance.RegisterPhaseListener(this);
+
+        DragManager.Instance.m_OnCardAddEvent.AddListener(CardAddEvent);
+        DragManager.Instance.m_OnCardRemovedEvent.AddListener(CardRemovedEvent);
 
     }
 
@@ -125,6 +131,11 @@ public class Inventory : MonoBehaviour, IPhaseListener, IDeathListener
         {
             m_CurrencyQte += m_TmpCurrency;
             m_TmpCurrency = 0;
+
+            m_PlayerScore += m_LvlScore;
+            m_LvlScore = 0;
+
+            m_PlayerScore += (m_CurrencyQte * Constants.CURRENCY_VALUE);
         }
 
         //Debug.Log(levelStat);
@@ -150,4 +161,30 @@ public class Inventory : MonoBehaviour, IPhaseListener, IDeathListener
 
         return deckValue;
     }
+
+    public void CardAddEvent(int cardValue)
+    {
+        m_LvlScore += cardValue;
+    }
+
+    public void CardRemovedEvent(int cardValue)
+    {
+        m_LvlScore -= cardValue;
+    }
+
+    public int GetPlayerScore()
+    {
+        return m_PlayerScore;
+    }
+
+    public int GetCurrentLvlScore()
+    {
+        return m_LvlScore;
+    }
+
+    public int GetScoreFromCurrency()
+    {
+        return m_CurrencyQte * Constants.CURRENCY_VALUE;
+    }
+    
 }
