@@ -1669,6 +1669,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6106847158369606655, guid: 26521e847fd38944396d6ebcef27851c, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 6106847159731815204, guid: 26521e847fd38944396d6ebcef27851c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -4162,6 +4166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentCard: {fileID: 0}
+  droppablesTaken: []
 --- !u!1001 &1952361204
 PrefabInstance:
   m_ObjectHideFlags: 0

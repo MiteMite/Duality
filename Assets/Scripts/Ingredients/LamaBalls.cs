@@ -12,10 +12,19 @@ public class LamaBalls : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Ball trigger entered by " + collision.gameObject.name);
-        Debug.Log("Ball parent is " + this.gameObject.transform.parent.gameObject.name);
+        //Debug.Log("Ball trigger entered by " + collision.gameObject.name);
+        //Debug.Log("Ball parent is " + this.gameObject.transform.parent.gameObject.name);
+        //Debug.Log("Ball collided with object with tag " + collision.gameObject.tag);
 
-        if (!(collision.gameObject.name == this.gameObject.transform.parent.gameObject.name)
+        Debug.Log("collision.gameObject.name == this.gameObject.transform.parent.gameObject.name = "
+            + collision.gameObject.name == this.gameObject.transform.parent.gameObject.name);
+        Debug.Log("collision.gameObject.CompareTag(Grenouille) = " 
+            + collision.gameObject.CompareTag("Grenouille"));
+        Debug.Log("collision.gameObject.CompareTag(Player) = " 
+            + collision.gameObject.CompareTag("Player"));
+
+        if (!(collision.gameObject.name == this.gameObject.transform.parent.gameObject.name) 
+            && !(collision.gameObject.CompareTag("Grenouille"))
             || collision.gameObject.CompareTag("Player"))
         {
             this.gameObject.SetActive(false);
