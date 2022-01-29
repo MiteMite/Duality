@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Trampoline : MonoBehaviour
 {
-    public float force;
+    //public float force;
     public float soundTimingReset;
     public float jumpMaxVelocity;
     private bool m_PlayerCollision = false;
@@ -29,17 +29,8 @@ public class Trampoline : MonoBehaviour
         {
             Vector2 v = collision.transform.GetComponent<Rigidbody2D>().velocity;
 
-            if ((Mathf.Abs(v.y) * force) <= jumpMaxVelocity)
-            {
-                v.y *= (-1) * force;
-                Debug.Log("Below max case");
+            v.y = jumpMaxVelocity;
 
-            }
-            else
-            {
-                v.y = jumpMaxVelocity;
-                Debug.Log("Above max case");
-            }
             collision.transform.GetComponent<Rigidbody2D>().velocity = v;
 
             //Debug.Log("Player hit me");

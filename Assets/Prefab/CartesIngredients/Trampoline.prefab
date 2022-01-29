@@ -96,8 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b939c4ae57b313f408943e8b5ff09c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 1.1
   soundTimingReset: 0
+  jumpMaxVelocity: 20
 --- !u!61 &5300637691155846042
 BoxCollider2D:
   m_ObjectHideFlags: 0
