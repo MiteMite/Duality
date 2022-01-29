@@ -31,10 +31,6 @@ public class Currency : MonoBehaviour, IPhaseListener
 
     public void OnPhaseChangeEvent(BaseLevelStat levelStat)
     {
-        if(levelStat == LevelStateManager.Instance.placementState 
-            || levelStat == LevelStateManager.Instance.placementState)
-        {
-            Destroy(this.gameObject);
-        }
+
     }
 }
