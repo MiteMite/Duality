@@ -47,9 +47,12 @@ public class PlayerController : MonoBehaviour
 
     private bool m_IsWalking;
 
+    private Animator m_PlayerAnimator;
+
     void Start()
     {
         m_RigidBody = GetComponent<Rigidbody2D>();
+        m_PlayerAnimator = GetComponent<Animator>();
         LevelManager.instance.currentPlayer = gameObject;
 
     }
@@ -77,6 +80,9 @@ public class PlayerController : MonoBehaviour
                 {
                     m_RigidBody.AddForce(m_CurrentSpeed);
                     m_IsWalking = true;
+                    m_PlayerAnimator.SetBool("_IsWalking", true);
+                    m_PlayerAnimator.SetBool("_IsJumping", false);
+                    //Debug.Log("I walk");
                 }
             
             } 
@@ -99,6 +105,8 @@ public class PlayerController : MonoBehaviour
             if(Mathf.Abs(m_RigidBody.velocity.x) <= 1.5)
             {
                 m_IsWalking = false;
+                m_PlayerAnimator.SetBool("_IsWalking", false);
+                //Debug.Log("I stop walking");
             }
 
             m_IsGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
@@ -152,12 +160,19 @@ public class PlayerController : MonoBehaviour
             m_JumpState = true;
             m_PreJumbVector = currentSpeed;
             m_IsWalking = false;
+
+            m_PlayerAnimator.SetBool("_IsWalking", false);
+            m_PlayerAnimator.SetBool("_IsLanding", false);
+            m_PlayerAnimator.SetBool("_IsJumping", true);
         }
 
         else if(m_IsGrounded && m_JumpState)
         {
             m_JumpState = false;
             m_IsLanding = true;
+            m_PlayerAnimator.SetBool("_IsJumping", false);
+            m_PlayerAnimator.SetBool("_IsLanding", true);
+            Debug.Log("I land");
         }
 
         else if(m_IsGrounded && m_IsLanding && !m_IsBouncing)
@@ -165,12 +180,16 @@ public class PlayerController : MonoBehaviour
             m_PreJumbVector.x = m_PreJumbVector.x / landingMomentumDivider;
             m_RigidBody.velocity = m_PreJumbVector;
             m_IsLanding = false;
+            //m_PlayerAnimator.SetBool("_IsLanding", false);
+            //Debug.Log("I stop landing");
         }
 
         if(m_IsGrounded && m_IsLanding && m_IsBouncing)
         {
             m_IsLanding = false;
             m_IsBouncing = false;
+            //m_PlayerAnimator.SetBool("_IsLanding", false);
+            //Debug.Log("I stop landing");
         }
     }
 

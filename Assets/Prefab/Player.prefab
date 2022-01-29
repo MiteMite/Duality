@@ -1,5 +1,65 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4501732643399028280
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 528342670484702830}
+  m_Layer: 0
+  m_Name: Wall Check Down
+  m_TagString: Untagged
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &528342670484702830
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4501732643399028280}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.508, y: -0.396, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_Children: []
+  m_Father: {fileID: 8540242724781091284}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4860535379165825434
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1595349518769964956}
+  m_Layer: 0
+  m_Name: Wall Check Up
+  m_TagString: Untagged
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1595349518769964956
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4860535379165825434}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.508, y: 0.347, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_Children: []
+  m_Father: {fileID: 8540242724781091284}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8540242724781091115
 GameObject:
   m_ObjectHideFlags: 0
@@ -35,6 +95,8 @@ Transform:
   - {fileID: 8540242724959107167}
   - {fileID: 8540242726503868782}
   - {fileID: 8540242725376229696}
+  - {fileID: 1595349518769964956}
+  - {fileID: 528342670484702830}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -101,22 +163,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d26b5df04f76d3447ade966917c01cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveForce: 700
-  maxSpeed: 10
-  jumpForce: 17
+  moveForce: 3000
+  maxSpeed: 8
+  jumpForce: 20
   jumpFlipModifier: 5
-  wallJumpForce: 0
+  wallJumpForce: 5
   parachuteSpeed: 2
-  waterfallSpeed: 0
+  waterfallSpeed: 10
   groundCheck: {fileID: 8540242725376229696}
-  checkRadius: 0.5
+  checkRadius: 0.1
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
-  wallCheckUp: {fileID: 0}
-  wallCheckDown: {fileID: 0}
-  landingMomentumDivider: 3
-  jumpHorizontalSpeed: 3
+  wallCheckUp: {fileID: 1595349518769964956}
+  wallCheckDown: {fileID: 528342670484702830}
+  landingMomentumDivider: 25
+  jumpHorizontalSpeed: 1.5
 --- !u!50 &8540242724781091113
 Rigidbody2D:
   serializedVersion: 4
@@ -132,7 +194,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1.75
+  m_GravityScale: 3
   m_Material: {fileID: 6200000, guid: 378c8150bd6e6a04ca5712ebf601e75e, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
