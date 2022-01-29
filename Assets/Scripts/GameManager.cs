@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
     private LevelStateManager lsm;
     private int currentLevel = 1;
+    public GameObject menu;
+
+    private bool started = false;
 
     public static GameManager Instance { get => _instance; set => _instance = value; }
 
@@ -24,10 +27,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void Start()
+    public void Update()
     {
-        SceneManager.LoadScene(currentLevel);
-        lsm = LevelStateManager.Instance;
+        if (!started)
+        {
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                started = true;
+                Destroy(menu);
+                SceneManager.LoadScene(currentLevel);
+                lsm = LevelStateManager.Instance;
+
+            }
+        }
     }
 
     public void NextScene()
@@ -37,8 +49,4 @@ public class GameManager : MonoBehaviour
         lsm.SwitchState(lsm.placementState);
     }
 
-    public void Update()
-    {
-
-    }
 }
