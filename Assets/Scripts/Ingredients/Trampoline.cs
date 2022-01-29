@@ -6,6 +6,7 @@ public class Trampoline : MonoBehaviour
 {
     public float force;
     public float soundTimingReset;
+    public float jumpMaxVelocity;
     private bool m_PlayerCollision = false;
     private float m_Timer;
 
@@ -16,7 +17,7 @@ public class Trampoline : MonoBehaviour
             m_Timer += Time.deltaTime;
         }
 
-        if(m_Timer >= soundTimingReset)
+        if (m_Timer >= soundTimingReset)
         {
             m_PlayerCollision = false;
         }
@@ -26,12 +27,23 @@ public class Trampoline : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-
             Vector2 v = collision.transform.GetComponent<Rigidbody2D>().velocity;
-            v.y *= (-1) * force;
+
+            if ((Mathf.Abs(v.y) * force) <= jumpMaxVelocity)
+            {
+                v.y *= (-1) * force;
+                Debug.Log("Below max case");
+
+            }
+            else
+            {
+                v.y = jumpMaxVelocity;
+                Debug.Log("Above max case");
+            }
             collision.transform.GetComponent<Rigidbody2D>().velocity = v;
+
             //Debug.Log("Player hit me");
-            
+
             //collision.transform.GetComponent<Rigidbody2D>().velocity += (Vector2.up * force);
             m_PlayerCollision = true;
             m_Timer = 0f;
