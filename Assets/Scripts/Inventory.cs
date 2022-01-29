@@ -67,7 +67,6 @@ public class Inventory : MonoBehaviour, IPhaseListener, IDeathListener
     public void AddCurrency()
     {
         m_CurrencyQte++;
-        //Debug.Log("I am now holding " + m_CurrencyQte + " buckarinos !");
     }
 
     public void RemoveCard(FullCard card)
@@ -102,11 +101,13 @@ public class Inventory : MonoBehaviour, IPhaseListener, IDeathListener
     public void IncrementTmpCurrency()
     {
         m_TmpCurrency++;
+        Debug.Log("I am now holding " + m_TmpCurrency + " buckarinos !");
     }
 
     public void EmptyTmpCurrency()
     {
         m_TmpCurrency = 0;
+        Debug.Log("I have lost all my buckarinos !");
     }
 
     public void OnPhaseChangeEvent(BaseLevelStat levelStat)

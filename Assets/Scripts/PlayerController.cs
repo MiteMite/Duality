@@ -172,7 +172,7 @@ public class PlayerController : MonoBehaviour
             m_IsLanding = true;
             m_PlayerAnimator.SetBool("_IsJumping", false);
             m_PlayerAnimator.SetBool("_IsLanding", true);
-            Debug.Log("I land");
+            //Debug.Log("I land");
         }
 
         else if(m_IsGrounded && m_IsLanding && !m_IsBouncing)

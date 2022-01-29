@@ -64,10 +64,14 @@ public class VendorManager : MonoBehaviour, IPhaseListener
                 if (hit.collider != null)
                 {
                     Card card = hit.collider.GetComponent<Card>();
-                    if (card != null && !Deck.Instance.cards.Contains(card))
-                    //  && (Constants.CARD_PRICE <= m_PlayerInventory.GetCurrencyQte())) // TEMPO
+                    if (card != null && !Deck.Instance.cards.Contains(card)
+                      && (Constants.CARD_PRICE <= m_PlayerInventory.GetCurrencyQte()))
                     {
+                        Debug.Log("This is the player currency : " + m_PlayerInventory.GetCurrencyQte());
+                        Debug.Log("This is the price of a card : " + Constants.CARD_PRICE);
+                        Debug.Log("I am saying that " + m_PlayerInventory.GetCurrencyQte() + " <= " + Constants.CARD_PRICE);
                         Debug.Log("This is " + card.name + " !");
+                        Debug.Log(Constants.CARD_PRICE <= m_PlayerInventory.GetCurrencyQte());
                         Inventory.Instance.AddCard(card.card);
                         Inventory.Instance.RemoveCurrency(Constants.CARD_PRICE);
                         Deck.Instance.AddCard(card);

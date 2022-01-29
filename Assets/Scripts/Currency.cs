@@ -10,6 +10,7 @@ public class Currency : MonoBehaviour, IPhaseListener
     {
         EventManager.Instance.RegisterPhaseListener(this);
         playerInventory = Inventory.Instance;
+        Debug.Log("Currency spawned");
     }
 
     void OnDestroy()
@@ -24,6 +25,7 @@ public class Currency : MonoBehaviour, IPhaseListener
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            Debug.Log("Player entered currency trigger");
             playerInventory.IncrementTmpCurrency();
             Destroy(this.gameObject);
         }
