@@ -105,7 +105,7 @@ MonoBehaviour:
   - {fileID: 6202410486487267950}
   - {fileID: 6202410487233902683}
   ballSpeed: 3
-  ballDelay: 2
+  ballDelay: 3
 --- !u!61 &4613521258029153820
 BoxCollider2D:
   m_ObjectHideFlags: 0
