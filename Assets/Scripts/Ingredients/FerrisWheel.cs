@@ -9,7 +9,6 @@ public class FerrisWheel : MonoBehaviour
     public GameObject platformPrefab;
     public float speed;
     public float distance;
-    public GameObject structure;
 
     private List<GameObject> platforms = new List<GameObject>();
     private float position;
@@ -40,7 +39,6 @@ public class FerrisWheel : MonoBehaviour
             platforms[i].transform.position = pos;
             position += Time.deltaTime*speed;
         }
-        structure.transform.Rotate(new Vector3(0, 0, -speed *115* Time.deltaTime));
     }
 
 }
