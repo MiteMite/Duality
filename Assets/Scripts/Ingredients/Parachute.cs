@@ -23,7 +23,13 @@ public class Parachute : MonoBehaviour, IDeathListener
         {
             player.StartParachute();
             this.gameObject.SetActive(false);
+            Invoke("Reactivate", 5);
         }
+    }
+
+    public void Reactivate()
+    {
+        this.gameObject.SetActive(true);
     }
 
     public void Activate(BaseLevelStat levelState)
