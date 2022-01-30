@@ -21,6 +21,5 @@ public class DisplayScore : MonoBehaviour
     {
         lvlScoreText.text = playerInventory.GetCurrentLvlScore().ToString();
         totalScoreText.text = playerInventory.GetPlayerScore().ToString();
-        currencyScoreText.text = "Including " + playerInventory.GetScoreFromCurrency() + " from " + playerInventory.GetCurrencyQte() + " carrots";
     }
 }
