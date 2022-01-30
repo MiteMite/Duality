@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4212755524609380743}
   - component: {fileID: 4212755524609380742}
   - component: {fileID: -5618400705664580641}
+  - component: {fileID: 3807540396735714706}
   m_Layer: 3
   m_Name: MovingPlatform_Vertical
   m_TagString: Untagged
@@ -138,3 +139,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed0aa2282ba1914438d812470f5e979f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &3807540396735714706
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4212755524609380741}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bacaf573441a69e47a47f85bf61f8044, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
