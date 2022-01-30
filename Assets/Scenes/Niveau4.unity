@@ -1635,7 +1635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnPoint: {fileID: 1667164285}
-  playerPrefab: {fileID: 604188259923258720, guid: aa01de933b33bb34083884d9d5e5b135, type: 3}
+  playerPrefab: {fileID: 8540242724781091115, guid: 978a33230bc56ab4b86946acd943d564, type: 3}
   dummyPrefab: {fileID: 8540242724781091115, guid: 5e74a94a5a045254ab71345f18a2528a, type: 3}
   currentPlayer: {fileID: 0}
   currentDummy: {fileID: 0}
@@ -3087,6 +3087,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingCards: []
   cardPrefab: {fileID: 0}
+  _OnInventoryChangeEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &990793364
 PrefabInstance:
   m_ObjectHideFlags: 0
