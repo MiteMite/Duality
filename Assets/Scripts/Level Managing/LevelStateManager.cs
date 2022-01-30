@@ -11,6 +11,7 @@ public class LevelStateManager : MonoBehaviour
     public PlayingLevelState playingState = new PlayingLevelState();
     public RewardLevelState rewardState = new RewardLevelState();
 
+
     static LevelStateManager m_Instance;
     static bool m_AppIsQuitting;
 

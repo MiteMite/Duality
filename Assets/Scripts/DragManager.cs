@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DragManager : MonoBehaviour
 {
@@ -14,6 +16,9 @@ public class DragManager : MonoBehaviour
     public List<GameObject> droppablesTaken;
     public static DragManager Instance { get => _instance; set => _instance = value; }
 
+    public UnityEvent<int> m_OnCardAddEvent;
+    public UnityEvent<int> m_OnCardRemovedEvent;
+
     public void Awake()
     {
         if (_instance == null)
@@ -23,6 +28,16 @@ public class DragManager : MonoBehaviour
         else
         {
             Destroy(this);
+        }
+
+        if (m_OnCardAddEvent == null)
+        {
+            m_OnCardAddEvent = new UnityEvent<int>();
+        }
+
+        if (m_OnCardRemovedEvent == null)
+        {
+            m_OnCardRemovedEvent = new UnityEvent<int>();
         }
     }
     public void Start()
@@ -68,6 +83,7 @@ public class DragManager : MonoBehaviour
                 if (droppablesTaken.Contains(currentCard.draggable))
                 {
                     droppablesTaken.Remove(currentCard.draggable);
+                    RemoveCardValue(currentCard);
                 }
 
                 if (hit.collider != null)
@@ -81,6 +97,7 @@ public class DragManager : MonoBehaviour
                         currentCard.MoveTo(hit.collider.transform.position);
                         currentCard.draggable = hit.collider.gameObject;
                         droppablesTaken.Add(hit.collider.gameObject);
+                        SendCardValue(currentCard);
                     }
                 }
                 else
@@ -90,6 +107,30 @@ public class DragManager : MonoBehaviour
                 currentCard = null;
             }
 
+        }
+    }
+
+    private void RemoveCardValue(Card card)
+    {
+        if (card.card.isNight)
+        {
+            m_OnCardRemovedEvent.Invoke(card.card.nightSide.cardValue);
+        }
+        else
+        {
+            m_OnCardRemovedEvent.Invoke(card.card.daySide.cardValue);
+        }
+    }
+
+    private void SendCardValue(Card card)
+    {
+        if (card.card.isNight)
+        {
+            m_OnCardAddEvent.Invoke(card.card.nightSide.cardValue);
+        }
+        else
+        {
+            m_OnCardAddEvent.Invoke(card.card.daySide.cardValue);
         }
     }
 }
