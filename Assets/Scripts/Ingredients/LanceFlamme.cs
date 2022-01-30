@@ -30,7 +30,7 @@ public class LanceFlamme : MonoBehaviour
                 on = false;
                 currentTime = 0;
                 flamme.SetActive(false);
-                m_FlameAnimator.SetBool("_FlameOn", true);
+                m_FlameAnimator.SetBool("_FlameOn", false);
             }
             else
             {
@@ -45,7 +45,7 @@ public class LanceFlamme : MonoBehaviour
                 currentTime = 0;
                 flamme.SetActive(true);
                 //GetComponent<SpriteRenderer>().sprite = withFlame;
-                m_FlameAnimator.SetBool("_FlameOn", false);
+                m_FlameAnimator.SetBool("_FlameOn", true);
             }
             else
             {
