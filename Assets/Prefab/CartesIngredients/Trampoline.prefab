@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5300637691155846040}
   - component: {fileID: 5300637691155846041}
   - component: {fileID: 5300637691155846042}
+  - component: {fileID: 2647938166172672287}
   m_Layer: 0
   m_Name: Trampoline
   m_TagString: Untagged
@@ -96,8 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b939c4ae57b313f408943e8b5ff09c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundTimingReset: 0
+  soundTimingReset: 1.08
   jumpMaxVelocity: 20
+  m_BounceAnimator: {fileID: 0}
 --- !u!61 &5300637691155846042
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -124,3 +126,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.9060462, y: 1.9010069}
   m_EdgeRadius: 0
+--- !u!95 &2647938166172672287
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5300637691155846054}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 35b35aa62bdde684182eee99733ca6a4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
