@@ -2253,7 +2253,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2212600967363544177, guid: 9b20df8843028da4cacfc13639daea0e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.469315
+      value: -15.419315
       objectReference: {fileID: 0}
     - target: {fileID: 2212600967363544177, guid: 9b20df8843028da4cacfc13639daea0e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2294,6 +2294,10 @@ PrefabInstance:
     - target: {fileID: 2212600967363544181, guid: 9b20df8843028da4cacfc13639daea0e, type: 3}
       propertyPath: m_Name
       value: BlackHole
+      objectReference: {fileID: 0}
+    - target: {fileID: 2212600967363544183, guid: 9b20df8843028da4cacfc13639daea0e, type: 3}
+      propertyPath: m_Radius
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b20df8843028da4cacfc13639daea0e, type: 3}
