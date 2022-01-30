@@ -9,7 +9,8 @@ TagManager:
   - Droppable
   - Grenouille
   - CurrencySpawner
-  - FallingCloud
+  - NextLvlButton
+  - ExitButton
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - UI
   - Draggable
   - Droppable
-  - 
+  - NextLevel
   - 
   - 
   - 

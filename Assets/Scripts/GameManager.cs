@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     public void Awake()
     {
-        if(_instance == null)
+        if (_instance == null)
         {
             _instance = this;
             DontDestroyOnLoad(this);
@@ -40,16 +40,24 @@ public class GameManager : MonoBehaviour
 
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.L))
-            RestartGame();
     }
 
     public void NextScene()
     {
-        currentLevel++;
-        SceneManager.LoadScene(currentLevel);
-        lsm.SwitchState(lsm.placementState);
+
+        if (currentLevel < SceneManager.sceneCountInBuildSettings)
+        {
+            Debug.Log("currentLevel : " + currentLevel);
+            Debug.Log("SceneManager sceneCount : " + SceneManager.sceneCountInBuildSettings);
+            currentLevel++;
+            SceneManager.LoadScene(currentLevel);
+            lsm.SwitchState(lsm.placementState);
+
+        }
+        else
+        {
+            RestartGame();
+        }
     }
 
     public void RestartGame()
