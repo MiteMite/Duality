@@ -13,6 +13,7 @@ public class RewardLevelState : BaseLevelStat
 
     public override void UpdateState(LevelStateManager level)
     {
-        
+        if (Input.GetKeyDown(KeyCode.V))
+            GameManager.Instance.NextScene();
     }
 }

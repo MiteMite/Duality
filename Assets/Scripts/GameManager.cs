@@ -49,4 +49,12 @@ public class GameManager : MonoBehaviour
         lsm.SwitchState(lsm.placementState);
     }
 
+    public void RestartGame()
+    {
+        started = false;
+        currentLevel = 0;
+        Destroy(Inventory.Instance);
+        SceneManager.LoadScene(currentLevel);
+    }
+
 }

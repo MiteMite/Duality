@@ -67,6 +67,7 @@ public class LevelStateManager : MonoBehaviour
     void Update()
     {
         m_currentState.UpdateState(this);
+        /*
         if (m_currentState == placementState && Input.GetKeyDown(KeyCode.F))
         {
             //check empty droppable
@@ -90,7 +91,7 @@ public class LevelStateManager : MonoBehaviour
         {
             GameManager.Instance.NextScene();
         }
-
+        */
         if (Input.GetKeyDown(KeyCode.P))
         {
             SwitchState(rewardState);

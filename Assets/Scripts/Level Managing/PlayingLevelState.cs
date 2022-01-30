@@ -16,7 +16,8 @@ public class PlayingLevelState : BaseLevelStat
 
     public override void UpdateState(LevelStateManager level)
     {
-        
+        if (Input.GetKeyDown(KeyCode.F))
+            LevelStateManager.Instance.SwitchState(LevelStateManager.Instance.placementState);
     }
 
 }
