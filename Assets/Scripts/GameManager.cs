@@ -40,6 +40,9 @@ public class GameManager : MonoBehaviour
 
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.L))
+            RestartGame();
     }
 
     public void NextScene()
@@ -52,9 +55,15 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         started = false;
-        currentLevel = 0;
-        Destroy(Inventory.Instance);
-        SceneManager.LoadScene(currentLevel);
+        currentLevel = 1;
+
+        Destroy(Inventory.Instance.gameObject);
+        Destroy(SoundManager.Instance.gameObject);
+        Destroy(LevelStateManager.Instance.gameObject);
+        Destroy(EventManager.Instance.gameObject);
+
+
+        SceneManager.LoadScene(0);
     }
 
 }

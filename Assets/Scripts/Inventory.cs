@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -44,6 +45,18 @@ public class Inventory : MonoBehaviour, IPhaseListener, IDeathListener
 
     public void Start()
     {
+        AddStartingCards();
+
+        EventManager.Instance.RegisterPhaseListener(this);
+        EventManager.Instance.RegisterDeathListener(this);
+
+        DragManager.Instance.m_OnCardAddEvent.AddListener(CardAddEvent);
+        DragManager.Instance.m_OnCardRemovedEvent.AddListener(CardRemovedEvent);
+
+    }
+
+    public void AddStartingCards()
+    {
         //add all starting cards in inventory
         for (int i = 0; i < startingCards.Length; i++)
         {
@@ -52,13 +65,6 @@ public class Inventory : MonoBehaviour, IPhaseListener, IDeathListener
             newCard.card = startingCards[i];
             GetComponent<Deck>().AddCard(newCard);
         }
-
-        EventManager.Instance.RegisterPhaseListener(this);
-        EventManager.Instance.RegisterDeathListener(this);
-
-        DragManager.Instance.m_OnCardAddEvent.AddListener(CardAddEvent);
-        DragManager.Instance.m_OnCardRemovedEvent.AddListener(CardRemovedEvent);
-
     }
 
     void OnDestroy()
