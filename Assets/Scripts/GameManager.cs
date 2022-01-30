@@ -35,8 +35,8 @@ public class GameManager : MonoBehaviour
             {
                 started = true;
                 Destroy(menu);
-                SceneManager.LoadScene(currentLevel);
                 lsm = LevelStateManager.Instance;
+                NextScene();
 
             }
         }
@@ -49,10 +49,10 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("currentLevel : " + currentLevel);
             Debug.Log("SceneManager sceneCount : " + SceneManager.sceneCountInBuildSettings);
-            currentLevel++;
             SceneManager.LoadScene(currentLevel);
             lsm.SwitchState(lsm.placementState);
-            if(currentLevel == 6)
+            currentLevel++;
+            if(currentLevel > 6)
             {
                 //pour detruire les cartes
                 Destroy(Inventory.Instance.gameObject);
@@ -68,9 +68,8 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         started = false;
-        currentLevel = 0;
+        currentLevel = 1;
 
-        Destroy(Inventory.Instance.gameObject);
         Destroy(SoundManager.Instance.gameObject);
         Destroy(LevelStateManager.Instance.gameObject);
         Destroy(EventManager.Instance.gameObject);
