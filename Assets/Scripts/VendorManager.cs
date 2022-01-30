@@ -6,6 +6,7 @@ public class VendorManager : MonoBehaviour, IPhaseListener
 {
     private FullCard[] levelVendorCards = new FullCard[3];
     private GameObject[] instVendorCards = new GameObject[3];
+    public SpriteRenderer nextLevelButton;
     public bool rewardState = false;
     public Card cardPrefab;
     public DayCard[] dayCards;
@@ -21,6 +22,7 @@ public class VendorManager : MonoBehaviour, IPhaseListener
         m_PlayerInventory = Inventory.Instance;
         transform.position = new Vector3(0, 4, 0);
         GetComponent<SpriteRenderer>().enabled = false;
+        nextLevelButton.enabled = false;
         //Debug.Log("Vendor Manager not null");
         for (int i = 0; i < levelVendorCards.Length; i++)
         {
@@ -74,6 +76,7 @@ public class VendorManager : MonoBehaviour, IPhaseListener
             //spawn les cartes
             rewardState = true;
             GetComponent<SpriteRenderer>().enabled = true;
+            nextLevelButton.enabled = true;
 
             if (levelVendorCards.Length == 3)
             {
