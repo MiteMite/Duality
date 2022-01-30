@@ -52,6 +52,11 @@ public class GameManager : MonoBehaviour
             currentLevel++;
             SceneManager.LoadScene(currentLevel);
             lsm.SwitchState(lsm.placementState);
+            if(currentLevel == 6)
+            {
+                //pour detruire les cartes
+                Destroy(Inventory.Instance.gameObject);
+            }
 
         }
         else
@@ -63,7 +68,7 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         started = false;
-        currentLevel = 1;
+        currentLevel = 0;
 
         Destroy(Inventory.Instance.gameObject);
         Destroy(SoundManager.Instance.gameObject);
