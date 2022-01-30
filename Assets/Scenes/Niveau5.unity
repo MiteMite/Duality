@@ -2035,17 +2035,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: EndGame
       objectReference: {fileID: 0}
+    - target: {fileID: 6787240164555979762, guid: c49b1635f2df0af4ab494fe2d0119d3b, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6787240164555979762, guid: c49b1635f2df0af4ab494fe2d0119d3b, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -734103229
+      objectReference: {fileID: 0}
     - target: {fileID: 6981373213515547610, guid: c49b1635f2df0af4ab494fe2d0119d3b, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6981373213515547610, guid: c49b1635f2df0af4ab494fe2d0119d3b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 35.675125
+      value: 36.17
       objectReference: {fileID: 0}
     - target: {fileID: 6981373213515547610, guid: c49b1635f2df0af4ab494fe2d0119d3b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.9968672
+      value: -6.46
       objectReference: {fileID: 0}
     - target: {fileID: 6981373213515547610, guid: c49b1635f2df0af4ab494fe2d0119d3b, type: 3}
       propertyPath: m_LocalPosition.z
