@@ -1445,7 +1445,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 22508635
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 70364811865627504, guid: 347cd08054fde414e96217a4b44bf58f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1581,7 +1581,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7440642385204629262, guid: e4046015bdd868843aef104e910cf4eb, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 197.9825
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 7440642385204629262, guid: e4046015bdd868843aef104e910cf4eb, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 113.05
       objectReference: {fileID: 0}
     - target: {fileID: 7440642385462242144, guid: e4046015bdd868843aef104e910cf4eb, type: 3}
       propertyPath: m_Name
@@ -1673,7 +1677,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7440642385662202517, guid: e4046015bdd868843aef104e910cf4eb, type: 3}
       propertyPath: m_Text
-      value: 'Caca : '
+      value: 'text
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 7440642385662202517, guid: e4046015bdd868843aef104e910cf4eb, type: 3}
       propertyPath: m_FontData.m_Font
@@ -5242,18 +5248,6 @@ PrefabInstance:
       propertyPath: m_FontData.m_FontSize
       value: 50
       objectReference: {fileID: 0}
-    - target: {fileID: 5266431846486545049, guid: 351155f0947a30547b2d3e88e9ab601b, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: fc97b896546c65a42ab59170bce18b85, type: 3}
-    - target: {fileID: 5266431846486545049, guid: 351155f0947a30547b2d3e88e9ab601b, type: 3}
-      propertyPath: m_FontData.m_MaxSize
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 5266431846486545049, guid: 351155f0947a30547b2d3e88e9ab601b, type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 5266431847595825145, guid: 351155f0947a30547b2d3e88e9ab601b, type: 3}
       propertyPath: m_Name
       value: ScoreDisplay
@@ -5455,7 +5449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6981373213515547610, guid: d1e08fc94e407d74e89688481cb9903d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.31
+      value: 13.21
       objectReference: {fileID: 0}
     - target: {fileID: 6981373213515547610, guid: d1e08fc94e407d74e89688481cb9903d, type: 3}
       propertyPath: m_LocalPosition.z
