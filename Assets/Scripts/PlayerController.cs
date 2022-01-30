@@ -49,6 +49,8 @@ public class PlayerController : MonoBehaviour
 
     private Animator m_PlayerAnimator;
 
+    Vector2 m_MoveDirection;
+
     void Start()
     {
         m_RigidBody = GetComponent<Rigidbody2D>();
@@ -62,74 +64,19 @@ public class PlayerController : MonoBehaviour
         if (LevelStateManager.Instance.m_currentState == LevelStateManager.Instance.playingState)
         {
 
-
-
             //Debug.Log(m_IsWalking);
-            Vector2 m_MoveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
+            m_MoveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
 
             m_CurrentSpeed.x = m_MoveDirection.x * moveForce * Time.deltaTime;
             //Debug.Log("Current speed : " + m_CurrentSpeed);
 
-            if(Mathf.Abs(m_RigidBody.velocity.x)<= maxSpeed && !m_HasHitWall)
-            {
-                if (m_JumpState)
-                {
-                    m_RigidBody.AddForce(jumpHorizontalSpeed * m_CurrentSpeed);
-                }
-                else
-                {
-                    m_RigidBody.AddForce(m_CurrentSpeed);
-                    m_IsWalking = true;
-                    m_PlayerAnimator.SetBool("_IsWalking", true);
-                    m_PlayerAnimator.SetBool("_IsJumping", false);
-                    //Debug.Log("I walk");
-                }
-            
-            } 
-            
-            else if (Mathf.Abs(m_RigidBody.velocity.x)>= maxSpeed && !m_JumpState)
-            {
+            HorizontalMovementController();
 
-                Vector2 v = m_RigidBody.velocity;
-                if (facingRight)
-                {
-                    v.x = maxSpeed;
-                }
-                else if (!facingRight)
-                {
-                    v.x = (-1) * maxSpeed;
-                }
-                m_RigidBody.velocity = v;
-            }
-
-            if(Mathf.Abs(m_RigidBody.velocity.x) <= 1.5)
-            {
-                m_IsWalking = false;
-                m_PlayerAnimator.SetBool("_IsWalking", false);
-                //Debug.Log("I stop walking");
-            }
-
-            m_IsGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
-
-            if (Physics2D.OverlapCircle(wallCheckUp.position, checkRadius, whatIsGround) || Physics2D.OverlapCircle(wallCheckDown.position, checkRadius, whatIsGround))
-            {
-                m_HasHitWall = true;
-            }
-            else
-                m_HasHitWall = false;
+            CheckCollisionState();
 
             JumpRisingEdgeDetection(m_CurrentSpeed);
 
-            m_MoveInput = Input.GetAxis("Horizontal");
-
-            if (facingRight == false && m_MoveInput > 0)
-            {
-                Flip();
-            }
-            else if (facingRight == true && m_MoveInput < 0)
-            {
-                Flip();
-            }
+            DetermineOrientation();
 
             if (waterfall)
             {
@@ -148,54 +95,60 @@ public class PlayerController : MonoBehaviour
                 else if ((m_RigidBody.velocity.y < -Mathf.Abs(parachuteSpeed)) && m_ParachuteIsOn)
                     m_RigidBody.velocity = new Vector3(m_RigidBody.velocity.x, -Mathf.Abs(parachuteSpeed));
             }
-
-
         }
     }
 
-    private void JumpRisingEdgeDetection(Vector2 currentSpeed)
+    private void LateUpdate()
     {
-        if(!m_IsGrounded && !m_JumpState)
+        VerticalMovementController();
+    }
+    private void HorizontalMovementController()
+    {
+        if (Mathf.Abs(m_RigidBody.velocity.x) <= maxSpeed && !m_HasHitWall)
         {
-            m_JumpState = true;
-            m_PreJumbVector = currentSpeed;
+            if (m_JumpState)
+            {
+                m_RigidBody.AddForce(jumpHorizontalSpeed * m_CurrentSpeed);
+            }
+            else
+            {
+                m_RigidBody.AddForce(m_CurrentSpeed);
+                m_IsWalking = true;
+                m_PlayerAnimator.SetBool("_IsJumping", false);
+                m_PlayerAnimator.SetBool("_IsLanding", false);
+                m_PlayerAnimator.SetBool("_IsWalking", true);
+
+                //Debug.Log("I walk");
+            }
+
+        }
+
+        else if (Mathf.Abs(m_RigidBody.velocity.x) >= maxSpeed && !m_JumpState)
+        {
+
+            Vector2 v = m_RigidBody.velocity;
+            if (facingRight)
+            {
+                v.x = maxSpeed;
+            }
+            else if (!facingRight)
+            {
+                v.x = (-1) * maxSpeed;
+            }
+            m_RigidBody.velocity = v;
+        }
+
+        if (Mathf.Abs(m_RigidBody.velocity.x) <= 1.5)
+        {
             m_IsWalking = false;
-
-            m_PlayerAnimator.SetBool("_IsWalking", false);
-            m_PlayerAnimator.SetBool("_IsLanding", false);
-            m_PlayerAnimator.SetBool("_IsJumping", true);
-        }
-
-        else if(m_IsGrounded && m_JumpState)
-        {
-            m_JumpState = false;
-            m_IsLanding = true;
             m_PlayerAnimator.SetBool("_IsJumping", false);
-            m_PlayerAnimator.SetBool("_IsLanding", true);
-            //Debug.Log("I land");
-        }
-
-        else if(m_IsGrounded && m_IsLanding && !m_IsBouncing)
-        {
-            m_PreJumbVector.x = m_PreJumbVector.x / landingMomentumDivider;
-            m_RigidBody.velocity = m_PreJumbVector;
-            m_IsLanding = false;
-            //m_PlayerAnimator.SetBool("_IsLanding", false);
-            //Debug.Log("I stop landing");
-        }
-
-        if(m_IsGrounded && m_IsLanding && m_IsBouncing)
-        {
-            m_IsLanding = false;
-            m_IsBouncing = false;
-            //m_PlayerAnimator.SetBool("_IsLanding", false);
-            //Debug.Log("I stop landing");
+            m_PlayerAnimator.SetBool("_IsLanding", false);
+            m_PlayerAnimator.SetBool("_IsWalking", false);
+            //Debug.Log("I stop walking");
         }
     }
-
-    void Update()
+    private void VerticalMovementController()
     {
-
         if ((Input.GetKeyDown(KeyCode.Space)) && (m_IsGrounded || walljumping || m_ParachuteIsOn))
         {
 
@@ -216,11 +169,90 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        else if((Input.GetKeyDown(KeyCode.Space)) && parachuting && (!m_ParachuteIsOn))
+        else if ((Input.GetKeyDown(KeyCode.Space)) && parachuting && (!m_ParachuteIsOn))
         {
             m_ParachuteIsOn = true;
         }
+    }
+    private void CheckCollisionState()
+    {
+        m_IsGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
 
+        if (Physics2D.OverlapCircle(wallCheckUp.position, checkRadius, whatIsGround) || Physics2D.OverlapCircle(wallCheckDown.position, checkRadius, whatIsGround))
+        {
+            m_HasHitWall = true;
+        }
+        else
+            m_HasHitWall = false;
+    }
+    private void DetermineOrientation()
+    {
+        m_MoveInput = Input.GetAxis("Horizontal");
+
+        if (facingRight == false && m_MoveInput > 0)
+        {
+            Flip();
+        }
+        else if (facingRight == true && m_MoveInput < 0)
+        {
+            Flip();
+        }
+    }
+    private void JumpRisingEdgeDetection(Vector2 currentSpeed)
+    {
+        if(!m_IsGrounded && !m_JumpState)
+        {
+            m_JumpState = true;
+            m_PreJumbVector = currentSpeed;
+            m_IsWalking = false;
+
+            m_PlayerAnimator.SetBool("_IsWalking", false);
+            m_PlayerAnimator.SetBool("_IsLanding", false);
+            m_PlayerAnimator.SetBool("_IsJumping", true);
+
+        }
+
+        if(!m_IsGrounded && m_JumpState)
+        {
+            m_PlayerAnimator.SetBool("_IsWalking", false);
+            m_PlayerAnimator.SetBool("_IsLanding", false);
+            m_PlayerAnimator.SetBool("_IsJumping", true);
+        }
+
+        else if(m_IsGrounded && m_JumpState)
+        {
+            m_JumpState = false;
+            m_IsLanding = true;
+            //Debug.Log("I land");
+        }
+
+        else if(m_IsGrounded && m_IsLanding && !m_IsBouncing)
+        {
+            m_PreJumbVector.x = m_PreJumbVector.x / landingMomentumDivider;
+            m_RigidBody.velocity = m_PreJumbVector;
+            m_IsLanding = false;
+            m_PlayerAnimator.SetBool("_IsJumping", false);
+            m_PlayerAnimator.SetBool("_IsWalking", false);
+            m_PlayerAnimator.SetBool("_IsLanding", true);
+            //m_PlayerAnimator.SetBool("_IsLanding", false);
+            //Debug.Log("I stop landing");
+        }
+
+        if(m_IsGrounded && m_IsLanding && m_IsBouncing)
+        {
+            m_IsLanding = false;
+            m_IsBouncing = false;
+            m_PlayerAnimator.SetBool("_IsJumping", false);
+            m_PlayerAnimator.SetBool("_IsWalking", false);
+            m_PlayerAnimator.SetBool("_IsLanding", true);
+            //m_PlayerAnimator.SetBool("_IsLanding", false);
+            //Debug.Log("I stop landing");
+        }
+
+    }
+
+    void Update()
+    {
         
     }
 
