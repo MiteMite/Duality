@@ -19,7 +19,7 @@ public class DisplayScore : MonoBehaviour
 
     private void Update()
     {
-        lvlScoreText.text = playerInventory.GetCurrentLvlScore().ToString();
-        totalScoreText.text = playerInventory.GetPlayerScore().ToString();
+        lvlScoreText.text = "Level Score : " + playerInventory.GetCurrentLvlScore();
+        totalScoreText.text = "Total Score : " + playerInventory.GetPlayerScore();
     }
 }
