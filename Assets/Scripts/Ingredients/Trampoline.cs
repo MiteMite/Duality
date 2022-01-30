@@ -10,6 +10,13 @@ public class Trampoline : MonoBehaviour
     private bool m_PlayerCollision = false;
     private float m_Timer;
 
+    public Animator m_BounceAnimator;
+
+    private void Start()
+    {
+        m_BounceAnimator = GetComponent<Animator>();
+    }
+
     private void Update()
     {
         if (m_PlayerCollision)
@@ -20,6 +27,7 @@ public class Trampoline : MonoBehaviour
         if (m_Timer >= soundTimingReset)
         {
             m_PlayerCollision = false;
+            m_BounceAnimator.SetBool("_IsBouncing", false);
         }
     }
 
@@ -37,6 +45,8 @@ public class Trampoline : MonoBehaviour
 
             //collision.transform.GetComponent<Rigidbody2D>().velocity += (Vector2.up * force);
             m_PlayerCollision = true;
+            m_BounceAnimator.SetBool("_IsBouncing", true);
+
             m_Timer = 0f;
 
             SoundManager sound = GameObject.Find("AudioManager").GetComponent<SoundManager>();
