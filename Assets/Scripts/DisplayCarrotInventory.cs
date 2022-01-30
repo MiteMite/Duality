@@ -6,22 +6,21 @@ using UnityEngine.UI;
 public class DisplayCarrotInventory : MonoBehaviour
 {
     Inventory playerInventory;
-    private int lvlCurrencyTotal;
+    private int m_TotalCurrency;
     public Text carrotCounterText;
 
     private void Start()
     {
-//        LevelStateManager.Instance.m_OnPhaseChangeEvent
         playerInventory = Inventory.Instance;
-        lvlCurrencyTotal = GameObject.FindGameObjectsWithTag("CurrencySpawner").Length;
-        carrotCounterText.text = playerInventory.GetTmpCurrQte() + " / " + lvlCurrencyTotal;
+        m_TotalCurrency = playerInventory.GetCurrencyQte();
+        carrotCounterText.text = m_TotalCurrency + " x ";
         EventManager.Instance.m_OnCurrencyCollected.AddListener(Display);
         Inventory.Instance._OnInventoryChangeEvent.AddListener(Display);
     }
 
     private void Display()
     {
-        carrotCounterText.text = playerInventory.GetTmpCurrQte() + " / " + lvlCurrencyTotal;
+        carrotCounterText.text = m_TotalCurrency + " x ";
     }
 
 
