@@ -40,16 +40,19 @@ public class GameManager : MonoBehaviour
 
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.L))
-            RestartGame();
     }
 
     public void NextScene()
     {
-        currentLevel++;
-        SceneManager.LoadScene(currentLevel);
-        lsm.SwitchState(lsm.placementState);
+
+        if (currentLevel == SceneManager.sceneCount)
+        {
+            currentLevel++;
+            SceneManager.LoadScene(currentLevel);
+            lsm.SwitchState(lsm.placementState);
+        }
+        else
+            RestartGame();
     }
 
     public void RestartGame()

@@ -96,6 +96,16 @@ public class LevelStateManager : MonoBehaviour
         {
             SwitchState(rewardState);
         }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector2 mmousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, 10));
+            RaycastHit2D raycast = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 0, LayerMask.GetMask("NextLevel"));
+            if(raycast.collider != null)
+            {
+                GameManager.Instance.NextScene();
+            }
+        }
     }
 
     public void SwitchState(BaseLevelStat state)
