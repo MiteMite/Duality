@@ -234,8 +234,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 978776515
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5d7ae43546a973348902a94124fe7c55, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -443,3 +443,6 @@ MonoBehaviour:
     nightSide: {fileID: 11400000, guid: 4dab8812590805140852c64598252dbd, type: 2}
     isNight: 0
   cardPrefab: {fileID: 4227474490568120856, guid: ac94095f3f1b2fa428a2fb4901cf82a1, type: 3}
+  _OnInventoryChangeEvent:
+    m_PersistentCalls:
+      m_Calls: []
