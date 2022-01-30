@@ -28,5 +28,10 @@ public class PlacementLevelState : BaseLevelStat
             if (allUsed)
                 LevelStateManager.Instance.SwitchState(LevelStateManager.Instance.playingState);
         }
+
+        if (GameManager.Instance.lastLevel)
+        {
+            LevelStateManager.Instance.SwitchState(LevelStateManager.Instance.playingState);
+        }
     }
 }

@@ -92,10 +92,6 @@ public class LevelStateManager : MonoBehaviour
             GameManager.Instance.NextScene();
         }
         */
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            SwitchState(rewardState);
-        }
 
         if (Input.GetMouseButtonDown(0) && (m_currentState == rewardState || GameManager.Instance.lastLevel))
         {
