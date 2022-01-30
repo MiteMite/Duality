@@ -9,6 +9,7 @@ TagManager:
   - Droppable
   - Grenouille
   - CurrencySpawner
+  - FallingCloud
   layers:
   - Default
   - TransparentFX

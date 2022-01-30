@@ -51,6 +51,8 @@ public class PlayerController : MonoBehaviour
 
     Vector2 m_MoveDirection;
 
+    private bool m_InCloud;
+
     void Start()
     {
         m_RigidBody = GetComponent<Rigidbody2D>();
@@ -91,6 +93,8 @@ public class PlayerController : MonoBehaviour
                 {
                     parachuting = false;
                     m_ParachuteIsOn = false;
+                    m_PlayerAnimator.SetBool("_IsParachuting", false);
+                    m_PlayerAnimator.SetBool("_IsLanding", true);
                 }
                 else if ((m_RigidBody.velocity.y < -Mathf.Abs(parachuteSpeed)) && m_ParachuteIsOn)
                     m_RigidBody.velocity = new Vector3(m_RigidBody.velocity.x, -Mathf.Abs(parachuteSpeed));
@@ -115,7 +119,7 @@ public class PlayerController : MonoBehaviour
                 m_RigidBody.AddForce(m_CurrentSpeed);
                 m_IsWalking = true;
                 m_PlayerAnimator.SetBool("_IsJumping", false);
-                m_PlayerAnimator.SetBool("_IsLanding", false);
+                m_PlayerAnimator.SetBool("_IsLanding", true);
                 m_PlayerAnimator.SetBool("_IsWalking", true);
 
                 //Debug.Log("I walk");
@@ -178,7 +182,9 @@ public class PlayerController : MonoBehaviour
     {
         m_IsGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
 
-        if (Physics2D.OverlapCircle(wallCheckUp.position, checkRadius, whatIsGround) || Physics2D.OverlapCircle(wallCheckDown.position, checkRadius, whatIsGround))
+        if ((Physics2D.OverlapCircle(wallCheckUp.position, checkRadius, whatIsGround) 
+            || Physics2D.OverlapCircle(wallCheckDown.position, checkRadius, whatIsGround))
+            && !m_InCloud)
         {
             m_HasHitWall = true;
         }
@@ -283,6 +289,8 @@ public class PlayerController : MonoBehaviour
     {
         parachuting = true;
         m_ParachuteIsOn = true;
+        m_PlayerAnimator.SetBool("_IsJumping", false);
+        m_PlayerAnimator.SetBool("_IsParachuting", true);
     }
     public void StartWater()
     {
@@ -323,5 +331,10 @@ public class PlayerController : MonoBehaviour
     public bool GetParachuteState()
     {
         return parachuting;
+    }
+
+    public void InCloud(bool isThisCloud)
+    {
+        m_InCloud = isThisCloud;
     }
 }
