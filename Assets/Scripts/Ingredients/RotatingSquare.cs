@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class RotatingSquare : MonoBehaviour
 {
     public float speed;
@@ -26,21 +27,7 @@ public class RotatingSquare : MonoBehaviour
                 m_Timer = 0f;
                 m_RotationAngle = 0;
             }
-
-            //Debug.Log((int)(transform.localEulerAngles.z));
-
-            /*switch ((int)(transform.localEulerAngles.z))
-            {
-
-                case 90:
-                case 180:
-                case 270:
-                case 0:
-                    m_IsRotating = false;
-                    m_Timer = 0f;
-                    break;
-            }*/
-
+            //rotate collider with respect to physics engine
         }
         else
         {
