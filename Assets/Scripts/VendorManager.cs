@@ -14,41 +14,14 @@ public class VendorManager : MonoBehaviour, IPhaseListener
 
     private Inventory m_PlayerInventory;
 
-    public void OnPhaseChangeEvent(BaseLevelStat levelStat)
-    {
-        if (levelStat == LevelStateManager.Instance.rewardState)
-        {
-            //spawn les cartes
-            rewardState = true;
-            GetComponent<SpriteRenderer>().enabled = true;
 
-            if (levelVendorCards.Length == 3)
-            {
-                Card newCard = Instantiate(cardPrefab, new Vector3(0,0,0), Quaternion.identity);
-                newCard.card = levelVendorCards[0];
-                newCard.setSprite();
-                instVendorCards[0] = newCard.gameObject;
-
-                newCard = Instantiate(cardPrefab, new Vector3(-10, 0, 0), Quaternion.identity);
-                newCard.card = levelVendorCards[1];
-                newCard.setSprite();
-                instVendorCards[1] = newCard.gameObject;
-
-                newCard = Instantiate(cardPrefab, new Vector3(10, 0, 0), Quaternion.identity);
-                newCard.card = levelVendorCards[2];
-                newCard.setSprite();
-                instVendorCards[2] = newCard.gameObject;
-            }
-        }
-    }
 
     public void Start()
     {
-        EventManager.Instance.RegisterPhaseListener(this);
         m_PlayerInventory = Inventory.Instance;
         transform.position = new Vector3(0, 4, 0);
         GetComponent<SpriteRenderer>().enabled = false;
-        Debug.Log("Vendor Manager not null");
+        //Debug.Log("Vendor Manager not null");
         for (int i = 0; i < levelVendorCards.Length; i++)
         {
             levelVendorCards[i] = new FullCard();
@@ -56,6 +29,8 @@ public class VendorManager : MonoBehaviour, IPhaseListener
             levelVendorCards[i].nightSide = nightCards[Random.Range(0, nightCards.Length)];
             levelVendorCards[i].isNight = Random.Range(0, 2) == 1;
         }
+
+        LevelStateManager.Instance.m_OnPhaseChangeEvent.AddListener(OnPhaseChangeEvent);
     }
 
     private void Update()
@@ -90,5 +65,33 @@ public class VendorManager : MonoBehaviour, IPhaseListener
                     }
                 }
             }
+    }
+    
+    public void OnPhaseChangeEvent(BaseLevelStat levelStat)
+    {
+        if (levelStat == LevelStateManager.Instance.rewardState)
+        {
+            //spawn les cartes
+            rewardState = true;
+            GetComponent<SpriteRenderer>().enabled = true;
+
+            if (levelVendorCards.Length == 3)
+            {
+                Card newCard = Instantiate(cardPrefab, new Vector3(0,0,0), Quaternion.identity);
+                newCard.card = levelVendorCards[0];
+                newCard.setSprite();
+                instVendorCards[0] = newCard.gameObject;
+
+                newCard = Instantiate(cardPrefab, new Vector3(-10, 0, 0), Quaternion.identity);
+                newCard.card = levelVendorCards[1];
+                newCard.setSprite();
+                instVendorCards[1] = newCard.gameObject;
+
+                newCard = Instantiate(cardPrefab, new Vector3(10, 0, 0), Quaternion.identity);
+                newCard.card = levelVendorCards[2];
+                newCard.setSprite();
+                instVendorCards[2] = newCard.gameObject;
+            }
+        }
     }
 }
