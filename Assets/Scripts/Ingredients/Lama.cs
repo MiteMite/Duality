@@ -14,12 +14,12 @@ public class Lama : MonoBehaviour
 
     public void FixedUpdate()
     {
-
         if (LevelManager.instance.currentPlayer != null)
         {
             if (timeSinceLastBall <= 0)
             {
                 balls[currentBall].gameObject.SetActive(true);
+                balls[currentBall].daddy = gameObject;
                 balls[currentBall].transform.position = transform.position;
                 if (LevelManager.instance.currentPlayer.transform.position.x > transform.position.x)
                 {

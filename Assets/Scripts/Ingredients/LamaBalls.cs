@@ -5,6 +5,7 @@ using UnityEngine;
 public class LamaBalls : MonoBehaviour
 {
     public Vector3 direction;
+    public GameObject daddy;
     public void FixedUpdate()
     {
         transform.position += direction;
@@ -16,7 +17,7 @@ public class LamaBalls : MonoBehaviour
         //Debug.Log("Ball parent is " + this.gameObject.transform.parent.gameObject.name);
         //Debug.Log("Ball collided with object with tag " + collision.gameObject.tag);
 
-        if (!(collision.gameObject.name == this.gameObject.transform.parent.gameObject.name) 
+        if (!(collision.gameObject == daddy) 
             && !(collision.gameObject.CompareTag("Grenouille"))
             || collision.gameObject.CompareTag("Player"))
         {

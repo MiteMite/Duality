@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6202410485861349959
+--- !u!1 &3018584406403853219
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,10 +8,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6202410485861349957}
-  - component: {fileID: 6202410485861349958}
-  - component: {fileID: 6202410485861349956}
-  - component: {fileID: 6202410485861349955}
+  - component: {fileID: 4417665264182413832}
+  - component: {fileID: 6923296592217776899}
+  - component: {fileID: 995136210923788327}
+  - component: {fileID: 4613521258029153820}
   m_Layer: 3
   m_Name: Lama-gun
   m_TagString: Untagged
@@ -19,34 +19,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6202410485861349957
+--- !u!4 &4417665264182413832
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6202410485861349959}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.91, y: 0.12, z: 0}
+  m_GameObject: {fileID: 3018584406403853219}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 6202410486007284188}
-  - {fileID: 6202410486877082256}
-  - {fileID: 6202410487369555927}
-  - {fileID: 6202410487216080104}
-  - {fileID: 6202410486587588304}
-  - {fileID: 6202410486487267947}
-  - {fileID: 6202410487233902680}
-  m_Father: {fileID: 0}
+  m_Children: []
+  m_Father: {fileID: 6202410485861349957}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &6202410485861349958
+--- !u!212 &6923296592217776899
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6202410485861349959}
+  m_GameObject: {fileID: 3018584406403853219}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -79,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1df9f26bd4fe70e499223be043c7db69, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -91,13 +84,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6202410485861349956
+--- !u!114 &995136210923788327
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6202410485861349959}
+  m_GameObject: {fileID: 3018584406403853219}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4be6ed5ae4f0a3046bb6b401414a60d5, type: 3}
@@ -113,13 +106,13 @@ MonoBehaviour:
   - {fileID: 6202410487233902683}
   ballSpeed: 3
   ballDelay: 2
---- !u!61 &6202410485861349955
+--- !u!61 &4613521258029153820
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6202410485861349959}
+  m_GameObject: {fileID: 3018584406403853219}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -139,6 +132,44 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.2364511, y: 3.5182745}
   m_EdgeRadius: 0
+--- !u!1 &6202410485861349959
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6202410485861349957}
+  m_Layer: 3
+  m_Name: Lama-gun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6202410485861349957
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6202410485861349959}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.91, y: 0.12, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4417665264182413832}
+  - {fileID: 6202410486007284188}
+  - {fileID: 6202410486877082256}
+  - {fileID: 6202410487369555927}
+  - {fileID: 6202410487216080104}
+  - {fileID: 6202410486587588304}
+  - {fileID: 6202410486487267947}
+  - {fileID: 6202410487233902680}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6202410486007284189
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,7 +202,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 6202410485861349957}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6202410486007284187
 SpriteRenderer:
@@ -237,6 +268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
+  daddy: {fileID: 0}
 --- !u!58 &6202410486007284185
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -306,7 +338,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 6202410485861349957}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6202410486487267948
 SpriteRenderer:
@@ -372,6 +404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
+  daddy: {fileID: 0}
 --- !u!58 &6202410486487267949
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -441,7 +474,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 6202410485861349957}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6202410486587588305
 SpriteRenderer:
@@ -507,6 +540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
+  daddy: {fileID: 0}
 --- !u!58 &6202410486587588306
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -576,7 +610,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 6202410485861349957}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6202410486877082257
 SpriteRenderer:
@@ -642,6 +676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
+  daddy: {fileID: 0}
 --- !u!58 &6202410486877082258
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -711,7 +746,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 6202410485861349957}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6202410487216080105
 SpriteRenderer:
@@ -777,6 +812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
+  daddy: {fileID: 0}
 --- !u!58 &6202410487216080106
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -846,7 +882,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 6202410485861349957}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6202410487233902681
 SpriteRenderer:
@@ -912,6 +948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
+  daddy: {fileID: 0}
 --- !u!58 &6202410487233902682
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -981,7 +1018,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 6202410485861349957}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6202410487369555912
 SpriteRenderer:
@@ -1047,6 +1084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
+  daddy: {fileID: 0}
 --- !u!58 &6202410487369555913
 CircleCollider2D:
   m_ObjectHideFlags: 0
