@@ -43,9 +43,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 978776515
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Black Platforms
+    uniqueID: 2722974369
+    locked: 0
+  - name: Grounds
+    uniqueID: 3187570641
+    locked: 0
   - name: Cards
     uniqueID: 22508635
+    locked: 0
+  - name: Ingredients
+    uniqueID: 3560864067
     locked: 0
