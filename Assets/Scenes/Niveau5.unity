@@ -8509,9 +8509,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: RotatingSquare (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5685996543755587398, guid: 869117fd1d26bd34d856570687c08506, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7728360204653646056, guid: 869117fd1d26bd34d856570687c08506, type: 3}
       propertyPath: speed
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 869117fd1d26bd34d856570687c08506, type: 3}
