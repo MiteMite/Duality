@@ -1,16 +1,25 @@
 fileFormatVersion: 2
-guid: a0a6ebcca65412745ac22abc833572d8
+guid: 888a11c2b5cbef84485679ad2e7c61d5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -158006732914982955
-    second: FireIn_0
+      213: 1414903816778227308
+    second: DragonH_0
   - first:
-      213: 1419713082762301052
-    second: FireIn_1
+      213: 8592104210091962458
+    second: DragonH_1
   - first:
-      213: -1454545922027580305
-    second: FireIn_2
+      213: -3591581402247201450
+    second: DragonH_2
+  - first:
+      213: -3089293290267314743
+    second: DragonH_3
+  - first:
+      213: 6766698506332011589
+    second: DragonH_4
+  - first:
+      213: 7103561289890237631
+    second: DragonH_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -55,7 +64,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 400
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FireIn_0
+      name: DragonH_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 600
-        height: 1200
+        height: 600
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,20 +123,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5df7b7ca6b5aecdf0800000000000000
-      internalID: -158006732914982955
+      spriteID: c6e196e568fb2a310800000000000000
+      internalID: 1414903816778227308
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FireIn_1
+      name: DragonH_1
       rect:
         serializedVersion: 2
         x: 600
         y: 0
         width: 600
-        height: 1200
+        height: 600
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -135,20 +144,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7e850dd685d3b310800000000000000
-      internalID: 1419713082762301052
+      spriteID: a507ba391494d3770800000000000000
+      internalID: 8592104210091962458
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FireIn_2
+      name: DragonH_2
       rect:
         serializedVersion: 2
-        x: 1200
+        x: 1204
         y: 0
         width: 600
-        height: 1200
+        height: 600
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,8 +165,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f649d00c03a60dbe0800000000000000
-      internalID: -1454545922027580305
+      spriteID: 65df7216eb3282ec0800000000000000
+      internalID: -3591581402247201450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonH_3
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 0
+        width: 600
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c57e9ace10a025d0800000000000000
+      internalID: -3089293290267314743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonH_4
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 0
+        width: 600
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54cf514a07428ed50800000000000000
+      internalID: 6766698506332011589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonH_5
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 0
+        width: 600
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbc8f1c5b5be49260800000000000000
+      internalID: 7103561289890237631
       vertices: []
       indices: 
       edges: []

@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject menu;
 
     private bool started = false;
+    public bool lastLevel = false;
 
     public static GameManager Instance { get => _instance; set => _instance = value; }
 
@@ -74,6 +75,7 @@ public class GameManager : MonoBehaviour
         Destroy(LevelStateManager.Instance.gameObject);
         Destroy(EventManager.Instance.gameObject);
 
+        lastLevel = false;
 
         SceneManager.LoadScene(0);
     }

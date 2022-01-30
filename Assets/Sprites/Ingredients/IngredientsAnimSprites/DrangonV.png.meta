@@ -1,16 +1,19 @@
 fileFormatVersion: 2
-guid: a0a6ebcca65412745ac22abc833572d8
+guid: c58f7dfa7b05c8b46be455ba47f83beb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -158006732914982955
-    second: FireIn_0
+      213: -8879622720205843587
+    second: DrangonV_0
   - first:
-      213: 1419713082762301052
-    second: FireIn_1
+      213: -624825474384661633
+    second: DrangonV_1
   - first:
-      213: -1454545922027580305
-    second: FireIn_2
+      213: -4256316608203084453
+    second: DrangonV_2
+  - first:
+      213: 7455803550756530614
+    second: DrangonV_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -55,7 +58,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 400
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FireIn_0
+      name: DrangonV_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 600
-        height: 1200
+        height: 600
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,20 +117,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5df7b7ca6b5aecdf0800000000000000
-      internalID: -158006732914982955
+      spriteID: d7394a6ae2e35c480800000000000000
+      internalID: -8879622720205843587
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FireIn_1
+      name: DrangonV_1
       rect:
         serializedVersion: 2
         x: 600
         y: 0
         width: 600
-        height: 1200
+        height: 600
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -135,20 +138,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7e850dd685d3b310800000000000000
-      internalID: 1419713082762301052
+      spriteID: f73ffa0aa8c2457f0800000000000000
+      internalID: -624825474384661633
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FireIn_2
+      name: DrangonV_2
       rect:
         serializedVersion: 2
-        x: 1200
+        x: 1203
         y: 0
         width: 600
-        height: 1200
+        height: 600
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,8 +159,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f649d00c03a60dbe0800000000000000
-      internalID: -1454545922027580305
+      spriteID: b5da57488968ee4c0800000000000000
+      internalID: -4256316608203084453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DrangonV_3
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 0
+        width: 600
+        height: 600
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b960fda3d5587760800000000000000
+      internalID: 7455803550756530614
       vertices: []
       indices: 
       edges: []

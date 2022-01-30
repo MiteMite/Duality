@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: a0a6ebcca65412745ac22abc833572d8
+guid: f8638bdcddedb69469460197c76fed4f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -158006732914982955
-    second: FireIn_0
+      213: -6735392558188085229
+    second: hamster_0
   - first:
-      213: 1419713082762301052
-    second: FireIn_1
+      213: 4859269591466658783
+    second: hamster_1
   - first:
-      213: -1454545922027580305
-    second: FireIn_2
+      213: -8623187761335644006
+    second: hamster_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -55,7 +55,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 400
+  spritePixelsToUnits: 300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,64 +100,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FireIn_0
+      name: hamster_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 600
+        width: 1200
         height: 1200
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5df7b7ca6b5aecdf0800000000000000
-      internalID: -158006732914982955
+      spriteID: 310c36a67241782a0800000000000000
+      internalID: -6735392558188085229
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FireIn_1
-      rect:
-        serializedVersion: 2
-        x: 600
-        y: 0
-        width: 600
-        height: 1200
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c7e850dd685d3b310800000000000000
-      internalID: 1419713082762301052
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FireIn_2
+      name: hamster_1
       rect:
         serializedVersion: 2
         x: 1200
         y: 0
-        width: 600
+        width: 1200
         height: 1200
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f649d00c03a60dbe0800000000000000
-      internalID: -1454545922027580305
+      spriteID: fdb4a3ba2f79f6340800000000000000
+      internalID: 4859269591466658783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster_2
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 0
+        width: 1200
+        height: 1200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a90d71e2b68445880800000000000000
+      internalID: -8623187761335644006
       vertices: []
       indices: 
       edges: []
