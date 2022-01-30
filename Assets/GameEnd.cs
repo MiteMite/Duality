@@ -10,6 +10,7 @@ public class GameEnd : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             GameManager.Instance.NextScene();
+            GameManager.Instance.lastLevel = true;
         }
     }
 }

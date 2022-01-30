@@ -97,14 +97,22 @@ public class LevelStateManager : MonoBehaviour
             SwitchState(rewardState);
         }
 
-        if (Input.GetMouseButtonDown(0) && m_currentState == rewardState)
+        if (Input.GetMouseButtonDown(0) && (m_currentState == rewardState || GameManager.Instance.lastLevel))
         {
             Vector2 mmousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, 10));
-            RaycastHit2D raycast = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 0, LayerMask.GetMask("NextLevel"));
-            if(raycast.collider != null)
+            RaycastHit2D nxtLevelRay = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 0, LayerMask.GetMask("NextLevel"));
+            if(nxtLevelRay.collider != null)
             {
                 GameManager.Instance.NextScene();
             }
+
+            RaycastHit2D extRay = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 0, LayerMask.GetMask("Exit"));
+            if(extRay.collider != null)
+            {
+                Debug.Log("Calling Application.Quit");
+                Application.Quit();
+            }
+
         }
     }
 
