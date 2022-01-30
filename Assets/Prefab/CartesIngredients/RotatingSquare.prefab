@@ -244,6 +244,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5685996543755587398}
   - component: {fileID: 8939082821836311719}
+  - component: {fileID: 3320194780203172567}
   m_Layer: 3
   m_Name: hamster
   m_TagString: Untagged
@@ -316,6 +317,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &3320194780203172567
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4254750344431914364}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8de0a23a7653cfb4ab254c71f1abd352, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5309901390192921720
 GameObject:
   m_ObjectHideFlags: 0
