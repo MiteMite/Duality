@@ -5,8 +5,10 @@ using UnityEngine;
 public class CurrencySpawner : MonoBehaviour, IPhaseListener, IDeathListener
 {
     public GameObject currencyPreFab;
+    public GameObject dummyCurrencyPreFab;
     private Transform m_Transform;
     private GameObject m_CurrentCurrency;
+    private GameObject m_CurrentDummy;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +18,7 @@ public class CurrencySpawner : MonoBehaviour, IPhaseListener, IDeathListener
 
         m_Transform = GetComponent<Transform>();
 
-        m_CurrentCurrency = Instantiate(currencyPreFab, m_Transform.position, Quaternion.identity);
+        m_CurrentDummy = Instantiate(dummyCurrencyPreFab, m_Transform.position, Quaternion.identity);
     }
 
     void OnDestroy()
@@ -37,9 +39,9 @@ public class CurrencySpawner : MonoBehaviour, IPhaseListener, IDeathListener
     public void OnPhaseChangeEvent(BaseLevelStat levelStat)
     {
 
-        if(levelStat == LevelStateManager.Instance.placementState && m_CurrentCurrency == null)
+        if(levelStat == LevelStateManager.Instance.placementState && m_CurrentDummy == null)
         {
-            m_CurrentCurrency = Instantiate(currencyPreFab, m_Transform.position, Quaternion.identity);
+            m_CurrentDummy = Instantiate(dummyCurrencyPreFab, m_Transform.position, Quaternion.identity);
         }
         else if (levelStat == LevelStateManager.Instance.playingState && m_CurrentCurrency == null)
         {

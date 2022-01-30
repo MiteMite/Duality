@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [System.Serializable]
 public class FullCard
@@ -23,6 +24,7 @@ public class Inventory : MonoBehaviour, IPhaseListener, IDeathListener
     private int m_PlayerScore;
     private int m_LvlScore;
 
+    public UnityEvent _OnInventoryChangeEvent;
 
 
     public static Inventory Instance { get => _instance; set => _instance = value; }
@@ -52,6 +54,7 @@ public class Inventory : MonoBehaviour, IPhaseListener, IDeathListener
         }
 
         EventManager.Instance.RegisterPhaseListener(this);
+        EventManager.Instance.RegisterDeathListener(this);
 
         DragManager.Instance.m_OnCardAddEvent.AddListener(CardAddEvent);
         DragManager.Instance.m_OnCardRemovedEvent.AddListener(CardRemovedEvent);
@@ -63,6 +66,7 @@ public class Inventory : MonoBehaviour, IPhaseListener, IDeathListener
         if(EventManager.Instance != null)
         {
             EventManager.Instance.UnregisterPhaseListener(this);
+            EventManager.Instance.UnregisterDeathListener(this);
         }
     }
 
@@ -126,6 +130,7 @@ public class Inventory : MonoBehaviour, IPhaseListener, IDeathListener
         if(levelStat == LevelStateManager.Instance.placementState)
         {
             m_TmpCurrency = 0;
+            _OnInventoryChangeEvent.Invoke();
         }
         else if(levelStat == LevelStateManager.Instance.rewardState)
         {
@@ -134,8 +139,6 @@ public class Inventory : MonoBehaviour, IPhaseListener, IDeathListener
 
             m_PlayerScore += m_LvlScore;
             m_LvlScore = 0;
-
-            m_PlayerScore += (m_CurrencyQte * Constants.CURRENCY_VALUE);
         }
 
         //Debug.Log(levelStat);
@@ -146,7 +149,8 @@ public class Inventory : MonoBehaviour, IPhaseListener, IDeathListener
     public void OnDeathEvent()
     {
         m_TmpCurrency = 0;
-        Debug.Log("On Death Event of Inventory works");
+        _OnInventoryChangeEvent.Invoke();
+        //Debug.Log("On Death Event of Inventory works");
     }
 
     public int DeckValue()
@@ -182,7 +186,7 @@ public class Inventory : MonoBehaviour, IPhaseListener, IDeathListener
         return m_LvlScore;
     }
 
-    public int GetScoreFromCurrency()
+    public int GetBonusScore()
     {
         return m_CurrencyQte * Constants.CURRENCY_VALUE;
     }

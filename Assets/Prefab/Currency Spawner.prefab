@@ -44,3 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currencyPreFab: {fileID: 2297073954675504464, guid: 353d35de6b5acb542aef39bd532d5c73, type: 3}
+  dummyCurrencyPreFab: {fileID: 2297073954675504464, guid: c3cf64b8b337bb34eac40c333453bbcf, type: 3}

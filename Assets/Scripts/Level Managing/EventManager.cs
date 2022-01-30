@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 public class EventManager : MonoBehaviour
@@ -12,6 +13,8 @@ public class EventManager : MonoBehaviour
     static bool m_AppIsQuitting;
 
     private LevelStateManager m_StateManagerInstance;
+
+    public UnityEvent m_OnCurrencyCollected;
     public static EventManager Instance { get
         {
             if (m_AppIsQuitting)
@@ -89,6 +92,11 @@ public class EventManager : MonoBehaviour
             if (deathListener != null)
                 deathListener.OnDeathEvent();
         }
+    }
+
+    public void SendCurrencyCollectedEvent()
+    {
+        m_OnCurrencyCollected.Invoke();
     }
 
 }

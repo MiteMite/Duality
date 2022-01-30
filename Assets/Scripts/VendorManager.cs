@@ -48,7 +48,7 @@ public class VendorManager : MonoBehaviour, IPhaseListener
         m_PlayerInventory = Inventory.Instance;
         transform.position = new Vector3(0, 4, 0);
         GetComponent<SpriteRenderer>().enabled = false;
-
+        Debug.Log("Vendor Manager not null");
         for (int i = 0; i < levelVendorCards.Length; i++)
         {
             levelVendorCards[i] = new FullCard();

@@ -11,12 +11,18 @@ public class DisplayCarrotInventory : MonoBehaviour
 
     private void Start()
     {
+//        LevelStateManager.Instance.m_OnPhaseChangeEvent
         playerInventory = Inventory.Instance;
         lvlCurrencyTotal = GameObject.FindGameObjectsWithTag("CurrencySpawner").Length;
+        carrotCounterText.text = playerInventory.GetTmpCurrQte() + " / " + lvlCurrencyTotal;
+        EventManager.Instance.m_OnCurrencyCollected.AddListener(Display);
+        Inventory.Instance._OnInventoryChangeEvent.AddListener(Display);
     }
 
-    private void Update()
+    private void Display()
     {
         carrotCounterText.text = playerInventory.GetTmpCurrQte() + " / " + lvlCurrencyTotal;
     }
+
+
 }
